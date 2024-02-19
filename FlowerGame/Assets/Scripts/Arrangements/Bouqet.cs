@@ -16,6 +16,9 @@ public class Bouqet : MonoBehaviour
             return;
 
         other.attachedRigidbody.includeLayers = nothing;
+
+        Dragable flowerDragable = other.GetComponent<Dragable>();
+        flowerDragable.IsForcedKinematic = true;
     }
 
     private void OnTriggerExit(Collider other)
@@ -24,5 +27,10 @@ public class Bouqet : MonoBehaviour
             return;
 
         other.attachedRigidbody.includeLayers = flowers;
+
+        Dragable flowerDragable = other.GetComponent<Dragable>();
+        flowerDragable.IsForcedKinematic = false;
+        if(!flowerDragable.IsBeingDragged)
+            flowerDragable.EnablePhysics();
     }
 }

@@ -7,6 +7,11 @@ public class Dragable : MonoBehaviour
     [SerializeField]
     DragableDataSO dragableData;
 
+    [HideInInspector]
+    public bool IsForcedKinematic = false;
+
+    public bool IsBeingDragged { get; private set; } = false;
+
     Rigidbody rb;
 
     private void Awake()
@@ -16,6 +21,7 @@ public class Dragable : MonoBehaviour
 
     private void OnMouseDown()
     {
+        IsBeingDragged = true;
         DisablePhysics();
     }
 
@@ -29,18 +35,19 @@ public class Dragable : MonoBehaviour
 
     private void OnMouseUp()
     {
+        IsBeingDragged = false;
         EnablePhysics();
     }
 
-    private void DisablePhysics()
+    public void DisablePhysics()
     {
         rb.isKinematic = true;
         rb.useGravity = false;
     }
 
-    private void EnablePhysics()
+    public void EnablePhysics()
     {
-        if (!dragableData.doReturnGravOnRelease)
+        if (!dragableData.doReturnGravOnRelease || IsForcedKinematic)
             return;
 
         rb.isKinematic = false;

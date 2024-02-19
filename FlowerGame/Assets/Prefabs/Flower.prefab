@@ -299,7 +299,7 @@ Rigidbody:
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -323,6 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragableData: {fileID: 11400000, guid: b4e30866fa783d34aa551830b9227204, type: 2}
+  IsForcedKinematic: 0
 --- !u!1 &8185689319023058778
 GameObject:
   m_ObjectHideFlags: 0
