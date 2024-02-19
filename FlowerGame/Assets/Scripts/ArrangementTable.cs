@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class ArrangementTable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Bounds")]
+    [SerializeField]
+    float upperYBound = 5;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField]
+    float lowerYBound = -5;
+
+    [Space]
+
+    [SerializeField]
+    float rightXBound = 5;
+
+    [SerializeField]
+    float leftXBound = -5;
+
+    [Header("Mouse Controls")]
+    [SerializeField]
+    float sensitivity;
+
+
 }
