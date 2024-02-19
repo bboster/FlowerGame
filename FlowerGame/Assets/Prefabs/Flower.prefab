@@ -223,9 +223,9 @@ GameObject:
   - component: {fileID: 7543091434231539807}
   - component: {fileID: 3425286133747364096}
   - component: {fileID: 8286338133726315689}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Flower
-  m_TagString: Untagged
+  m_TagString: Flower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

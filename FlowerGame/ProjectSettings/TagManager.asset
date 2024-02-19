@@ -3,12 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Flower
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Flower
   - Water
   - UI
   - 
