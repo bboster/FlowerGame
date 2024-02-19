@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flower : MonoBehaviour
+public class Dragable : MonoBehaviour
 {
     [SerializeField]
-    float followSpeed = 5;
-
-    [SerializeField]
-    float baseY = 3;
+    DragableDataSO dragableData;
 
     Rigidbody rb;
 
@@ -25,9 +22,9 @@ public class Flower : MonoBehaviour
     private void OnMouseDrag()
     {
         Vector3 newPos = ArrangementTable.Instance.GetMousePosition();
-        newPos.y = baseY;
+        newPos.y = dragableData.baseY;
 
-        rb.MovePosition(Vector3.Lerp(transform.position, newPos, followSpeed * Time.deltaTime));
+        rb.MovePosition(Vector3.Lerp(transform.position, newPos, dragableData.dragSpeed * Time.deltaTime));
     }
 
     private void OnMouseUp()
@@ -43,6 +40,9 @@ public class Flower : MonoBehaviour
 
     private void EnablePhysics()
     {
+        if (!dragableData.doReturnGravOnRelease)
+            return;
+
         rb.isKinematic = false;
         rb.useGravity = true;
     }

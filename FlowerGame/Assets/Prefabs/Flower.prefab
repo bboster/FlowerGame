@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 3425286133747364096}
   - component: {fileID: 8286338133726315689}
   - component: {fileID: 1917488989374186795}
+  - component: {fileID: 1237674860414097140}
   m_Layer: 3
   m_Name: Flower
   m_TagString: Flower
@@ -282,8 +283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 426eb236ce7489a458ffc74a3eee251e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followSpeed: 11
-  baseY: 3
 --- !u!54 &1917488989374186795
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -309,8 +308,21 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &1237674860414097140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4702774980582745057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe8beb9e6fe34bb4e8d017bfd7032549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dragableData: {fileID: 11400000, guid: b4e30866fa783d34aa551830b9227204, type: 2}
 --- !u!1 &8185689319023058778
 GameObject:
   m_ObjectHideFlags: 0
