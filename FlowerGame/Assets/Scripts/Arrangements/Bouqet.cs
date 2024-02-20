@@ -24,6 +24,9 @@ public class Bouqet : MonoBehaviour
 
     private void Awake()
     {
+        // Reset Text
+        tmpText.text = "";
+
         // Assign default FlowerStat values
         List<FlowerStat> flowerStatValues = Enum.GetValues(typeof(FlowerStat)).Cast<FlowerStat>().ToList();
         foreach (FlowerStat value in flowerStatValues)
@@ -51,7 +54,7 @@ public class Bouqet : MonoBehaviour
         Dragable flowerDragable = other.GetComponent<Dragable>();
         Flower flower = other.GetComponent<Flower>();
 
-        flowerDragable.IsForcedKinematic = true;
+        flowerDragable.SetParent(transform);
 
         flowerBundle.Add(flower);
 
@@ -69,7 +72,8 @@ public class Bouqet : MonoBehaviour
         Dragable flowerDragable = other.GetComponent<Dragable>();
         Flower flower = other.GetComponent<Flower>();
 
-        flowerDragable.IsForcedKinematic = false;
+        flowerDragable.SetParent(null);
+
         if (!flowerDragable.IsBeingDragged)
             flowerDragable.EnablePhysics();
 
@@ -93,11 +97,15 @@ public class Bouqet : MonoBehaviour
     {
         if (tmpText == null)
             return;
-
+        string outputString = "";
         foreach(FlowerStat flowerStat in bouqetStats.Keys)
         {
-            
+            if (bouqetStats[flowerStat] == 0)
+                continue;
 
+            outputString += "" + flowerStat + ": " + bouqetStats[flowerStat] + "\n";
         }
+
+        tmpText.text = outputString;
     }
 }

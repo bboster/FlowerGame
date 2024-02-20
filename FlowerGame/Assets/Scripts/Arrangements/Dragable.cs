@@ -12,11 +12,19 @@ public class Dragable : MonoBehaviour
 
     public bool IsBeingDragged { get; private set; } = false;
 
+    private Vector3 offset = Vector3.zero;
+
     Rigidbody rb;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void FixedUpdate()
+    {
+        if(IsForcedKinematic && !IsBeingDragged && transform.parent != null)
+            transform.position = transform.parent.position - offset;
     }
 
     private void OnMouseDown()
@@ -36,6 +44,10 @@ public class Dragable : MonoBehaviour
     private void OnMouseUp()
     {
         IsBeingDragged = false;
+
+        if(transform.parent != null)
+            offset = transform.parent.position - transform.position;
+
         EnablePhysics();
     }
 
@@ -52,5 +64,19 @@ public class Dragable : MonoBehaviour
 
         rb.isKinematic = false;
         rb.useGravity = true;
+    }
+
+    public void SetParent(Transform parent)
+    {
+        transform.parent = parent;
+
+        if(transform.parent == null)
+        {
+            IsForcedKinematic = false;
+
+            return;
+        }
+
+        IsForcedKinematic = true;
     }
 }

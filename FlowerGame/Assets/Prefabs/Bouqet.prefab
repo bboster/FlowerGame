@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1241695711997440597}
-  - component: {fileID: 6740288589552638864}
   - component: {fileID: 101302536648094704}
   - component: {fileID: 4931034025649120575}
   - component: {fileID: 1985310405562631722}
@@ -35,26 +34,8 @@ Transform:
   - {fileID: 1199135360936877214}
   - {fileID: 5723438561641522940}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6740288589552638864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2681055901039241622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac6d1bc6ebdfb8045a2e7df54cb63c77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flowers:
-    serializedVersion: 2
-    m_Bits: 8
-  nothing:
-    serializedVersion: 2
-    m_Bits: 1
 --- !u!54 &101302536648094704
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -101,7 +82,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1
+  m_Radius: 0.85
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1985310405562631722
 MonoBehaviour:
@@ -197,7 +178,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 4
+  m_Radius: 1.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3819797734185850149
 MonoBehaviour:
@@ -217,6 +198,7 @@ MonoBehaviour:
   nothing:
     serializedVersion: 2
     m_Bits: 0
+  tmpText: {fileID: 0}
 --- !u!1 &6322701972383629121
 GameObject:
   m_ObjectHideFlags: 0

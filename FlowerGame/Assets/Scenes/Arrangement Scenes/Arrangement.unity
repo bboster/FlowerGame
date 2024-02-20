@@ -982,6 +982,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bouqet
       objectReference: {fileID: 0}
+    - target: {fileID: 3819797734185850149, guid: 75607150dda1a464181d51872385fcd6, type: 3}
+      propertyPath: tmpText
+      value: 
+      objectReference: {fileID: 1556378611}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
