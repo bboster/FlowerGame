@@ -29,6 +29,7 @@ public class InputManager : MonoBehaviour
 
         // instantiating player controls
         playerControls = new PlayerControls();
+        Cursor.visible = false;
     }
 
     // Enabling the controls
