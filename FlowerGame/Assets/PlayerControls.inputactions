@@ -2,13 +2,31 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "PlayerControls",
-            "id": "5cc9fd7c-0324-4e7d-aecf-505f8684d5ff",
+            "name": "Player",
+            "id": "f2f82495-5291-4f34-80ad-59ffa1bb9111",
             "actions": [
                 {
                     "name": "Movement",
                     "type": "PassThrough",
-                    "id": "eb3a9bd4-ecac-4a3b-b1cc-e1757044834c",
+                    "id": "0d3ab950-b60c-48af-ac4b-b82cada40130",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "71232a99-b828-4931-88f5-dd067680e60d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Look",
+                    "type": "PassThrough",
+                    "id": "61392599-e88c-4bd6-89b5-af80eda0f730",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -17,8 +35,8 @@
             ],
             "bindings": [
                 {
-                    "name": "2D Vector",
-                    "id": "5d7eaaae-a60b-43a1-ac7e-a6d7f5ddd9c1",
+                    "name": "WASD",
+                    "id": "3473efe2-9ea8-4401-998f-7472e1bb2060",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -29,7 +47,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "42e495df-9db8-4816-b820-2aa598238c48",
+                    "id": "cf422953-d86d-4200-b978-a8503cc57e5f",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
@@ -40,7 +58,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "bafe204a-aae5-490c-9b12-c7e4898ffcba",
+                    "id": "9aaffaed-cd55-4b01-b0c8-c73245a2cc63",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
@@ -51,7 +69,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "aaaaf5af-1a41-4f24-bb48-d6fa3cb8ba46",
+                    "id": "d40817d6-0977-4545-ba3a-aa074b283133",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -62,7 +80,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "8eb681b3-f666-4ae2-9f22-5047841858eb",
+                    "id": "05bf126a-cd35-4910-97b6-539cb9a68b39",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
@@ -70,6 +88,28 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "96944d24-dc10-48da-a29b-49cb87de1866",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "89ca2a00-13b8-4da0-ac83-df9d796a063b",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
