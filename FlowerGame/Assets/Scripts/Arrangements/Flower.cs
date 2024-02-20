@@ -4,5 +4,11 @@ using UnityEngine;
 
 public class Flower : MonoBehaviour
 {
-    
+    [SerializeField]
+    FlowerDataSO flowerData;
+
+    public List<FlowerStatContainer> GetFlowerStatsContainer()
+    {
+        return flowerData.stats;
+    }
 }
