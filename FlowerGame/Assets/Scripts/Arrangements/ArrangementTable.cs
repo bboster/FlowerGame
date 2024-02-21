@@ -1,6 +1,8 @@
 using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,11 +14,23 @@ public class ArrangementTable : MonoBehaviour
     [SerializeField]
     InputActionAsset playerInput;
 
+    [Space]
+
+    [SerializeField]
+    Bouqet bouqet;
+
+    [Space]
+
     [SerializeField]
     Camera arrangementCam;
 
     [SerializeField]
     List<CinemachineVirtualCamera> virtualCameras = new();
+
+    [Space]
+
+    [SerializeField]
+    TMP_Text tmpText;
 
     [Header("Mouse Controls")]
     [SerializeField]
@@ -26,9 +40,6 @@ public class ArrangementTable : MonoBehaviour
     Dragable selectedObject = null;
 
     Vector3 rotationOffset = Vector3.zero;
-
-    // Camera
-    CinemachineBrain cinemachine;
 
     int currentCam = 0;
 
@@ -42,7 +53,9 @@ public class ArrangementTable : MonoBehaviour
             return;
         }
 
-        cinemachine = arrangementCam.GetComponent<CinemachineBrain>();
+        bouqet.BouqetStatChangeEvent += UpdateUI;
+
+        tmpText.text = "";
     }
 
     private void FixedUpdate()
@@ -107,6 +120,36 @@ public class ArrangementTable : MonoBehaviour
             /*selectedObject.transform.rotation = Quaternion.Lerp(selectedObject.transform.rotation,
                 Quaternion.Euler(transform.rotation.eulerAngles + (selectedObject.GetDragableData().rotationSpeed * rotationOffset)), Time.fixedDeltaTime);*/
         }
+    }
+
+    // UI
+    private void UpdateUI(object sender, EventArgs e)
+    {
+        if (tmpText == null)
+            return;
+
+        string outputString = "";
+        List<FlowerStat> statsToChange = new();
+
+        Dictionary<FlowerStat, float> bouqetStats = bouqet.GetBouqetStats();
+
+        foreach (FlowerStat flowerStat in bouqetStats.Keys)
+        {
+            if (bouqetStats[flowerStat] == 0)
+                continue;
+            else if (bouqetStats[flowerStat] < 0)
+            {
+                statsToChange.Add(flowerStat);
+                continue;
+            }
+
+            outputString += "" + flowerStat + ": " + bouqetStats[flowerStat] + "\n";
+        }
+
+        foreach (FlowerStat stat in statsToChange)
+            bouqetStats[stat] = 0;
+
+        tmpText.text = outputString;
     }
 
     // Getters

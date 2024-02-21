@@ -20,6 +20,9 @@ public class Bouqet : MonoBehaviour
 
     List<Flower> flowerBundle = new();
 
+    [HideInInspector]
+    public event EventHandler BouqetStatChangeEvent;
+
     Dictionary<FlowerStat, float> bouqetStats = new();
 
     private void Awake()
@@ -62,7 +65,6 @@ public class Bouqet : MonoBehaviour
         flowerBundle.Add(flower);
 
         ModifyBouqetStats(flower);
-        UpdateUI();
     }
 
     private void RemoveFlower(Collider other)
@@ -83,7 +85,6 @@ public class Bouqet : MonoBehaviour
         flowerBundle.Remove(flower);
 
         ModifyBouqetStats(flower, true);
-        UpdateUI();
     }
 
     // Stat Tracking
@@ -95,34 +96,12 @@ public class Bouqet : MonoBehaviour
         {
             bouqetStats[statContainer.stat] += subtractionModifier * statContainer.statAmount;
         }
-            
+
+        BouqetStatChangeEvent.Invoke(this, new EventArgs());
     }
 
-    // UI
-    private void UpdateUI()
+    public Dictionary<FlowerStat, float> GetBouqetStats()
     {
-        if (tmpText == null)
-            return;
-
-        string outputString = "";
-        List<FlowerStat> statsToChange = new();
-
-        foreach(FlowerStat flowerStat in bouqetStats.Keys)
-        {
-            if (bouqetStats[flowerStat] == 0)
-                continue;
-            else if(bouqetStats[flowerStat] < 0)
-            {
-                statsToChange.Add(flowerStat);
-                continue;
-            }
-
-            outputString += "" + flowerStat + ": " + bouqetStats[flowerStat] + "\n";
-        }
-
-        foreach (FlowerStat stat in statsToChange)
-            bouqetStats[stat] = 0;
-
-        tmpText.text = outputString;
+        return bouqetStats;
     }
 }
