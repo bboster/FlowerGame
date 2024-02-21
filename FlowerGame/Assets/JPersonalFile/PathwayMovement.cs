@@ -29,17 +29,17 @@ public class PathwayMovement : MonoBehaviour
         // Setting of next position for customer
         currentPosition = pathing.GetNextPosition(currentPosition);
 
-        transform.position = Vector3.MoveTowards(transform.position, currentPosition.position, customSpeed * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position, currentPosition.position) < distanceToNext)
-        {
-            currentPosition = pathing.GetNextPosition(currentPosition);
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position = Vector3.MoveTowards(transform.position, currentPosition.position, customSpeed * Time.deltaTime);
+
+        if (Vector3.Distance(transform.position, currentPosition.position) < distanceToNext)
+        {
+            currentPosition = pathing.GetNextPosition(currentPosition);
+            transform.LookAt(currentPosition);
+        }
     }
 }

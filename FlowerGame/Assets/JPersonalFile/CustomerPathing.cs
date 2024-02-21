@@ -26,7 +26,8 @@ public class CustomerPathing : MonoBehaviour
             Gizmos.DrawLine(transform.GetChild(i).position, transform.GetChild(i + 1).position);
         }
 
-        // Gizmos.DrawLine(transform.GetChild(transform.childCount - 1).position, transform.GetChild(0).position);
+        // Circulates around - can comment out if you need the direct path.
+        Gizmos.DrawLine(transform.GetChild(transform.childCount - 1).position, transform.GetChild(0).position);
 
     }
 
@@ -45,12 +46,11 @@ public class CustomerPathing : MonoBehaviour
             return transform.GetChild(currentPosition.GetSiblingIndex() + 1);
         }
 
-        // Looping method to return to if neemed necessary.
-
-        //else
-        //{
-        //    return transform.GetChild(0);
-        //}
+        // Looping method to return to if neemed necessary - may need to remove.
+        else
+        {
+            return transform.GetChild(0);
+        }
 
         return null;
     }
