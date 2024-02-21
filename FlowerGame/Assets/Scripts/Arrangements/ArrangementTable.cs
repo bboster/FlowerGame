@@ -108,6 +108,8 @@ public class ArrangementTable : MonoBehaviour
     public void SetSelectedObject(Dragable dragable)
     {
         selectedObject = dragable;
+
+        rotationOffset = Vector3.zero;
     }
 
 }
