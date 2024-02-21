@@ -156,6 +156,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Hold(duration=0.01)"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RotateSelected"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""2c28856f-5cc8-42f1-bb3f-8af5adfd6ec5"",
+                    ""expectedControlType"": ""Vector3"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ResetSelectedRotation"",
+                    ""type"": ""Button"",
+                    ""id"": ""c5071363-ebbe-4f4a-9b15-fcf533e663c2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -180,6 +198,105 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""3D Vector"",
+                    ""id"": ""6bdfca73-eafd-405b-aa34-e1942d6b8d82"",
+                    ""path"": ""3DVector(mode=1)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateSelected"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""8b845288-54a8-4235-8c16-5d6baeeaabac"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateSelected"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""771bf183-973a-4974-817f-30e5d5935e51"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateSelected"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""ff3c2217-abd4-45a4-b7f1-a744fed9b809"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateSelected"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""520231b1-64a4-4818-8c12-133cc8cf87cc"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateSelected"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""forward"",
+                    ""id"": ""fe80627b-af8c-42f8-b5f2-f6c8963e03f6"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateSelected"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""backward"",
+                    ""id"": ""2f0adeaf-020e-4fb6-b31e-b3c861c2b6aa"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateSelected"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bf791630-a78d-4d72-92d0-ec38b249dc8f"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ResetSelectedRotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""21e95fda-26a2-476a-b96f-73e9ffe797fd"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ResetSelectedRotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -195,6 +312,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_PlayerArrangement = asset.FindActionMap("PlayerArrangement", throwIfNotFound: true);
         m_PlayerArrangement_MouseMovement = m_PlayerArrangement.FindAction("Mouse Movement", throwIfNotFound: true);
         m_PlayerArrangement_Select = m_PlayerArrangement.FindAction("Select", throwIfNotFound: true);
+        m_PlayerArrangement_RotateSelected = m_PlayerArrangement.FindAction("RotateSelected", throwIfNotFound: true);
+        m_PlayerArrangement_ResetSelectedRotation = m_PlayerArrangement.FindAction("ResetSelectedRotation", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -320,12 +439,16 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private List<IPlayerArrangementActions> m_PlayerArrangementActionsCallbackInterfaces = new List<IPlayerArrangementActions>();
     private readonly InputAction m_PlayerArrangement_MouseMovement;
     private readonly InputAction m_PlayerArrangement_Select;
+    private readonly InputAction m_PlayerArrangement_RotateSelected;
+    private readonly InputAction m_PlayerArrangement_ResetSelectedRotation;
     public struct PlayerArrangementActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerArrangementActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @MouseMovement => m_Wrapper.m_PlayerArrangement_MouseMovement;
         public InputAction @Select => m_Wrapper.m_PlayerArrangement_Select;
+        public InputAction @RotateSelected => m_Wrapper.m_PlayerArrangement_RotateSelected;
+        public InputAction @ResetSelectedRotation => m_Wrapper.m_PlayerArrangement_ResetSelectedRotation;
         public InputActionMap Get() { return m_Wrapper.m_PlayerArrangement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -341,6 +464,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Select.started += instance.OnSelect;
             @Select.performed += instance.OnSelect;
             @Select.canceled += instance.OnSelect;
+            @RotateSelected.started += instance.OnRotateSelected;
+            @RotateSelected.performed += instance.OnRotateSelected;
+            @RotateSelected.canceled += instance.OnRotateSelected;
+            @ResetSelectedRotation.started += instance.OnResetSelectedRotation;
+            @ResetSelectedRotation.performed += instance.OnResetSelectedRotation;
+            @ResetSelectedRotation.canceled += instance.OnResetSelectedRotation;
         }
 
         private void UnregisterCallbacks(IPlayerArrangementActions instance)
@@ -351,6 +480,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Select.started -= instance.OnSelect;
             @Select.performed -= instance.OnSelect;
             @Select.canceled -= instance.OnSelect;
+            @RotateSelected.started -= instance.OnRotateSelected;
+            @RotateSelected.performed -= instance.OnRotateSelected;
+            @RotateSelected.canceled -= instance.OnRotateSelected;
+            @ResetSelectedRotation.started -= instance.OnResetSelectedRotation;
+            @ResetSelectedRotation.performed -= instance.OnResetSelectedRotation;
+            @ResetSelectedRotation.canceled -= instance.OnResetSelectedRotation;
         }
 
         public void RemoveCallbacks(IPlayerArrangementActions instance)
@@ -378,5 +513,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {
         void OnMouseMovement(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
+        void OnRotateSelected(InputAction.CallbackContext context);
+        void OnResetSelectedRotation(InputAction.CallbackContext context);
     }
 }

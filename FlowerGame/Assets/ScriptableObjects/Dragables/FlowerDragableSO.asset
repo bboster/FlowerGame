@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: FlowerDragableSO
   m_EditorClassIdentifier: 
   dragSpeed: 11
+  rotationSpeed: 10
   baseY: 3
   doReturnGravOnRelease: 1

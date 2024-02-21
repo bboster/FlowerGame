@@ -1745,8 +1745,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1633842882}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.30440283, y: -26.515835, z: 11.694809}
-  m_LocalScale: {x: 5.828057, y: 1, z: 3.4185705}
+  m_LocalPosition: {x: 4.1845, y: -26.5158, z: 15.3497}
+  m_LocalScale: {x: 4.490413, y: 1, z: 2.5973673}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 430580008}
@@ -1811,13 +1811,29 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: eb3a9bd4-ecac-4a3b-b1cc-e1757044834c
-    m_ActionName: PlayerControls/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+    m_ActionId: 2f714684-7f73-4e3e-b5fc-b189bb8701fb
+    m_ActionName: PlayerArrangement/Mouse Movement[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5c085a7e-ef89-488c-b5e3-99761d354d2b
+    m_ActionName: PlayerArrangement/Select[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0d3ab950-b60c-48af-ac4b-b82cada40130
+    m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 71232a99-b828-4931-88f5-dd067680e60d
+    m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 61392599-e88c-4bd6-89b5-af80eda0f730
+    m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1410043502}
         m_TargetAssemblyTypeName: ArrangementTable, Assembly-CSharp
-        m_MethodName: OnMouseMovement
+        m_MethodName: RotateSelectedObject
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1827,12 +1843,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 2f714684-7f73-4e3e-b5fc-b189bb8701fb
-    m_ActionName: PlayerArrangement/Mouse Movement[/Mouse/position]
+    m_ActionId: 2c28856f-5cc8-42f1-bb3f-8af5adfd6ec5
+    m_ActionName: PlayerArrangement/RotateSelected[/Keyboard/q,/Keyboard/e,/Keyboard/a,/Keyboard/d,/Keyboard/w,/Keyboard/s]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 5c085a7e-ef89-488c-b5e3-99761d354d2b
-    m_ActionName: PlayerArrangement/Select[/Mouse/leftButton]
+      m_Calls:
+      - m_Target: {fileID: 1410043502}
+        m_TargetAssemblyTypeName: ArrangementTable, Assembly-CSharp
+        m_MethodName: ResetRotationSelectedObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c5071363-ebbe-4f4a-9b15-fcf533e663c2
+    m_ActionName: PlayerArrangement/ResetSeleectedRotation[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerArrangement
