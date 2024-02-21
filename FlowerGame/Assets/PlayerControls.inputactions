@@ -31,6 +31,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "PickUp",
+                    "type": "Button",
+                    "id": "e53e9ef8-a004-448a-9aec-b97a699023f0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PutDown",
+                    "type": "Button",
+                    "id": "79a36a6c-36c3-400b-85cc-7fb9209a4076",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -108,6 +126,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b5db6dd4-f2ef-4771-a763-79c14842bd78",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PickUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e562a0eb-d2ba-4f41-a927-e7ddbcd05ce3",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PutDown",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -273,54 +313,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "ResetSelectedRotation",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "PlayerPick",
-            "id": "e132bf2f-6cb0-41c2-b281-b3e90aa7612b",
-            "actions": [
-                {
-                    "name": "PickUp",
-                    "type": "Button",
-                    "id": "917896da-a052-4d59-a80f-4fb00b026a5e",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "PutDown",
-                    "type": "Button",
-                    "id": "197cefeb-a79f-42c3-97c9-2f819df80187",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "deae13fa-1175-47e6-8226-9a6791b2d8a2",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PickUp",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8818883e-001c-4c52-a6f2-266c9880618c",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PutDown",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
