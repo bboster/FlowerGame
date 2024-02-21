@@ -14,21 +14,27 @@ public class Dragable : MonoBehaviour
 
     private Vector3 offset = Vector3.zero;
 
+    private Vector3 startRotation = Vector3.zero;
+
     Rigidbody rb;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+        startRotation = transform.rotation.eulerAngles;
     }
 
     private void FixedUpdate()
     {
         if(IsForcedKinematic && !IsBeingDragged && transform.parent != null)
-            transform.position = transform.parent.position - offset;
+            transform.position = transform.parent.position - offset;   
     }
 
     private void OnMouseDown()
     {
+        ArrangementTable.Instance.SetSelectedObject(this);
+
         IsBeingDragged = true;
         DisablePhysics();
     }
@@ -43,6 +49,8 @@ public class Dragable : MonoBehaviour
 
     private void OnMouseUp()
     {
+        ArrangementTable.Instance.SetSelectedObject(null);
+
         IsBeingDragged = false;
 
         if(transform.parent != null)
@@ -78,5 +86,15 @@ public class Dragable : MonoBehaviour
         }
 
         IsForcedKinematic = true;
+    }
+
+    public DragableDataSO GetDragableData()
+    {
+        return dragableData;
+    }
+
+    public Vector3 GetStartRotation()
+    {
+        return startRotation;
     }
 }
