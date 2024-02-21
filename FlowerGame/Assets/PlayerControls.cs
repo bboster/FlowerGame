@@ -134,6 +134,54 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""PlayerArrangement"",
+            ""id"": ""f288a5c3-8e41-407c-956a-60540edf1497"",
+            ""actions"": [
+                {
+                    ""name"": ""Mouse Movement"",
+                    ""type"": ""Value"",
+                    ""id"": ""2f714684-7f73-4e3e-b5fc-b189bb8701fb"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Select"",
+                    ""type"": ""Button"",
+                    ""id"": ""5c085a7e-ef89-488c-b5e3-99761d354d2b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=0.01)"",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""50698a05-8ed1-49bc-9fda-d38e73b541c2"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mouse Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ac0d904d-0551-41d0-ac74-d158a7977214"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -143,6 +191,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        // PlayerArrangement
+        m_PlayerArrangement = asset.FindActionMap("PlayerArrangement", throwIfNotFound: true);
+        m_PlayerArrangement_MouseMovement = m_PlayerArrangement.FindAction("Mouse Movement", throwIfNotFound: true);
+        m_PlayerArrangement_Select = m_PlayerArrangement.FindAction("Select", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -262,10 +314,69 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // PlayerArrangement
+    private readonly InputActionMap m_PlayerArrangement;
+    private List<IPlayerArrangementActions> m_PlayerArrangementActionsCallbackInterfaces = new List<IPlayerArrangementActions>();
+    private readonly InputAction m_PlayerArrangement_MouseMovement;
+    private readonly InputAction m_PlayerArrangement_Select;
+    public struct PlayerArrangementActions
+    {
+        private @PlayerControls m_Wrapper;
+        public PlayerArrangementActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MouseMovement => m_Wrapper.m_PlayerArrangement_MouseMovement;
+        public InputAction @Select => m_Wrapper.m_PlayerArrangement_Select;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerArrangement; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PlayerArrangementActions set) { return set.Get(); }
+        public void AddCallbacks(IPlayerArrangementActions instance)
+        {
+            if (instance == null || m_Wrapper.m_PlayerArrangementActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerArrangementActionsCallbackInterfaces.Add(instance);
+            @MouseMovement.started += instance.OnMouseMovement;
+            @MouseMovement.performed += instance.OnMouseMovement;
+            @MouseMovement.canceled += instance.OnMouseMovement;
+            @Select.started += instance.OnSelect;
+            @Select.performed += instance.OnSelect;
+            @Select.canceled += instance.OnSelect;
+        }
+
+        private void UnregisterCallbacks(IPlayerArrangementActions instance)
+        {
+            @MouseMovement.started -= instance.OnMouseMovement;
+            @MouseMovement.performed -= instance.OnMouseMovement;
+            @MouseMovement.canceled -= instance.OnMouseMovement;
+            @Select.started -= instance.OnSelect;
+            @Select.performed -= instance.OnSelect;
+            @Select.canceled -= instance.OnSelect;
+        }
+
+        public void RemoveCallbacks(IPlayerArrangementActions instance)
+        {
+            if (m_Wrapper.m_PlayerArrangementActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPlayerArrangementActions instance)
+        {
+            foreach (var item in m_Wrapper.m_PlayerArrangementActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_PlayerArrangementActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public PlayerArrangementActions @PlayerArrangement => new PlayerArrangementActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+    }
+    public interface IPlayerArrangementActions
+    {
+        void OnMouseMovement(InputAction.CallbackContext context);
+        void OnSelect(InputAction.CallbackContext context);
     }
 }

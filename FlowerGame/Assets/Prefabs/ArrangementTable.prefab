@@ -44,3 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e105a8e678dc72b4cb16b327e9eb5382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: {fileID: -944628639613478452, guid: c825d627f2146314599eb5c87d03f7bc, type: 3}
+  arrangementCam: {fileID: 0}
+  upperYBound: 5
+  lowerYBound: -5
+  rightXBound: 5
+  leftXBound: -5
+  maxRaycastDistance: 30
+  sensitivity: 1
+  followSpeed: 5
