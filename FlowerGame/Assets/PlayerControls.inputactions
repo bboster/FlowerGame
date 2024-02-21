@@ -160,6 +160,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "PlayerPick",
+            "id": "e132bf2f-6cb0-41c2-b281-b3e90aa7612b",
+            "actions": [
+                {
+                    "name": "PickUp",
+                    "type": "Button",
+                    "id": "917896da-a052-4d59-a80f-4fb00b026a5e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PutDown",
+                    "type": "Button",
+                    "id": "197cefeb-a79f-42c3-97c9-2f819df80187",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "deae13fa-1175-47e6-8226-9a6791b2d8a2",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PickUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8818883e-001c-4c52-a6f2-266c9880618c",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PutDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
