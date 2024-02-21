@@ -140,8 +140,17 @@
                     "type": "PassThrough",
                     "id": "2c28856f-5cc8-42f1-bb3f-8af5adfd6ec5",
                     "expectedControlType": "Vector3",
-                    "processors": "NormalizeVector3",
-                    "interactions": "Hold(duration=0.2)",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ResetSelectedRotation",
+                    "type": "Button",
+                    "id": "c5071363-ebbe-4f4a-9b15-fcf533e663c2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
@@ -171,7 +180,7 @@
                 {
                     "name": "3D Vector",
                     "id": "6bdfca73-eafd-405b-aa34-e1942d6b8d82",
-                    "path": "3DVector",
+                    "path": "3DVector(mode=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -244,6 +253,28 @@
                     "action": "RotateSelected",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "bf791630-a78d-4d72-92d0-ec38b249dc8f",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ResetSelectedRotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "21e95fda-26a2-476a-b96f-73e9ffe797fd",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ResetSelectedRotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

@@ -162,8 +162,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""type"": ""PassThrough"",
                     ""id"": ""2c28856f-5cc8-42f1-bb3f-8af5adfd6ec5"",
                     ""expectedControlType"": ""Vector3"",
-                    ""processors"": ""NormalizeVector3"",
-                    ""interactions"": ""Hold(duration=0.2)"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ResetSelectedRotation"",
+                    ""type"": ""Button"",
+                    ""id"": ""c5071363-ebbe-4f4a-9b15-fcf533e663c2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 }
             ],
@@ -193,7 +202,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""3D Vector"",
                     ""id"": ""6bdfca73-eafd-405b-aa34-e1942d6b8d82"",
-                    ""path"": ""3DVector"",
+                    ""path"": ""3DVector(mode=1)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -266,6 +275,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""RotateSelected"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bf791630-a78d-4d72-92d0-ec38b249dc8f"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ResetSelectedRotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""21e95fda-26a2-476a-b96f-73e9ffe797fd"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ResetSelectedRotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -282,6 +313,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_PlayerArrangement_MouseMovement = m_PlayerArrangement.FindAction("Mouse Movement", throwIfNotFound: true);
         m_PlayerArrangement_Select = m_PlayerArrangement.FindAction("Select", throwIfNotFound: true);
         m_PlayerArrangement_RotateSelected = m_PlayerArrangement.FindAction("RotateSelected", throwIfNotFound: true);
+        m_PlayerArrangement_ResetSelectedRotation = m_PlayerArrangement.FindAction("ResetSelectedRotation", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -408,6 +440,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerArrangement_MouseMovement;
     private readonly InputAction m_PlayerArrangement_Select;
     private readonly InputAction m_PlayerArrangement_RotateSelected;
+    private readonly InputAction m_PlayerArrangement_ResetSelectedRotation;
     public struct PlayerArrangementActions
     {
         private @PlayerControls m_Wrapper;
@@ -415,6 +448,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @MouseMovement => m_Wrapper.m_PlayerArrangement_MouseMovement;
         public InputAction @Select => m_Wrapper.m_PlayerArrangement_Select;
         public InputAction @RotateSelected => m_Wrapper.m_PlayerArrangement_RotateSelected;
+        public InputAction @ResetSelectedRotation => m_Wrapper.m_PlayerArrangement_ResetSelectedRotation;
         public InputActionMap Get() { return m_Wrapper.m_PlayerArrangement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -433,6 +467,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @RotateSelected.started += instance.OnRotateSelected;
             @RotateSelected.performed += instance.OnRotateSelected;
             @RotateSelected.canceled += instance.OnRotateSelected;
+            @ResetSelectedRotation.started += instance.OnResetSelectedRotation;
+            @ResetSelectedRotation.performed += instance.OnResetSelectedRotation;
+            @ResetSelectedRotation.canceled += instance.OnResetSelectedRotation;
         }
 
         private void UnregisterCallbacks(IPlayerArrangementActions instance)
@@ -446,6 +483,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @RotateSelected.started -= instance.OnRotateSelected;
             @RotateSelected.performed -= instance.OnRotateSelected;
             @RotateSelected.canceled -= instance.OnRotateSelected;
+            @ResetSelectedRotation.started -= instance.OnResetSelectedRotation;
+            @ResetSelectedRotation.performed -= instance.OnResetSelectedRotation;
+            @ResetSelectedRotation.canceled -= instance.OnResetSelectedRotation;
         }
 
         public void RemoveCallbacks(IPlayerArrangementActions instance)
@@ -474,5 +514,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnMouseMovement(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
         void OnRotateSelected(InputAction.CallbackContext context);
+        void OnResetSelectedRotation(InputAction.CallbackContext context);
     }
 }

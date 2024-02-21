@@ -92,7 +92,10 @@ public class Bouqet : MonoBehaviour
         int subtractionModifier = doSubtract ? -1 : 1;
 
         foreach(FlowerStatContainer statContainer in flower.GetFlowerStatsContainer())
+        {
             bouqetStats[statContainer.stat] += subtractionModifier * statContainer.statAmount;
+        }
+            
     }
 
     // UI
@@ -100,14 +103,25 @@ public class Bouqet : MonoBehaviour
     {
         if (tmpText == null)
             return;
+
         string outputString = "";
+        List<FlowerStat> statsToChange = new();
+
         foreach(FlowerStat flowerStat in bouqetStats.Keys)
         {
             if (bouqetStats[flowerStat] == 0)
                 continue;
+            else if(bouqetStats[flowerStat] < 0)
+            {
+                statsToChange.Add(flowerStat);
+                continue;
+            }
 
             outputString += "" + flowerStat + ": " + bouqetStats[flowerStat] + "\n";
         }
+
+        foreach (FlowerStat stat in statsToChange)
+            bouqetStats[stat] = 0;
 
         tmpText.text = outputString;
     }

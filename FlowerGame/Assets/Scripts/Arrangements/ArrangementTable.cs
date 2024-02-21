@@ -21,6 +21,8 @@ public class ArrangementTable : MonoBehaviour
     // Flower Selected
     Dragable selectedObject = null;
 
+    Vector3 rotationOffset = Vector3.zero;
+
     private void Awake()
     {
         Instance = this;
@@ -32,22 +34,54 @@ public class ArrangementTable : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        ObjectRotation();
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(arrangementCam.transform.position, GetMousePosition());
 
         Gizmos.color = Color.black;
-        Gizmos.DrawSphere(GetMousePosition(), 0.3f);
+        Gizmos.DrawSphere(GetMousePosition(), 0.2f);
     }
 
+    // Selected Object Functions
     public void RotateSelectedObject(InputAction.CallbackContext context)
     {
         if (selectedObject == null)
             return;
 
-        Vector3 rotation = context.ReadValue<Vector3>();
-        selectedObject.Rotate(rotation);
+        rotationOffset = context.ReadValue<Vector3>();
+    }
+
+    public void ResetRotationSelectedObject()
+    {
+        if (selectedObject == null)
+            return;
+
+        selectedObject.transform.rotation = Quaternion.Euler(selectedObject.GetStartRotation());
+    }
+
+    private void ObjectRotation()
+    {
+        if (selectedObject == null || rotationOffset == Vector3.zero)
+            return;
+
+        //Debug.Log("Rotation Vector: " + rotationOffset);
+        if (rotationOffset != Vector3.zero)
+        {
+            float rotateSpeed = selectedObject.GetDragableData().rotationSpeed;
+
+            selectedObject.transform.RotateAround(selectedObject.transform.position, Vector3.up, rotationOffset.x * rotateSpeed);
+            selectedObject.transform.RotateAround(selectedObject.transform.position, Vector3.forward, rotationOffset.y * rotateSpeed);
+            selectedObject.transform.RotateAround(selectedObject.transform.position, Vector3.right, rotationOffset.z * rotateSpeed);
+
+            /*selectedObject.transform.rotation = Quaternion.Lerp(selectedObject.transform.rotation,
+                Quaternion.Euler(transform.rotation.eulerAngles + (selectedObject.GetDragableData().rotationSpeed * rotationOffset)), Time.fixedDeltaTime);*/
+        }
     }
 
     // Getters
