@@ -49,10 +49,13 @@ public class Bouqet : MonoBehaviour
         if (!other.CompareTag("Flower"))
             return;
 
-        other.attachedRigidbody.includeLayers = nothing;
-
         Dragable flowerDragable = other.GetComponent<Dragable>();
         Flower flower = other.GetComponent<Flower>();
+
+        if (flowerDragable != ArrangementTable.Instance.GetSelectedObject())
+            return;
+
+        other.attachedRigidbody.includeLayers = nothing;
 
         flowerDragable.SetParent(transform);
 

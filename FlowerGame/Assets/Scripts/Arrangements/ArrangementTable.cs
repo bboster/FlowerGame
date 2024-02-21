@@ -7,42 +7,19 @@ public class ArrangementTable : MonoBehaviour
 {
     public static ArrangementTable Instance;
 
+    [Header("Assignments")]
     [SerializeField]
     InputActionAsset playerInput;
 
     [SerializeField]
     Camera arrangementCam;
 
-    [Header("Bounds")]
-    [SerializeField]
-    float upperYBound = 5;
-
-    [SerializeField]
-    float lowerYBound = -5;
-
-    [Space]
-
-    [SerializeField]
-    float rightXBound = 5;
-
-    [SerializeField]
-    float leftXBound = -5;
-
-    [SerializeField]
-    float maxRaycastDistance = 30;
-
     [Header("Mouse Controls")]
     [SerializeField]
     float sensitivity;
 
-    [SerializeField]
-    float followSpeed = 5;
-
     // Flower Selected
-    GameObject selectedFlower = null;
-
-    // Mouse Movement
-    Vector3 mousePosition;
+    Dragable selectedObject = null;
 
     private void Awake()
     {
@@ -53,47 +30,6 @@ public class ArrangementTable : MonoBehaviour
             Debug.LogError("Player Input Null!");
             return;
         }
-
-        playerInput.FindAction("Select").canceled += OnSelectCancelled;
-    }
-
-    private void FixedUpdate()
-    {
-        MoveSelectedFlower();
-    }
-
-    private void MoveSelectedFlower()
-    {
-        if (selectedFlower == null)
-            return;
-
-        selectedFlower.transform.position = Vector3.Lerp(selectedFlower.transform.position, arrangementCam.ScreenToWorldPoint(mousePosition), followSpeed * Time.fixedDeltaTime);
-    }
-
-    // Player Input
-    public void OnMouseMovement(InputAction.CallbackContext context)
-    {
-        mousePosition = context.ReadValue<Vector2>();
-    }
-
-    public void OnSelect(InputAction.CallbackContext context)
-    {
-        mousePosition = arrangementCam.ScreenToWorldPoint(mousePosition);
-
-        if(!Physics.Raycast(arrangementCam.transform.position, arrangementCam.transform.position - mousePosition, out RaycastHit hit)){
-            Debug.Log("No Object Hit");
-            return;
-        }
-
-        if (!hit.collider.CompareTag("Flower"))
-            return;
-
-        selectedFlower = hit.collider.gameObject;
-    }
-
-    private void OnSelectCancelled(InputAction.CallbackContext context)
-    {
-        selectedFlower = null;
     }
 
     private void OnDrawGizmos()
@@ -102,7 +38,16 @@ public class ArrangementTable : MonoBehaviour
         Gizmos.DrawLine(arrangementCam.transform.position, GetMousePosition());
 
         Gizmos.color = Color.black;
-        Gizmos.DrawSphere(GetMousePosition(), 0.5f);
+        Gizmos.DrawSphere(GetMousePosition(), 0.3f);
+    }
+
+    public void RotateSelectedObject(InputAction.CallbackContext context)
+    {
+        if (selectedObject == null)
+            return;
+
+        Vector3 rotation = context.ReadValue<Vector3>();
+        selectedObject.Rotate(rotation);
     }
 
     // Getters
@@ -119,4 +64,16 @@ public class ArrangementTable : MonoBehaviour
 
         return Vector3.one;
     }
+
+    public Dragable GetSelectedObject()
+    {
+        return selectedObject;
+    }
+
+    // Setters
+    public void SetSelectedObject(Dragable dragable)
+    {
+        selectedObject = dragable;
+    }
+
 }

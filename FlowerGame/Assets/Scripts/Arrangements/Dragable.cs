@@ -14,6 +14,8 @@ public class Dragable : MonoBehaviour
 
     private Vector3 offset = Vector3.zero;
 
+    private Vector3 rotationOffset = Vector3.zero;
+
     Rigidbody rb;
 
     private void Awake()
@@ -25,10 +27,18 @@ public class Dragable : MonoBehaviour
     {
         if(IsForcedKinematic && !IsBeingDragged && transform.parent != null)
             transform.position = transform.parent.position - offset;
+
+
+        Debug.Log("Rotation Vector: " + rotationOffset);
+        if(rotationOffset != Vector3.zero)
+            transform.rotation = Quaternion.Lerp(transform.rotation,
+            Quaternion.Euler(transform.rotation.eulerAngles + (dragableData.rotationSpeed * rotationOffset)), Time.fixedDeltaTime);
     }
 
     private void OnMouseDown()
     {
+        ArrangementTable.Instance.SetSelectedObject(this);
+
         IsBeingDragged = true;
         DisablePhysics();
     }
@@ -43,6 +53,8 @@ public class Dragable : MonoBehaviour
 
     private void OnMouseUp()
     {
+        ArrangementTable.Instance.SetSelectedObject(null);
+
         IsBeingDragged = false;
 
         if(transform.parent != null)
@@ -78,5 +90,10 @@ public class Dragable : MonoBehaviour
         }
 
         IsForcedKinematic = true;
+    }
+
+    public void Rotate(Vector3 rotationVector)
+    {
+        rotationOffset = rotationVector;
     }
 }
