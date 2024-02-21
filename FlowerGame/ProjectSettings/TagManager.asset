@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Flower
+  - PickableFlower
   layers:
   - Default
   - TransparentFX
