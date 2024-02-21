@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,9 @@ public class ArrangementTable : MonoBehaviour
     [SerializeField]
     Camera arrangementCam;
 
+    [SerializeField]
+    List<CinemachineVirtualCamera> virtualCameras = new();
+
     [Header("Mouse Controls")]
     [SerializeField]
     float sensitivity;
@@ -22,6 +26,11 @@ public class ArrangementTable : MonoBehaviour
     Dragable selectedObject = null;
 
     Vector3 rotationOffset = Vector3.zero;
+
+    // Camera
+    CinemachineBrain cinemachine;
+
+    int currentCam = 0;
 
     private void Awake()
     {
@@ -32,6 +41,8 @@ public class ArrangementTable : MonoBehaviour
             Debug.LogError("Player Input Null!");
             return;
         }
+
+        cinemachine = arrangementCam.GetComponent<CinemachineBrain>();
     }
 
     private void FixedUpdate()
@@ -46,6 +57,20 @@ public class ArrangementTable : MonoBehaviour
 
         Gizmos.color = Color.black;
         Gizmos.DrawSphere(GetMousePosition(), 0.2f);
+    }
+
+    // Camera Functions
+    public void TransitionCamera()
+    {
+        currentCam = 1 - currentCam;
+
+        for(int i = 0; i < virtualCameras.Count; i++)
+        {
+            if (i == currentCam)
+                virtualCameras[i].enabled = true;
+            else
+                virtualCameras[i].enabled = false;
+        }
     }
 
     // Selected Object Functions
@@ -112,4 +137,12 @@ public class ArrangementTable : MonoBehaviour
         rotationOffset = Vector3.zero;
     }
 
+    enum VirtualCamera
+    {
+        PLAYER_CAM,
+        TABLE_CAM
+    }
+
 }
+
+
