@@ -33,6 +33,7 @@ public class Dragable : MonoBehaviour
             transform.position = transform.parent.position - offset;   
     }
 
+    // Dragging 
     private void OnMouseDown()
     {
         if (!isDraggingEnabled)
@@ -70,6 +71,7 @@ public class Dragable : MonoBehaviour
         EnablePhysics();
     }
 
+    // Physics Management
     public void DisablePhysics()
     {
         rb.isKinematic = true;
@@ -85,6 +87,7 @@ public class Dragable : MonoBehaviour
         rb.useGravity = true;
     }
 
+    // Setters and Getters
     public void SetParent(Transform parent)
     {
         transform.parent = parent;
