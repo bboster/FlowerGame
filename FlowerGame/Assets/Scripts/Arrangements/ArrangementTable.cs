@@ -30,7 +30,7 @@ public class ArrangementTable : MonoBehaviour
     [Space]
 
     [SerializeField]
-    TMP_Text tmpText;
+    ArrangementCanvas arrangementCanvas;
 
     [Header("Mouse Controls")]
     [SerializeField]
@@ -55,7 +55,7 @@ public class ArrangementTable : MonoBehaviour
 
         bouqet.BouqetStatChangeEvent += UpdateUI;
 
-        tmpText.text = "";
+        arrangementCanvas.SetStatsText("");
     }
 
     private void FixedUpdate()
@@ -125,9 +125,6 @@ public class ArrangementTable : MonoBehaviour
     // UI
     private void UpdateUI(object sender, EventArgs e)
     {
-        if (tmpText == null)
-            return;
-
         string outputString = "";
         List<FlowerStat> statsToChange = new();
 
@@ -149,7 +146,17 @@ public class ArrangementTable : MonoBehaviour
         foreach (FlowerStat stat in statsToChange)
             bouqetStats[stat] = 0;
 
-        tmpText.text = outputString;
+        arrangementCanvas.SetStatsText(outputString);
+    }
+
+    public void ConfirmBouqet()
+    {
+        bouqet.LockFlowers();
+    }
+
+    public void ResetBouqet()
+    {
+        bouqet.UnlockFlowers();
     }
 
     // Getters

@@ -25,8 +25,12 @@ public class Bouqet : MonoBehaviour
 
     Dictionary<FlowerStat, float> bouqetStats = new();
 
+    Collider triggerHitbox;
+
     private void Awake()
     {
+        triggerHitbox = GetComponent<Collider>();
+
         // Reset Text
         tmpText.text = "";
 
@@ -103,5 +107,22 @@ public class Bouqet : MonoBehaviour
     public Dictionary<FlowerStat, float> GetBouqetStats()
     {
         return bouqetStats;
+    }
+
+    // Locking / Unlocking Flowers
+    public void LockFlowers()
+    {
+        triggerHitbox.enabled = false;
+
+        foreach (Flower flower in flowerBundle)
+            flower.Dragable.SetDraggingEnabled(false);
+    }
+
+    public void UnlockFlowers()
+    {
+        triggerHitbox.enabled = true;
+
+        foreach (Flower flower in flowerBundle)
+            flower.Dragable.SetDraggingEnabled(true);
     }
 }
