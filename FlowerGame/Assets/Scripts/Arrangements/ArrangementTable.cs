@@ -1,5 +1,8 @@
+using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,8 +14,23 @@ public class ArrangementTable : MonoBehaviour
     [SerializeField]
     InputActionAsset playerInput;
 
+    [Space]
+
+    [SerializeField]
+    Bouqet bouqet;
+
+    [Space]
+
     [SerializeField]
     Camera arrangementCam;
+
+    [SerializeField]
+    List<CinemachineVirtualCamera> virtualCameras = new();
+
+    [Space]
+
+    [SerializeField]
+    ArrangementCanvas arrangementCanvas;
 
     [Header("Mouse Controls")]
     [SerializeField]
@@ -23,6 +41,8 @@ public class ArrangementTable : MonoBehaviour
 
     Vector3 rotationOffset = Vector3.zero;
 
+    int currentCam = 0;
+
     private void Awake()
     {
         Instance = this;
@@ -32,6 +52,10 @@ public class ArrangementTable : MonoBehaviour
             Debug.LogError("Player Input Null!");
             return;
         }
+
+        bouqet.BouqetStatChangeEvent += UpdateUI;
+
+        arrangementCanvas.SetStatsText("");
     }
 
     private void FixedUpdate()
@@ -46,6 +70,20 @@ public class ArrangementTable : MonoBehaviour
 
         Gizmos.color = Color.black;
         Gizmos.DrawSphere(GetMousePosition(), 0.2f);
+    }
+
+    // Camera Functions
+    public void TransitionCamera()
+    {
+        currentCam = 1 - currentCam;
+
+        for(int i = 0; i < virtualCameras.Count; i++)
+        {
+            if (i == currentCam)
+                virtualCameras[i].enabled = true;
+            else
+                virtualCameras[i].enabled = false;
+        }
     }
 
     // Selected Object Functions
@@ -84,6 +122,43 @@ public class ArrangementTable : MonoBehaviour
         }
     }
 
+    // UI
+    private void UpdateUI(object sender, EventArgs e)
+    {
+        string outputString = "";
+        List<FlowerStat> statsToChange = new();
+
+        Dictionary<FlowerStat, float> bouqetStats = bouqet.GetBouqetStats();
+
+        foreach (FlowerStat flowerStat in bouqetStats.Keys)
+        {
+            if (bouqetStats[flowerStat] == 0)
+                continue;
+            else if (bouqetStats[flowerStat] < 0)
+            {
+                statsToChange.Add(flowerStat);
+                continue;
+            }
+
+            outputString += "" + flowerStat + ": " + bouqetStats[flowerStat] + "\n";
+        }
+
+        foreach (FlowerStat stat in statsToChange)
+            bouqetStats[stat] = 0;
+
+        arrangementCanvas.SetStatsText(outputString);
+    }
+
+    public void ConfirmBouqet()
+    {
+        bouqet.LockFlowers();
+    }
+
+    public void ResetBouqet()
+    {
+        bouqet.UnlockFlowers();
+    }
+
     // Getters
     public Camera GetArrangementCamera()
     {
@@ -108,6 +183,16 @@ public class ArrangementTable : MonoBehaviour
     public void SetSelectedObject(Dragable dragable)
     {
         selectedObject = dragable;
+
+        rotationOffset = Vector3.zero;
+    }
+
+    enum VirtualCamera
+    {
+        PLAYER_CAM,
+        TABLE_CAM
     }
 
 }
+
+

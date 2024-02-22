@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour
 
     private InputManager inputManager;
     private Transform cameraTransform;
+
+    public List<GameObject> flowers;
 
     private void Start()
     {
@@ -45,5 +48,13 @@ public class PlayerController : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "PickableFlower")
+        {
+            flowers.Add(other.gameObject);
+        }
     }
 }

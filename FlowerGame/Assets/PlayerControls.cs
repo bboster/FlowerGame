@@ -53,6 +53,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PickUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""e53e9ef8-a004-448a-9aec-b97a699023f0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PutDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""79a36a6c-36c3-400b-85cc-7fb9209a4076"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -130,6 +148,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b5db6dd4-f2ef-4771-a763-79c14842bd78"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PickUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e562a0eb-d2ba-4f41-a927-e7ddbcd05ce3"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PutDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -299,54 +339,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
-        },
-        {
-            ""name"": ""PlayerPick"",
-            ""id"": ""e132bf2f-6cb0-41c2-b281-b3e90aa7612b"",
-            ""actions"": [
-                {
-                    ""name"": ""PickUp"",
-                    ""type"": ""Button"",
-                    ""id"": ""917896da-a052-4d59-a80f-4fb00b026a5e"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""PutDown"",
-                    ""type"": ""Button"",
-                    ""id"": ""197cefeb-a79f-42c3-97c9-2f819df80187"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""deae13fa-1175-47e6-8226-9a6791b2d8a2"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PickUp"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8818883e-001c-4c52-a6f2-266c9880618c"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PutDown"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
         }
     ],
     ""controlSchemes"": []
@@ -356,16 +348,14 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        m_Player_PickUp = m_Player.FindAction("PickUp", throwIfNotFound: true);
+        m_Player_PutDown = m_Player.FindAction("PutDown", throwIfNotFound: true);
         // PlayerArrangement
         m_PlayerArrangement = asset.FindActionMap("PlayerArrangement", throwIfNotFound: true);
         m_PlayerArrangement_MouseMovement = m_PlayerArrangement.FindAction("Mouse Movement", throwIfNotFound: true);
         m_PlayerArrangement_Select = m_PlayerArrangement.FindAction("Select", throwIfNotFound: true);
         m_PlayerArrangement_RotateSelected = m_PlayerArrangement.FindAction("RotateSelected", throwIfNotFound: true);
         m_PlayerArrangement_ResetSelectedRotation = m_PlayerArrangement.FindAction("ResetSelectedRotation", throwIfNotFound: true);
-        // PlayerPick
-        m_PlayerPick = asset.FindActionMap("PlayerPick", throwIfNotFound: true);
-        m_PlayerPick_PickUp = m_PlayerPick.FindAction("PickUp", throwIfNotFound: true);
-        m_PlayerPick_PutDown = m_PlayerPick.FindAction("PutDown", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -430,6 +420,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Look;
+    private readonly InputAction m_Player_PickUp;
+    private readonly InputAction m_Player_PutDown;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -437,6 +429,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Look => m_Wrapper.m_Player_Look;
+        public InputAction @PickUp => m_Wrapper.m_Player_PickUp;
+        public InputAction @PutDown => m_Wrapper.m_Player_PutDown;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -455,6 +449,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
+            @PickUp.started += instance.OnPickUp;
+            @PickUp.performed += instance.OnPickUp;
+            @PickUp.canceled += instance.OnPickUp;
+            @PutDown.started += instance.OnPutDown;
+            @PutDown.performed += instance.OnPutDown;
+            @PutDown.canceled += instance.OnPutDown;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -468,6 +468,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
+            @PickUp.started -= instance.OnPickUp;
+            @PickUp.performed -= instance.OnPickUp;
+            @PickUp.canceled -= instance.OnPickUp;
+            @PutDown.started -= instance.OnPutDown;
+            @PutDown.performed -= instance.OnPutDown;
+            @PutDown.canceled -= instance.OnPutDown;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -555,65 +561,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public PlayerArrangementActions @PlayerArrangement => new PlayerArrangementActions(this);
-
-    // PlayerPick
-    private readonly InputActionMap m_PlayerPick;
-    private List<IPlayerPickActions> m_PlayerPickActionsCallbackInterfaces = new List<IPlayerPickActions>();
-    private readonly InputAction m_PlayerPick_PickUp;
-    private readonly InputAction m_PlayerPick_PutDown;
-    public struct PlayerPickActions
-    {
-        private @PlayerControls m_Wrapper;
-        public PlayerPickActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @PickUp => m_Wrapper.m_PlayerPick_PickUp;
-        public InputAction @PutDown => m_Wrapper.m_PlayerPick_PutDown;
-        public InputActionMap Get() { return m_Wrapper.m_PlayerPick; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerPickActions set) { return set.Get(); }
-        public void AddCallbacks(IPlayerPickActions instance)
-        {
-            if (instance == null || m_Wrapper.m_PlayerPickActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PlayerPickActionsCallbackInterfaces.Add(instance);
-            @PickUp.started += instance.OnPickUp;
-            @PickUp.performed += instance.OnPickUp;
-            @PickUp.canceled += instance.OnPickUp;
-            @PutDown.started += instance.OnPutDown;
-            @PutDown.performed += instance.OnPutDown;
-            @PutDown.canceled += instance.OnPutDown;
-        }
-
-        private void UnregisterCallbacks(IPlayerPickActions instance)
-        {
-            @PickUp.started -= instance.OnPickUp;
-            @PickUp.performed -= instance.OnPickUp;
-            @PickUp.canceled -= instance.OnPickUp;
-            @PutDown.started -= instance.OnPutDown;
-            @PutDown.performed -= instance.OnPutDown;
-            @PutDown.canceled -= instance.OnPutDown;
-        }
-
-        public void RemoveCallbacks(IPlayerPickActions instance)
-        {
-            if (m_Wrapper.m_PlayerPickActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IPlayerPickActions instance)
-        {
-            foreach (var item in m_Wrapper.m_PlayerPickActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_PlayerPickActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public PlayerPickActions @PlayerPick => new PlayerPickActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnPickUp(InputAction.CallbackContext context);
+        void OnPutDown(InputAction.CallbackContext context);
     }
     public interface IPlayerArrangementActions
     {
@@ -621,10 +575,5 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnSelect(InputAction.CallbackContext context);
         void OnRotateSelected(InputAction.CallbackContext context);
         void OnResetSelectedRotation(InputAction.CallbackContext context);
-    }
-    public interface IPlayerPickActions
-    {
-        void OnPickUp(InputAction.CallbackContext context);
-        void OnPutDown(InputAction.CallbackContext context);
     }
 }
