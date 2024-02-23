@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Flower
   - PickableFlower
+  - Waypoint
   layers:
   - Default
   - TransparentFX

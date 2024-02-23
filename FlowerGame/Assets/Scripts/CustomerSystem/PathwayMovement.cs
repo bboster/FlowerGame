@@ -13,7 +13,6 @@ public class PathwayMovement : MonoBehaviour
 
     [SerializeField] private float distanceToNext = 0.1f;
 
-
     // Helps in tracking the current position our customer will move to.
     private Transform currentPosition;
 
@@ -40,6 +39,15 @@ public class PathwayMovement : MonoBehaviour
         {
             currentPosition = pathing.GetNextPosition(currentPosition);
             transform.LookAt(currentPosition);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("CustomerArrive"))
+        {
+            customSpeed = 0f;
+            Debug.Log("Arrive");
         }
     }
 }

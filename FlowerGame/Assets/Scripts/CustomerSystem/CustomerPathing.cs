@@ -48,7 +48,5 @@ public class CustomerPathing : MonoBehaviour
         {
             return transform.transform.GetChild(currentPosition.GetSiblingIndex());
         }
-
-        return null;
     }
 }
