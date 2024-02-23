@@ -71,6 +71,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Harvest"",
+                    ""type"": ""Button"",
+                    ""id"": ""cd349799-7894-488a-81af-e5f07a4cb5ee"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -170,6 +179,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PutDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c9bbf2d7-41a5-4505-bfd1-daf4ad8e2986"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Harvest"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -350,6 +370,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_PickUp = m_Player.FindAction("PickUp", throwIfNotFound: true);
         m_Player_PutDown = m_Player.FindAction("PutDown", throwIfNotFound: true);
+        m_Player_Harvest = m_Player.FindAction("Harvest", throwIfNotFound: true);
         // PlayerArrangement
         m_PlayerArrangement = asset.FindActionMap("PlayerArrangement", throwIfNotFound: true);
         m_PlayerArrangement_MouseMovement = m_PlayerArrangement.FindAction("Mouse Movement", throwIfNotFound: true);
@@ -422,6 +443,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_PickUp;
     private readonly InputAction m_Player_PutDown;
+    private readonly InputAction m_Player_Harvest;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -431,6 +453,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @PickUp => m_Wrapper.m_Player_PickUp;
         public InputAction @PutDown => m_Wrapper.m_Player_PutDown;
+        public InputAction @Harvest => m_Wrapper.m_Player_Harvest;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -455,6 +478,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @PutDown.started += instance.OnPutDown;
             @PutDown.performed += instance.OnPutDown;
             @PutDown.canceled += instance.OnPutDown;
+            @Harvest.started += instance.OnHarvest;
+            @Harvest.performed += instance.OnHarvest;
+            @Harvest.canceled += instance.OnHarvest;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -474,6 +500,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @PutDown.started -= instance.OnPutDown;
             @PutDown.performed -= instance.OnPutDown;
             @PutDown.canceled -= instance.OnPutDown;
+            @Harvest.started -= instance.OnHarvest;
+            @Harvest.performed -= instance.OnHarvest;
+            @Harvest.canceled -= instance.OnHarvest;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -568,6 +597,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnPickUp(InputAction.CallbackContext context);
         void OnPutDown(InputAction.CallbackContext context);
+        void OnHarvest(InputAction.CallbackContext context);
     }
     public interface IPlayerArrangementActions
     {

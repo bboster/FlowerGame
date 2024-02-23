@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class Soil : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    GameObject flowerPrefab;
+
+    [SerializeField]
+    Transform growthPoint;
+
+    public Growable currentCrop { get; private set; }
+
+    private void Start()
     {
-        
+        Plant();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Plant()
     {
-        
+        GameObject obj = Instantiate(flowerPrefab, growthPoint);
+        Growable growable = obj.GetComponent<Growable>();
+
+        currentCrop = growable;
+        growable.StartGrowth();
+    }
+
+    public void Harvest()
+    {
+        Destroy(currentCrop.gameObject);
     }
 }
