@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
 
+    [HideInInspector]
+    public PlayerState currentState = PlayerState.MOVING;
+
     // Get's the input mamager.
     private InputManager inputManager;
     // The transform of the camera.
@@ -40,6 +43,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (currentState != PlayerState.MOVING)
+            return;
+
         // Basic player movement with the new input system. This can be found under character controller in the Unity API.
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
@@ -81,4 +87,10 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(10);
         toPick.gameObject.SetActive(false);
     }
+}
+
+public enum PlayerState
+{
+    MOVING,
+    ARRANGING
 }

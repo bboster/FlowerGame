@@ -43,6 +43,8 @@ public class ArrangementTable : MonoBehaviour
 
     int currentCam = 0;
 
+    bool isBeingArranged = false;
+
     private void Awake()
     {
         Instance = this;
@@ -56,6 +58,8 @@ public class ArrangementTable : MonoBehaviour
         bouqet.BouqetStatChangeEvent += UpdateUI;
 
         arrangementCanvas.SetStatsText("");
+
+        arrangementCanvas.gameObject.SetActive(false);
     }
 
     private void FixedUpdate()
@@ -66,6 +70,8 @@ public class ArrangementTable : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
+        if (arrangementCam == null)
+            return;
         Gizmos.DrawLine(arrangementCam.transform.position, GetMousePosition());
 
         Gizmos.color = Color.black;
@@ -76,6 +82,7 @@ public class ArrangementTable : MonoBehaviour
     public void TransitionCamera()
     {
         currentCam = 1 - currentCam;
+        isBeingArranged = !isBeingArranged;
 
         for(int i = 0; i < virtualCameras.Count; i++)
         {
@@ -84,6 +91,8 @@ public class ArrangementTable : MonoBehaviour
             else
                 virtualCameras[i].enabled = false;
         }
+
+        arrangementCanvas.gameObject.SetActive(isBeingArranged);
     }
 
     // Selected Object Functions
