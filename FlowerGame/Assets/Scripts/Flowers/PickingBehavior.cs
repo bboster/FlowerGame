@@ -8,90 +8,66 @@ using UnityEngine.UIElements;
 
 public class PickingBehavior : MonoBehaviour
 {
-
-
+    // Get's the input system from Player
     public PlayerInput PlayerInputInstance;
     public InputAction PickUp;
 
+    // Instance of the player controller
     public PlayerController PC;
 
-    public List<Vector3> inventory;
-    public List<GameObject> flowers;
+    // This list contains all the places you can place a flower. Found under the main camera.
+    public List<Transform> flowers;
+
+    // The item to be added to the bouquet, get's updated dynamically
     public GameObject itemToAdd;
 
-    // The position in game where to put the object;
-    public GameObject flower1;
-    public GameObject flower2;
-    public GameObject flower3;
-    public GameObject flower4;
-    public GameObject flower5;
-    public GameObject flower6;
-    public GameObject flower7;
-    public GameObject flower8;
-    public GameObject flower9;
-    public GameObject flower10;
-    public GameObject flower11;
-    public GameObject flower12;
-    public GameObject flower13;
-    public GameObject flower14;
-    public GameObject flower15;
-
-    // Coordinates of where to put the flowers;
-    public Vector3 whereToPut1;
-    public Vector3 whereToPut2;
-    public Vector3 whereToPut3;
-    public Vector3 whereToPut4;
-    public Vector3 whereToPut5;
-    public Vector3 whereToPut6;
-    public Vector3 whereToPut7;
-    public Vector3 whereToPut8;
-    public Vector3 whereToPut9;
-    public Vector3 whereToPut10;
-    public Vector3 whereToPut11;
-    public Vector3 whereToPut12;
-    public Vector3 whereToPut13;
-    public Vector3 whereToPut14;
-    public Vector3 whereToPut15;
-
-    public GameObject Player;
-
+    // These are transforms that can be found under the main camera. Must be dragged into inspector.
     public Transform where;
+    public Transform where2;
+    public Transform where3;
+    public Transform where4;
+    public Transform where5;
+    public Transform where6;
+    public Transform where7;
+    public Transform where8;
+    public Transform where9;
+    public Transform where10;
+    public Transform where11;
+    public Transform where12;
+    public Transform where13;
+    public Transform where14;
+    public Transform where15;
+    
 
     private void Start()
     {
+        // Get's the player input and enables the current action map.
         PlayerInputInstance = GetComponent<PlayerInput>();
         PlayerInputInstance.currentActionMap.Enable();
 
+        // Finds the PickUp action.
         PickUp = PlayerInputInstance.currentActionMap.FindAction("PickUp");
 
+        // Functions that happen when the pickup button is picked up.
         PickUp.started += PickUp_started;
         PickUp.canceled -= Pickup_cancelled;
 
-        inventory.Add(whereToPut1);
-        inventory.Add(whereToPut2);
-        inventory.Add(whereToPut3);
-        inventory.Add(whereToPut4);
-        inventory.Add(whereToPut5);
-        inventory.Add(whereToPut6);
-        inventory.Add(whereToPut7);
-        inventory.Add(whereToPut8);
-        inventory.Add(whereToPut9);
-        inventory.Add(whereToPut10);
-        inventory.Add(whereToPut11);
-        inventory.Add(whereToPut12);
-        inventory.Add(whereToPut13);
-        inventory.Add(whereToPut14);
-        inventory.Add(whereToPut15);
-
-       
-    }
-    private void Update()
-    {
-        for (int i = 0; i < inventory.Count; i++)
-        {
-            inventory[i] = flowers[i].transform.position;
-        }
-        whereToPut1 = flower1.transform.position;
+        // Adds all of the transforms that are found under the main camera.
+        flowers.Add(where);
+        flowers.Add(where2);
+        flowers.Add(where3);
+        flowers.Add(where4);
+        flowers.Add(where5);
+        flowers.Add(where6);
+        flowers.Add(where7);
+        flowers.Add(where8);
+        flowers.Add(where9);
+        flowers.Add(where10);
+        flowers.Add(where11);
+        flowers.Add(where12);
+        flowers.Add(where13);
+        flowers.Add(where14);
+        flowers.Add(where15);
     }
 
     private void Pickup_cancelled(InputAction.CallbackContext context)
@@ -104,23 +80,24 @@ public class PickingBehavior : MonoBehaviour
         PickItem();
     }
 
+    // Picks up flowers.
     private void PickItem()
     {
         int size = PC.flowers.Count;
         for (int i = 0; i < size; i++)
         {
+            // If the flowers from PlayerController ISNT EMPTY
             if (PC.flowers[i] != null)
             {
+                // Set the item to add, transform it's position to the transform position of the values under main camera, and set the value under the main camera as the flower's parent. 
                 itemToAdd = PC.flowers[i];
+                itemToAdd.transform.position = flowers[i].position;
+                itemToAdd.transform.parent = flowers[i];
             }
-        }
-        for (int i = 0; i < inventory.Count; i++)
-        {
-            itemToAdd.transform.position = inventory[i];
-            itemToAdd.transform.parent = where;
         }
     }
 
+    // Must have this do not delete, isn't important what it does.
     private void OnDestroy()
     {
         PickUp.started -= PickUp_started;
