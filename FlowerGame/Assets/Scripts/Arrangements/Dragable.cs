@@ -16,6 +16,8 @@ public class Dragable : MonoBehaviour
 
     private Vector3 startRotation = Vector3.zero;
 
+    bool isDraggingEnabled = true;
+
     Rigidbody rb;
 
     private void Awake()
@@ -31,8 +33,12 @@ public class Dragable : MonoBehaviour
             transform.position = transform.parent.position - offset;   
     }
 
+    // Dragging 
     private void OnMouseDown()
     {
+        if (!isDraggingEnabled)
+            return;
+
         ArrangementTable.Instance.SetSelectedObject(this);
 
         IsBeingDragged = true;
@@ -41,6 +47,9 @@ public class Dragable : MonoBehaviour
 
     private void OnMouseDrag()
     {
+        if (!isDraggingEnabled)
+            return;
+
         Vector3 newPos = ArrangementTable.Instance.GetMousePosition();
         newPos.y = dragableData.baseY;
 
@@ -49,6 +58,9 @@ public class Dragable : MonoBehaviour
 
     private void OnMouseUp()
     {
+        if (!isDraggingEnabled)
+            return;
+
         ArrangementTable.Instance.SetSelectedObject(null);
 
         IsBeingDragged = false;
@@ -59,6 +71,7 @@ public class Dragable : MonoBehaviour
         EnablePhysics();
     }
 
+    // Physics Management
     public void DisablePhysics()
     {
         rb.isKinematic = true;
@@ -74,6 +87,7 @@ public class Dragable : MonoBehaviour
         rb.useGravity = true;
     }
 
+    // Setters and Getters
     public void SetParent(Transform parent)
     {
         transform.parent = parent;
@@ -86,6 +100,16 @@ public class Dragable : MonoBehaviour
         }
 
         IsForcedKinematic = true;
+    }
+
+    public void SetDraggingEnabled(bool doEnable)
+    {
+        isDraggingEnabled = doEnable;
+    }
+
+    public bool IsDraggingEnabled()
+    {
+        return isDraggingEnabled;
     }
 
     public DragableDataSO GetDragableData()
