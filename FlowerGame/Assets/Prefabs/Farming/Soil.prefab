@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2a1ded32e0c9f14ab64d69b2a30355a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flowerPrefab: {fileID: 5102439942214781042, guid: ed7e9a573279fb8429d9747677b56a29, type: 3}
+  growablePrefab: {fileID: 5102439942214781042, guid: ed7e9a573279fb8429d9747677b56a29, type: 3}
   growthPoint: {fileID: 156898732614941764}
 --- !u!135 &1023599404844246917
 SphereCollider:

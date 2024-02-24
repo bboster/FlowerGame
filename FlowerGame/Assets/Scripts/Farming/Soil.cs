@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Soil : MonoBehaviour
 {
+
     [SerializeField]
-    GameObject flowerPrefab;
+    GameObject growablePrefab;
 
     [SerializeField]
     Transform growthPoint;
@@ -14,12 +15,12 @@ public class Soil : MonoBehaviour
 
     private void Start()
     {
-        Plant();
+        Plant(growablePrefab);
     }
 
-    public void Plant()
+    public void Plant(GameObject growablePrefab)
     {
-        GameObject obj = Instantiate(flowerPrefab, growthPoint);
+        GameObject obj = Instantiate(growablePrefab, growthPoint);
         Growable growable = obj.GetComponent<Growable>();
 
         currentCrop = growable;
