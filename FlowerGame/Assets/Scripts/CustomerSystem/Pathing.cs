@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pathing : MonoBehaviour
 {
     // Stores reference to pathing system for our customers
-    [SerializeField] private CustomerPathing pathing;
+    [SerializeField] private CustomerPathiing2 pathing;
 
     [SerializeField] private float customSpeed = 5f;
 
@@ -20,6 +20,11 @@ public class Pathing : MonoBehaviour
 
     // Usage for showing customer mood through change of material color.
     [SerializeField] private Renderer customerVisual;
+
+    [SerializeField]
+    Customer customer;
+
+    Coroutine timer;
 
     // Start is called before the first frame update
     void Start()
@@ -58,8 +63,26 @@ public class Pathing : MonoBehaviour
         {
             customSpeed = 0f;
             Debug.Log("Arrive");
-            StartCoroutine(SecondDelay());
+            timer = StartCoroutine(SecondDelay());
         }
+    }
+
+    public void SubmitBouqet(Bouqet bouqet)
+    {
+        float score = customer.CompareBouqetToDesired(bouqet);
+        Debug.Log("Score: " + score);
+        StartCoroutine(DelayedLeave());
+    }
+
+    IEnumerator DelayedLeave()
+    {
+        yield return new WaitForSeconds(1f);
+        Leave();
+    }
+
+    private void Leave()
+    {
+        customSpeed = 5;
     }
 
     // Timer method for customer.
@@ -70,7 +93,7 @@ public class Pathing : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             timeLeft -= 1;
-            Debug.Log(timeLeft);
+            //Debug.Log(timeLeft);
 
             // Two moods of customer.
             if (timeLeft == customerTime / 2 && timeLeft > customerTime / 4)

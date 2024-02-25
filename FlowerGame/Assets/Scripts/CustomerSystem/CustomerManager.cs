@@ -7,15 +7,17 @@ using UnityEngine;
 
 public class CustomerManager : MonoBehaviour
 {
-    public static CustomerManager current;
+    public static CustomerManager Instance;
+
+    public Customer currentCustomer { get; private set; }
 
     private void Awake()
     {
-        current = this;
+        Instance = this;
     }
 
     public event Action whenCustomerArrives;
-    public void CustomerArrival()
+    public void CustomerArrival(Customer customer)
     {
         if(whenCustomerArrives != null)
         {

@@ -132,7 +132,7 @@ public class ArrangementTable : MonoBehaviour
 
     public void ResetRotationSelectedObject()
     {
-        if (selectedObject == null)
+        if (selectedObject == null || !selectedObject.IsDraggingEnabled())
             return;
 
         selectedObject.transform.rotation = Quaternion.Euler(selectedObject.GetStartRotation());

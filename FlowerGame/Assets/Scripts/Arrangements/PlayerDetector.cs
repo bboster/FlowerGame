@@ -45,4 +45,16 @@ public class PlayerDetector : MonoBehaviour
         arrangementTable.ToggleArrangementView();
         playerController.ToggleToPickText(!isPlayerArranging);
     }
+
+    public void SubmitBouqet()
+    {
+        if (!isPlayerInHitbox)
+            return;
+
+        Bouqet bouqet = PlayerManager.Instance.GetPlayer().PlayerPicker.GetBouqet();
+        if (bouqet == null)
+            return;
+
+
+    }
 }

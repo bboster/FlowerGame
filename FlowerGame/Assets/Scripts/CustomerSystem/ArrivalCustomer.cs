@@ -13,7 +13,7 @@ public class ArrivalCustomer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CustomerManager.current.whenCustomerArrives += TimerStarts;
+        CustomerManager.Instance.whenCustomerArrives += TimerStarts;
 
         timeLeft = customerTime;
     }
