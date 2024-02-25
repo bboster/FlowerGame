@@ -24,11 +24,14 @@ public class Soil : MonoBehaviour
         Growable growable = obj.GetComponent<Growable>();
 
         currentCrop = growable;
+
+        growable.HarvestEvent.AddListener(OnHarvest);
+
         growable.StartGrowth();
     }
 
-    public void Harvest()
+    private void OnHarvest()
     {
-        Destroy(currentCrop.gameObject);
+        Plant(growablePrefab);
     }
 }

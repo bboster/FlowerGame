@@ -55,6 +55,8 @@ public class PlayerDetector : MonoBehaviour
         if (bouqet == null)
             return;
 
+        CustomerManager.Instance.currentCustomer.GetPathing().SubmitBouqet(bouqet);
 
+        Destroy(bouqet.transform.parent.gameObject);
     }
 }

@@ -5,6 +5,9 @@ using UnityEngine;
 public class Customer : MonoBehaviour
 {
     [SerializeField]
+    Pathing pathing;
+
+    [SerializeField]
     List<FlowerStatContainer> desiredStats;
 
     Dictionary<FlowerStat, float> desiredStatsDict = new();
@@ -15,6 +18,11 @@ public class Customer : MonoBehaviour
         {
             desiredStatsDict[statContainer.stat] = statContainer.statAmount;
         }
+    }
+
+    private void Start()
+    {
+        CustomerManager.Instance.SetCustomer(this);
     }
 
     public float CompareBouqetToDesired(Bouqet bouqet)
@@ -34,5 +42,10 @@ public class Customer : MonoBehaviour
         }
 
         return score;
+    }
+
+    public Pathing GetPathing()
+    {
+        return pathing;
     }
 }

@@ -17,11 +17,17 @@ public class CustomerManager : MonoBehaviour
     }
 
     public event Action whenCustomerArrives;
+
     public void CustomerArrival(Customer customer)
     {
         if(whenCustomerArrives != null)
         {
             whenCustomerArrives();
         }
+    }
+
+    public void SetCustomer(Customer customer)
+    {
+        currentCustomer = customer;
     }
 }

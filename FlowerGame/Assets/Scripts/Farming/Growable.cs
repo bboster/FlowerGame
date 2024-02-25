@@ -17,8 +17,11 @@ public class Growable : MonoBehaviour
     [SerializeField]
     ParticleSystem fullyGrownParticles;
 
-    [SerializeField]
-    UnityEvent FullGrowthEvent;
+    public UnityEvent FullGrowthEvent;
+
+    public UnityEvent HarvestEvent;
+
+    Collider col;
 
     Vector3 startScale;
 
@@ -30,7 +33,12 @@ public class Growable : MonoBehaviour
     {
         startScale = transform.localScale;
 
+        col = GetComponent<Collider>();
+
         FullGrowthEvent.AddListener(ActivateParticles);
+        FullGrowthEvent.AddListener(ActivateCollider);
+
+        HarvestEvent.AddListener(StopParticles);
     }
 
     private void FixedUpdate()
@@ -66,6 +74,11 @@ public class Growable : MonoBehaviour
         vel.speedModifier = transform.localScale.y;
         fullyGrownParticles.Play();
     }
+    
+    private void ActivateCollider()
+    {
+        col.enabled = true;
+    }
 
     public void StartGrowth()
     {
@@ -78,5 +91,15 @@ public class Growable : MonoBehaviour
     public bool IsGrowing()
     {
         return isGrowing;
+    }
+
+    public void Harvest()
+    {
+        HarvestEvent.Invoke();
+    }
+
+    private void StopParticles()
+    {
+        fullyGrownParticles.Stop();
     }
 }
