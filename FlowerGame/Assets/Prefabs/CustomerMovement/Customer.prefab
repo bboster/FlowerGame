@@ -117,8 +117,8 @@ GameObject:
   - component: {fileID: 1973820194722112990}
   - component: {fileID: 6396031028880510730}
   - component: {fileID: 1576836069243021714}
+  - component: {fileID: 6085986077650723492}
   - component: {fileID: 1611263874336812793}
-  - component: {fileID: 113601796257726746}
   m_Layer: 0
   m_Name: Customer
   m_TagString: Untagged
@@ -140,7 +140,7 @@ Transform:
   m_Children:
   - {fileID: 332824440597065230}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1973820194722112990
 MeshFilter:
@@ -215,6 +215,23 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6085986077650723492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4916796572358905475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c5679cd13403745b33e2635704e46a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathing: {fileID: 0}
+  customSpeed: 5
+  distanceToNext: 0.1
+  customerTime: 100
+  customerVisual: {fileID: 0}
 --- !u!54 &1611263874336812793
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -242,18 +259,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 36
   m_CollisionDetection: 0
---- !u!114 &113601796257726746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4916796572358905475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58f05959f4ae32247965ab61608b5d84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathing: {fileID: 0}
-  customSpeed: 5
-  distanceToNext: 1

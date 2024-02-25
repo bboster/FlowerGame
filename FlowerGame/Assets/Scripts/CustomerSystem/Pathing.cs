@@ -1,12 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Threading;
 using UnityEngine;
 
-// John Paul Fairbanks - Pathway / Waypoint system understood through tutorial by MetalStrom Games
-
-public class PathwayMovement : MonoBehaviour
+public class Pathing : MonoBehaviour
 {
     // Stores reference to pathing system for our customers
     [SerializeField] private CustomerPathing pathing;
@@ -58,7 +54,7 @@ public class PathwayMovement : MonoBehaviour
     {
         // This will trigger the countdown of the customer.
         // customerTime for total countdown can be found within Inspector of Customer Gameobject.
-        if(other.gameObject.CompareTag("CustomerArrive"))
+        if (other.gameObject.CompareTag("CustomerArrive"))
         {
             customSpeed = 0f;
             Debug.Log("Arrive");
@@ -70,26 +66,26 @@ public class PathwayMovement : MonoBehaviour
     // Tutorial by SpeedTutor helped in understanding of IEnumerator
     IEnumerator SecondDelay()
     {
-        while(timeLeft != 0)
+        while (timeLeft != 0)
         {
             yield return new WaitForSeconds(1f);
             timeLeft -= 1;
             Debug.Log(timeLeft);
 
             // Two moods of customer.
-            if(timeLeft == customerTime / 2 && timeLeft > customerTime / 4)
+            if (timeLeft == customerTime / 2 && timeLeft > customerTime / 4)
             {
                 customerVisual.material.color = Color.yellow;
                 Debug.Log("Grrr");
             }
 
-            if(timeLeft == customerTime / 4)
+            if (timeLeft == customerTime / 4)
             {
                 customerVisual.material.color = Color.red;
                 Debug.Log("OUT!");
             }
         }
         customSpeed = 5f;
-        
+
     }
 }
