@@ -2127,6 +2127,10 @@ PrefabInstance:
       propertyPath: arrangementTable
       value: 
       objectReference: {fileID: 1410043502}
+    - target: {fileID: 1746695521792978892, guid: d21ba9d60ce2a574984ef77a3bac34b7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5810841585198285772, guid: d21ba9d60ce2a574984ef77a3bac34b7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
