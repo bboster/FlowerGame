@@ -61,6 +61,10 @@ public class Pathing : MonoBehaviour
         {
             customSpeed = 0f;
             Debug.Log("Arrive");
+
+            //Customer only tells order when they arrive
+            gameObject.GetComponent<Customer>().DisplayOrder();
+
             StartCoroutine(SecondDelay());
         }
     }
