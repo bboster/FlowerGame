@@ -6,6 +6,9 @@ using UnityEngine.Events;
 public class Growable : MonoBehaviour
 {
     [SerializeField]
+    GameObject draggablePrefab;
+
+    [SerializeField]
     float minScale = 0.5f;
 
     [SerializeField]
@@ -101,5 +104,10 @@ public class Growable : MonoBehaviour
     private void StopParticles()
     {
         fullyGrownParticles.Stop();
+    }
+
+    public GameObject GetDraggablePrefab()
+    {
+        return draggablePrefab;
     }
 }

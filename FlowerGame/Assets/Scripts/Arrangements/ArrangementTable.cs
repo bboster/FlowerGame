@@ -22,6 +22,9 @@ public class ArrangementTable : MonoBehaviour
     [SerializeField]
     Transform bouqetSpawnPosition;
 
+    [SerializeField]
+    Transform flowerSpawnPosition;
+
     [Space]
 
     [SerializeField]
@@ -43,6 +46,8 @@ public class ArrangementTable : MonoBehaviour
     float sensitivity;
 
     Bouqet bouqet;
+
+    List<Dragable> currentFlowers = new();
 
     // Flower Selected
     Dragable selectedObject = null;
@@ -95,6 +100,8 @@ public class ArrangementTable : MonoBehaviour
             bouqet.SetBodyText(bodyText);
             bouqet.BouqetStatChangeEvent += UpdateUI;
         }
+
+
     }
 
     // Camera Functions
@@ -119,6 +126,48 @@ public class ArrangementTable : MonoBehaviour
 
         PlayerState playerState = isBeingArranged ? PlayerState.ARRANGING : PlayerState.MOVING;
         PlayerManager.Instance.GetPlayer().PlayerController.currentState = playerState;
+
+        if (isBeingArranged)
+            EmptyPlayerInventory();
+        else
+            FillPlayerInventory();
+    }
+
+    private void FillPlayerInventory()
+    {
+        PickingBehavior picker = PlayerManager.Instance.GetPlayer().PlayerPicker;
+
+        foreach (Dragable d in currentFlowers)
+        {
+            GameObject obj = Instantiate(d.GetComponent<Flower>().GetGrowablePrefab());
+
+            picker.AddItem(obj);
+
+            Destroy(d.gameObject);
+        }
+
+        currentFlowers.Clear();
+    }
+
+    private void EmptyPlayerInventory()
+    {
+        PickingBehavior picker = PlayerManager.Instance.GetPlayer().PlayerPicker;
+
+        foreach (Transform t in picker.GetFlowers())
+        {
+            if (t.childCount <= 0)
+                continue;
+
+            Transform tChild = t.GetChild(0);
+
+            Growable growable = tChild.GetComponent<Growable>();
+
+            GameObject obj = Instantiate(growable.GetDraggablePrefab(), flowerSpawnPosition.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
+
+            currentFlowers.Add(obj.GetComponent<Dragable>());
+
+            Destroy(tChild.gameObject);
+        }
     }
 
     // Selected Object Functions

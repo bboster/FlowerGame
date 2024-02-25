@@ -7,6 +7,8 @@ public class Flower : MonoBehaviour
     [SerializeField]
     FlowerDataSO flowerData;
 
+    [SerializeField]
+    GameObject growablePrefab;
     public Dragable Dragable { get; private set; }
 
     private void Awake()
@@ -17,5 +19,10 @@ public class Flower : MonoBehaviour
     public List<FlowerStatContainer> GetFlowerStatsContainer()
     {
         return flowerData.stats;
+    }
+
+    public GameObject GetGrowablePrefab()
+    {
+        return growablePrefab;
     }
 }

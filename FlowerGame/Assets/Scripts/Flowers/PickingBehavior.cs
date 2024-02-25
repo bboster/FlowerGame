@@ -96,12 +96,42 @@ public class PickingBehavior : MonoBehaviour
             // If the flowers from PlayerController ISNT EMPTY
             if (PC.flowers[i] != null)
             {
+                Growable growable = PC.flowers[i].GetComponent<Growable>();
+                if (growable != null)
+                    growable.Harvest();
+
                 // Set the item to add, transform it's position to the transform position of the values under main camera, and set the value under the main camera as the flower's parent. 
                 itemToAdd = PC.flowers[i];
                 itemToAdd.transform.position = flowers[i].position;
                 itemToAdd.transform.parent = flowers[i];
             }
         }
+    }
+
+    public void AddItem(GameObject newItem)
+    {
+        int size = PC.flowers.Count;
+        for (int i = 0; i < size; i++)
+        {
+            // If the flowers from PlayerController ISNT EMPTY
+            if (PC.flowers[i] != null)
+            {
+                // Set the item to add, transform it's position to the transform position of the values under main camera, and set the value under the main camera as the flower's parent. 
+                itemToAdd = newItem;
+                itemToAdd.transform.position = flowers[i].position;
+                itemToAdd.transform.parent = flowers[i];
+            }
+        }
+    }
+
+    public List<Transform> GetFlowers()
+    {
+        return flowers;
+    }
+
+    public void ClearFlowers()
+    {
+        flowers.Clear();
     }
 
     public void SetBouqet(Bouqet bouqet)

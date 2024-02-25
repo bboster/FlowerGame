@@ -196,8 +196,8 @@ Transform:
   m_GameObject: {fileID: 4702774980582745057}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3669643899137184214}
   m_Father: {fileID: 0}
@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flowerData: {fileID: 11400000, guid: 5c6d5af4aad2c6f48a5d4d7154b98d5e, type: 2}
+  growablePrefab: {fileID: 5102439942214781042, guid: ed7e9a573279fb8429d9747677b56a29, type: 3}
 --- !u!54 &1917488989374186795
 Rigidbody:
   m_ObjectHideFlags: 0
