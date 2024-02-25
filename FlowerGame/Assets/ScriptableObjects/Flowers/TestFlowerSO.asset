@@ -15,4 +15,4 @@ MonoBehaviour:
   stats:
   - name: Love
     stat: 0
-    statAmount: 1
+    statAmount: 20

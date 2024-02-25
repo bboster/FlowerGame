@@ -23,6 +23,10 @@ public class FlowerStatContainer
 public enum FlowerStat
 {
     LOVE,
+    HEALTH,
+    GREETING,
+    FORTUNE,
+    REMEMBRANCE,
     SORROW,
     FILLER
 }

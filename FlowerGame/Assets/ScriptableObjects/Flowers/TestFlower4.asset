@@ -10,12 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c91484d936dfcd4d985145f007332d8, type: 3}
-  m_Name: TestFlower2
+  m_Name: TestFlower4
   m_EditorClassIdentifier: 
   stats:
-  - name: Health
-    stat: 1
+  - name: Fortune
+    stat: 3
     statAmount: 20
-  - name: Filler
-    stat: 2
-    statAmount: 1
