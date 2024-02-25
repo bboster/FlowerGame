@@ -20,7 +20,7 @@ public class PlayerDetector : MonoBehaviour
             return;
 
         isPlayerInHitbox = true;
-        playerController.ToggleToPickText(true);
+        playerController.ToggleInteractText(true);
     }
 
     private void OnTriggerExit(Collider other)
@@ -29,7 +29,7 @@ public class PlayerDetector : MonoBehaviour
             return;
 
         isPlayerInHitbox = false;
-        playerController.ToggleToPickText(false);
+        playerController.ToggleInteractText(false);
     }
 
     public void ToggleArrangmentMode()
@@ -53,6 +53,9 @@ public class PlayerDetector : MonoBehaviour
 
         Bouqet bouqet = PlayerManager.Instance.GetPlayer().PlayerPicker.GetBouqet();
         if (bouqet == null)
+            return;
+
+        if (CustomerManager.Instance.currentCustomer == null)
             return;
 
         CustomerManager.Instance.currentCustomer.GetPathing().SubmitBouqet(bouqet);

@@ -20,6 +20,9 @@ public class Soil : MonoBehaviour
 
     public void Plant(GameObject growablePrefab)
     {
+        if (currentCrop != null)
+            return;
+
         GameObject obj = Instantiate(growablePrefab, growthPoint);
         Growable growable = obj.GetComponent<Growable>();
 

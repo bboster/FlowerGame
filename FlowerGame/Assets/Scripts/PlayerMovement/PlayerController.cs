@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     // E to pick text
     [SerializeField] private TMP_Text toPick;
+    [SerializeField] private TMP_Text interact;
 
     private void Start()
     {
@@ -83,6 +84,11 @@ public class PlayerController : MonoBehaviour
     public void ToggleToPickText(bool active)
     {
         toPick.gameObject.SetActive(active);
+    }
+
+    public void ToggleInteractText(bool active)
+    {
+        interact.gameObject.SetActive(active);
     }
 
     // Coroutine to display the E to pick for 10 seconds. Called in OnTriggerEnter.

@@ -24,8 +24,6 @@ public class Pathing : MonoBehaviour
     [SerializeField]
     Customer customer;
 
-    Coroutine timer;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -63,7 +61,7 @@ public class Pathing : MonoBehaviour
         {
             customSpeed = 0f;
             Debug.Log("Arrive");
-            timer = StartCoroutine(SecondDelay());
+            StartCoroutine(SecondDelay());
         }
     }
 
@@ -71,6 +69,7 @@ public class Pathing : MonoBehaviour
     {
         float score = customer.CompareBouqetToDesired(bouqet);
         Debug.Log("Score: " + score);
+        CustomerManager.Instance.SetCustomer(null);
         StartCoroutine(DelayedLeave());
     }
 
@@ -78,6 +77,8 @@ public class Pathing : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         Leave();
+        yield return new WaitForSeconds(5f);
+        Destroy(gameObject);
     }
 
     private void Leave()

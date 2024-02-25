@@ -84,6 +84,9 @@ public class PickingBehavior : MonoBehaviour
 
     private void PickUp_started(InputAction.CallbackContext context)
     {
+        if (PC.currentState == PlayerState.ARRANGING)
+            return;
+
         PickItem();
     }
 
@@ -110,6 +113,7 @@ public class PickingBehavior : MonoBehaviour
 
     public void AddItem(GameObject newItem)
     {
+        PC.flowers.Add(newItem);
         int size = PC.flowers.Count;
         for (int i = 0; i < size; i++)
         {

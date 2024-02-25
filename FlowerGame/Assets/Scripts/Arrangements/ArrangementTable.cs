@@ -58,6 +58,8 @@ public class ArrangementTable : MonoBehaviour
 
     bool isBeingArranged = false;
 
+    bool isOnCooldown = false;
+
     private void Awake()
     {
         Instance = this;
@@ -107,6 +109,9 @@ public class ArrangementTable : MonoBehaviour
     // Camera Functions
     public void TransitionCamera()
     {
+        if (isOnCooldown)
+            return;
+
         currentCam = 1 - currentCam;
         isBeingArranged = !isBeingArranged;
 
@@ -131,6 +136,15 @@ public class ArrangementTable : MonoBehaviour
             EmptyPlayerInventory();
         else
             FillPlayerInventory();
+
+        StartCoroutine(ResetCooldown());
+    }
+
+    private IEnumerator ResetCooldown()
+    {
+        isOnCooldown = true;
+        yield return new WaitForSeconds(0.2f);
+        isOnCooldown = false;
     }
 
     private void FillPlayerInventory()
@@ -152,6 +166,7 @@ public class ArrangementTable : MonoBehaviour
     private void EmptyPlayerInventory()
     {
         PickingBehavior picker = PlayerManager.Instance.GetPlayer().PlayerPicker;
+        PlayerController playerController = PlayerManager.Instance.GetPlayer().PlayerController;
 
         foreach (Transform t in picker.GetFlowers())
         {
@@ -168,6 +183,8 @@ public class ArrangementTable : MonoBehaviour
 
             Destroy(tChild.gameObject);
         }
+
+        playerController.flowers.Clear();
     }
 
     // Selected Object Functions
@@ -278,6 +295,14 @@ public class ArrangementTable : MonoBehaviour
 
     public void ResetBouqet()
     {
+        foreach(Flower flower in bouqet.GetFlowers())
+        {
+            Dragable dragable = flower.Dragable;
+
+            if (currentFlowers.Contains(dragable))
+                currentFlowers.Remove(dragable);
+        }
+
         bouqet.BouqetStatChangeEvent -= UpdateUI;
         bouqet = null;
     }

@@ -131,4 +131,9 @@ public class Bouqet : MonoBehaviour
         // Reset Text
         tmpText.text = "";
     }
+
+    public List<Flower> GetFlowers()
+    {
+        return flowerBundle;
+    }
 }
