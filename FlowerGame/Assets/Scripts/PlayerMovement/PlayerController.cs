@@ -80,6 +80,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void ToggleToPickText(bool active)
+    {
+        toPick.gameObject.SetActive(active);
+    }
+
     // Coroutine to display the E to pick for 10 seconds. Called in OnTriggerEnter.
     IEnumerator PickingTimer()
     {

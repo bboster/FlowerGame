@@ -20,6 +20,7 @@ public class PlayerDetector : MonoBehaviour
             return;
 
         isPlayerInHitbox = true;
+        playerController.ToggleToPickText(true);
     }
 
     private void OnTriggerExit(Collider other)
@@ -28,6 +29,7 @@ public class PlayerDetector : MonoBehaviour
             return;
 
         isPlayerInHitbox = false;
+        playerController.ToggleToPickText(false);
     }
 
     public void ToggleArrangmentMode()
