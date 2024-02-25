@@ -31,9 +31,6 @@ public class Bouqet : MonoBehaviour
     {
         triggerHitbox = GetComponent<Collider>();
 
-        // Reset Text
-        tmpText.text = "";
-
         // Assign default FlowerStat values
         List<FlowerStat> flowerStatValues = Enum.GetValues(typeof(FlowerStat)).Cast<FlowerStat>().ToList();
         foreach (FlowerStat value in flowerStatValues)
@@ -101,7 +98,7 @@ public class Bouqet : MonoBehaviour
             bouqetStats[statContainer.stat] += subtractionModifier * statContainer.statAmount;
         }
 
-        BouqetStatChangeEvent.Invoke(this, new EventArgs());
+        BouqetStatChangeEvent?.Invoke(this, new EventArgs());
     }
 
     public Dictionary<FlowerStat, float> GetBouqetStats()
@@ -124,5 +121,14 @@ public class Bouqet : MonoBehaviour
 
         foreach (Flower flower in flowerBundle)
             flower.Dragable.SetDraggingEnabled(true);
+    }
+
+    // Setters and Getters
+    public void SetBodyText(TMP_Text text)
+    {
+        tmpText = text;
+
+        // Reset Text
+        tmpText.text = "";
     }
 }

@@ -16,6 +16,8 @@ public class Dragable : MonoBehaviour
 
     private Vector3 startRotation = Vector3.zero;
 
+    private Vector3 startPosition = Vector3.zero;
+
     bool isDraggingEnabled = true;
 
     Rigidbody rb;
@@ -25,6 +27,7 @@ public class Dragable : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         startRotation = transform.rotation.eulerAngles;
+        startPosition = transform.position;
     }
 
     private void FixedUpdate()
@@ -51,7 +54,7 @@ public class Dragable : MonoBehaviour
             return;
 
         Vector3 newPos = ArrangementTable.Instance.GetMousePosition();
-        newPos.y = dragableData.baseY;
+        newPos.y = startPosition.y + dragableData.baseY;
 
         rb.MovePosition(Vector3.Lerp(transform.position, newPos, dragableData.dragSpeed * Time.deltaTime));
     }

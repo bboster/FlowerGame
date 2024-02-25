@@ -17,7 +17,10 @@ public class ArrangementTable : MonoBehaviour
     [Space]
 
     [SerializeField]
-    Bouqet bouqet;
+    GameObject bouqetPrefab;
+
+    [SerializeField]
+    Transform bouqetSpawnPosition;
 
     [Space]
 
@@ -32,9 +35,14 @@ public class ArrangementTable : MonoBehaviour
     [SerializeField]
     ArrangementCanvas arrangementCanvas;
 
+    [SerializeField]
+    TMP_Text bodyText;
+
     [Header("Mouse Controls")]
     [SerializeField]
     float sensitivity;
+
+    Bouqet bouqet;
 
     // Flower Selected
     Dragable selectedObject = null;
@@ -54,8 +62,6 @@ public class ArrangementTable : MonoBehaviour
             Debug.LogError("Player Input Null!");
             return;
         }
-
-        bouqet.BouqetStatChangeEvent += UpdateUI;
 
         arrangementCanvas.SetStatsText("");
 
@@ -78,6 +84,19 @@ public class ArrangementTable : MonoBehaviour
         Gizmos.DrawSphere(GetMousePosition(), 0.2f);
     }
 
+    public void ToggleArrangementView()
+    {
+        TransitionCamera();
+        if(bouqet == null)
+        {
+            GameObject temp = Instantiate(bouqetPrefab, bouqetSpawnPosition.position, Quaternion.identity);
+            bouqet = temp.GetComponentInChildren<Bouqet>();
+
+            bouqet.SetBodyText(bodyText);
+            bouqet.BouqetStatChangeEvent += UpdateUI;
+        }
+    }
+
     // Camera Functions
     public void TransitionCamera()
     {
@@ -92,13 +111,20 @@ public class ArrangementTable : MonoBehaviour
                 virtualCameras[i].enabled = false;
         }
 
+        CursorLockMode cursorMode = isBeingArranged ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = isBeingArranged;
+
+        Cursor.lockState = cursorMode;
         arrangementCanvas.gameObject.SetActive(isBeingArranged);
+
+        PlayerState playerState = isBeingArranged ? PlayerState.ARRANGING : PlayerState.MOVING;
+        PlayerManager.Instance.GetPlayer().PlayerController.currentState = playerState;
     }
 
     // Selected Object Functions
     public void RotateSelectedObject(InputAction.CallbackContext context)
     {
-        if (selectedObject == null)
+        if (selectedObject == null || !selectedObject.IsDraggingEnabled())
             return;
 
         rotationOffset = context.ReadValue<Vector3>();
@@ -163,7 +189,7 @@ public class ArrangementTable : MonoBehaviour
         bouqet.LockFlowers();
     }
 
-    public void ResetBouqet()
+    public void ClearBouqet()
     {
         bouqet.UnlockFlowers();
     }
@@ -194,6 +220,17 @@ public class ArrangementTable : MonoBehaviour
         selectedObject = dragable;
 
         rotationOffset = Vector3.zero;
+    }
+
+    public Bouqet GetBouqet()
+    {
+        return bouqet;
+    }
+
+    public void ResetBouqet()
+    {
+        bouqet.BouqetStatChangeEvent -= UpdateUI;
+        bouqet = null;
     }
 
     enum VirtualCamera

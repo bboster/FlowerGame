@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: BouqetDragableSO
   m_EditorClassIdentifier: 
   dragSpeed: 11
-  baseY: 3
+  rotationSpeed: 10
+  baseY: 0
   doReturnGravOnRelease: 0

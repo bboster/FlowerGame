@@ -37,6 +37,13 @@ public class PickingBehavior : MonoBehaviour
     public Transform where13;
     public Transform where14;
     public Transform where15;
+
+    [Space]
+    [Header("Bouqet")]
+    [SerializeField]
+    Transform bouqetStorage;
+
+    Bouqet bouqet;
     
 
     private void Start()
@@ -95,6 +102,21 @@ public class PickingBehavior : MonoBehaviour
                 itemToAdd.transform.parent = flowers[i];
             }
         }
+    }
+
+    public void SetBouqet(Bouqet bouqet)
+    {
+        this.bouqet = bouqet;
+
+        bouqet.GetComponentInParent<Dragable>().SetDraggingEnabled(false);
+
+        bouqet.transform.parent.position = bouqetStorage.position;
+        bouqet.transform.parent.parent = bouqetStorage;
+    }
+
+    public Bouqet GetBouqet()
+    {
+        return bouqet;
     }
 
     // Must have this do not delete, isn't important what it does.

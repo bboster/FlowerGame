@@ -40,6 +40,6 @@ public class PlayerDetector : MonoBehaviour
         PlayerState newState = isPlayerArranging ? PlayerState.ARRANGING : PlayerState.MOVING;
         playerController.currentState = newState;
 
-        arrangementTable.TransitionCamera();
+        arrangementTable.ToggleArrangementView();
     }
 }
