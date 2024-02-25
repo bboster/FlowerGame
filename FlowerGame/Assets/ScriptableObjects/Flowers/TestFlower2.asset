@@ -16,6 +16,6 @@ MonoBehaviour:
   - name: Health
     stat: 1
     statAmount: 20
-  - name: Filler
+  - name: Greeting
     stat: 2
     statAmount: 1

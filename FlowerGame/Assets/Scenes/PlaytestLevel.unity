@@ -17517,7 +17517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
       propertyPath: desiredStats.Array.data[1].name
-      value: Sorrow
+      value: Health
       objectReference: {fileID: 0}
     - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
       propertyPath: desiredStats.Array.data[1].stat
@@ -17533,15 +17533,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
       propertyPath: desiredStats.Array.data[0].statAmount
-      value: 1
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
       propertyPath: desiredStats.Array.data[1].statAmount
-      value: 2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
       propertyPath: desiredStats.Array.data[2].statAmount
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4916796572358905475, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
       propertyPath: m_Name
