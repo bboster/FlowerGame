@@ -43,5 +43,6 @@ public class PlayerDetector : MonoBehaviour
         playerController.currentState = newState;
 
         arrangementTable.ToggleArrangementView();
+        playerController.ToggleToPickText(!isPlayerArranging);
     }
 }
