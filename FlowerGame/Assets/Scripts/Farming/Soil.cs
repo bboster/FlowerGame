@@ -13,6 +13,8 @@ public class Soil : MonoBehaviour
 
     public Growable currentCrop { get; private set; }
 
+    Coroutine timeToPlant = null;
+
     private void Start()
     {
         Plant(growablePrefab);
@@ -35,6 +37,17 @@ public class Soil : MonoBehaviour
 
     private void OnHarvest()
     {
+        //Debug.Log(name + " Harvest");
+
+        currentCrop = null;
+        if (timeToPlant == null)
+            timeToPlant = StartCoroutine(DelayedPlant());
+    }
+
+    IEnumerator DelayedPlant()
+    {
+        yield return new WaitForSeconds(1f);
         Plant(growablePrefab);
+        timeToPlant = null;
     }
 }
