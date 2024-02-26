@@ -310,7 +310,7 @@ MonoBehaviour:
   pathing: {fileID: 6905637799474680883, guid: 601fd5116f8448a41a9201c9f389a05b, type: 3}
   customSpeed: 5
   distanceToNext: 0.1
-  customerTime: 10
+  customerTime: 100
   customerVisual: {fileID: 6396031028880510730}
   customer: {fileID: 0}
 --- !u!54 &1611263874336812793
