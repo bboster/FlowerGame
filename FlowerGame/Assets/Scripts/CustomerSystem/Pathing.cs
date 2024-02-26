@@ -67,6 +67,19 @@ public class Pathing : MonoBehaviour
 
             StartCoroutine(SecondDelay());
         }
+
+        if(other.gameObject.CompareTag("CustomerBack"))
+        {
+            customSpeed = 0f;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.CompareTag("CustomerBack"))
+        {
+            customSpeed = 5f;
+        }
     }
 
     public void SubmitBouqet(Bouqet bouqet)

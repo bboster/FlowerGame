@@ -7,6 +7,8 @@ TagManager:
   - Flower
   - PickableFlower
   - Bouqet
+  - CustomerArrive
+  - CustomerBack
   layers:
   - Default
   - TransparentFX
