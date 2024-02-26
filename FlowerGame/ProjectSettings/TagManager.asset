@@ -9,6 +9,7 @@ TagManager:
   - Bouqet
   - CustomerArrive
   - CustomerBack
+  - CustomerGone
   layers:
   - Default
   - TransparentFX
