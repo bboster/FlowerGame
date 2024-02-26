@@ -102,6 +102,12 @@ public class ArrangementTable : MonoBehaviour
             bouqet.SetBodyText(bodyText);
             bouqet.BouqetStatChangeEvent += UpdateUI;
         }
+        else
+        {
+            PlayerManager.Instance.GetPlayer().PlayerPicker.SetBouqet(GetBouqet());
+
+            ResetBouqet();
+        }
 
 
     }
