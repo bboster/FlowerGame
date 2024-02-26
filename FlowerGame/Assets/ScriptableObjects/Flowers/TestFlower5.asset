@@ -16,3 +16,6 @@ MonoBehaviour:
   - name: Remembrance
     stat: 4
     statAmount: 20
+  - name: Health
+    stat: 1
+    statAmount: 5
