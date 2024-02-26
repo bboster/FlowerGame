@@ -59,7 +59,8 @@ public class Customer : MonoBehaviour
         }
 
         var scoreVar = System.Math.Round(score, 3);
-        
+
+        SetMoodText(score);
         SetRegisterText(scoreVar.ToString("F2"));
         return score;
     }
@@ -135,5 +136,32 @@ public class Customer : MonoBehaviour
     public void SetRegisterText(string text)
     {
         registerText.text = "$" + text;
+    }
+
+    public void SetMoodText(float score)
+    {
+        float predicted = GetPredictedIncome();
+        string moodText = "";
+
+        switch(score - predicted)
+        {
+            case float n when (n > 0):
+                moodText = ":D";
+                break;
+            case float n when (n == 0):
+                moodText = ":)";
+                break;
+            case float n when (n < 0):
+                moodText = ":|";
+                break;
+            case float n when (n < -10):
+                moodText = ":(";
+                break;
+            case float n when (n > -50):
+                moodText = "D:<";
+                break;
+        }
+
+        OrderText.text = moodText;
     }
 }

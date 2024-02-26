@@ -5061,7 +5061,7 @@ Transform:
   m_GameObject: {fileID: 5102439942214781042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7741584017300780437}
@@ -5083,7 +5083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   draggablePrefab: {fileID: 4702774980582745057, guid: 4be294f6e12a63148af8ecfa463b6e71, type: 3}
   minScale: 0.05
-  maxScale: 0.5
+  maxScale: 1
   timeToGrow: 15
   fullyGrownParticles: {fileID: 4938040182503252031}
   FullGrowthEvent:
