@@ -72,6 +72,11 @@ public class Pathing : MonoBehaviour
         {
             customSpeed = 0f;
         }
+
+        if(other.gameObject.CompareTag("CustomerGone"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerExit(Collider other)
