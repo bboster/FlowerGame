@@ -59,7 +59,7 @@ public class ArrangementCanvas : MonoBehaviour
 
     private void ConfirmBouqet()
     {
-        arrangementTable.ConfirmBouqet();
+        arrangementTable.LockBouqet();
 
         SetConfirmButtonState(ConfirmButtonState.RESET);
     }
@@ -74,7 +74,7 @@ public class ArrangementCanvas : MonoBehaviour
 
     private void ResetBouqet()
     {
-        arrangementTable.ResetBouqet();
+        arrangementTable.UnlockBouqet();
 
         SetConfirmButtonState(ConfirmButtonState.CONFIRM);
     }

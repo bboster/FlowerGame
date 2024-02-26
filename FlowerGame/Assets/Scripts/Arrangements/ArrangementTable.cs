@@ -250,12 +250,12 @@ public class ArrangementTable : MonoBehaviour
         arrangementCanvas.SetStatsText(outputString);
     }
 
-    public void ConfirmBouqet()
+    public void LockBouqet()
     {
         bouqet.LockFlowers();
     }
 
-    public void ClearBouqet()
+    public void UnlockBouqet()
     {
         bouqet.UnlockFlowers();
     }
@@ -295,6 +295,9 @@ public class ArrangementTable : MonoBehaviour
 
     public void ResetBouqet()
     {
+        if (bouqet == null)
+            return;
+
         foreach(Flower flower in bouqet.GetFlowers())
         {
             Dragable dragable = flower.Dragable;

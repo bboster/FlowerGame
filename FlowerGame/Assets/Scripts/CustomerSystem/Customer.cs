@@ -11,7 +11,16 @@ public class Customer : MonoBehaviour
     [SerializeField]
     List<FlowerStatContainer> desiredStats;
 
+    [SerializeField]
+    float maxStatCapacity = 1.25f;
+
+    [SerializeField]
+    float dollarsPerStatMult = 1;
+
+    [Space]
+
     [SerializeField] TMP_Text OrderText;
+    [SerializeField] TMP_Text registerText;
     [SerializeField] GameObject UIBox;
 
     Dictionary<FlowerStat, float> desiredStatsDict = new();
@@ -42,11 +51,26 @@ public class Customer : MonoBehaviour
         {
             if (!bouqetStats.ContainsKey(stat))
             {
-                score -= 1;
+                //score -= 1;
                 continue;
             }
 
-            score += Mathf.Clamp01(bouqetStats[stat] / desiredStatsDict[stat]);
+            score += Mathf.Clamp(bouqetStats[stat] / desiredStatsDict[stat], 0, maxStatCapacity) * desiredStatsDict[stat] * dollarsPerStatMult;
+        }
+
+        var scoreVar = System.Math.Round(score, 3);
+        
+        SetRegisterText(scoreVar.ToString("F2"));
+        return score;
+    }
+
+    private float GetPredictedIncome()
+    {
+        float score = 0;
+
+        foreach (FlowerStat stat in desiredStatsDict.Keys)
+        {
+            score += desiredStatsDict[stat] * dollarsPerStatMult;
         }
 
         return score;
@@ -99,7 +123,17 @@ public class Customer : MonoBehaviour
             OrderText.text += output;
             OrderText.text += "\n";
 
-            Debug.Log(output);
+            //Debug.Log(output);
         }
+        OrderText.text += "\n";
+
+        var scoreVar = System.Math.Round(GetPredictedIncome(), 3);
+
+        OrderText.text += "$" + scoreVar.ToString("F2");
+    }
+
+    public void SetRegisterText(string text)
+    {
+        registerText.text = "$" + text;
     }
 }

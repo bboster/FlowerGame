@@ -142,6 +142,9 @@ public class PickingBehavior : MonoBehaviour
     {
         this.bouqet = bouqet;
 
+        if (bouqet == null)
+            return;
+
         bouqet.GetComponentInParent<Dragable>().SetDraggingEnabled(false);
 
         bouqet.transform.parent.position = bouqetStorage.position;
