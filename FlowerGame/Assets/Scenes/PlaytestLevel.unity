@@ -19103,6 +19103,70 @@ PrefabInstance:
       propertyPath: characterCamera
       value: 
       objectReference: {fileID: 1622475849}
+    - target: {fileID: 1290623203926389734, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
+      propertyPath: flowerLocations.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290623203926389734, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
+      propertyPath: flowerLocations.Array.data[0]
+      value: 
+      objectReference: {fileID: 1036482087}
+    - target: {fileID: 1290623203926389734, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
+      propertyPath: flowerLocations.Array.data[1]
+      value: 
+      objectReference: {fileID: 1635333536}
+    - target: {fileID: 1290623203926389734, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
+      propertyPath: flowerLocations.Array.data[2]
+      value: 
+      objectReference: {fileID: 2055353976}
+    - target: {fileID: 1290623203926389734, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
+      propertyPath: flowerLocations.Array.data[3]
+      value: 
+      objectReference: {fileID: 2005013755}
+    - target: {fileID: 1290623203926389734, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
+      propertyPath: flowerLocations.Array.data[4]
+      value: 
+      objectReference: {fileID: 122385724}
+    - target: {fileID: 1290623203926389734, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
+      propertyPath: flowerLocations.Array.data[5]
+      value: 
+      objectReference: {fileID: 159534165}
+    - target: {fileID: 1290623203926389734, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
+      propertyPath: flowerLocations.Array.data[6]
+      value: 
+      objectReference: {fileID: 856146269}
+    - target: {fileID: 1290623203926389734, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
+      propertyPath: flowerLocations.Array.data[7]
+      value: 
+      objectReference: {fileID: 41834737}
+    - target: {fileID: 1290623203926389734, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
+      propertyPath: flowerLocations.Array.data[8]
+      value: 
+      objectReference: {fileID: 1497038753}
+    - target: {fileID: 1290623203926389734, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
+      propertyPath: flowerLocations.Array.data[9]
+      value: 
+      objectReference: {fileID: 1411241053}
+    - target: {fileID: 1290623203926389734, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
+      propertyPath: flowerLocations.Array.data[10]
+      value: 
+      objectReference: {fileID: 457527715}
+    - target: {fileID: 1290623203926389734, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
+      propertyPath: flowerLocations.Array.data[11]
+      value: 
+      objectReference: {fileID: 1392575445}
+    - target: {fileID: 1290623203926389734, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
+      propertyPath: flowerLocations.Array.data[12]
+      value: 
+      objectReference: {fileID: 82918245}
+    - target: {fileID: 1290623203926389734, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
+      propertyPath: flowerLocations.Array.data[13]
+      value: 
+      objectReference: {fileID: 920598808}
+    - target: {fileID: 1290623203926389734, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
+      propertyPath: flowerLocations.Array.data[14]
+      value: 
+      objectReference: {fileID: 514507971}
     - target: {fileID: 1341821141045313410, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
       propertyPath: m_Enabled
       value: 0
