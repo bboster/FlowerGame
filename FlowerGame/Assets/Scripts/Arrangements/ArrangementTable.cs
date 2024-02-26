@@ -104,12 +104,21 @@ public class ArrangementTable : MonoBehaviour
         }
         else
         {
+            
+        }
+
+        if (isBeingArranged)
+            EmptyPlayerInventory();
+        else
+        {
             PlayerManager.Instance.GetPlayer().PlayerPicker.SetBouqet(GetBouqet());
 
             ResetBouqet();
-        }
 
+            FillPlayerInventory();
+        }    
 
+        StartCoroutine(ResetCooldown());
     }
 
     // Camera Functions
@@ -138,12 +147,7 @@ public class ArrangementTable : MonoBehaviour
         PlayerState playerState = isBeingArranged ? PlayerState.ARRANGING : PlayerState.MOVING;
         PlayerManager.Instance.GetPlayer().PlayerController.currentState = playerState;
 
-        if (isBeingArranged)
-            EmptyPlayerInventory();
-        else
-            FillPlayerInventory();
-
-        StartCoroutine(ResetCooldown());
+        
     }
 
     private IEnumerator ResetCooldown()
