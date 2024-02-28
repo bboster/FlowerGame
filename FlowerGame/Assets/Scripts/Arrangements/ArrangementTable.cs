@@ -60,6 +60,8 @@ public class ArrangementTable : MonoBehaviour
 
     bool isOnCooldown = false;
 
+    [SerializeField] private Inventory inventory;
+
     private void Awake()
     {
         Instance = this;
@@ -94,43 +96,22 @@ public class ArrangementTable : MonoBehaviour
     public void ToggleArrangementView()
     {
         TransitionCamera();
-        PickingBehavior playerPicker = PlayerManager.Instance.GetPlayer().PlayerPicker;
-        Bouqet playerBouqet = playerPicker.GetBouqet();
-
-        if (bouqet == null)
+        if(bouqet == null)
         {
-            if(playerBouqet == null)
-            {
-                GameObject temp = Instantiate(bouqetPrefab, bouqetSpawnPosition.position, Quaternion.identity);
-                bouqet = temp.GetComponentInChildren<Bouqet>();
-            }
-            else
-            {
-                bouqet = playerBouqet;
-                playerBouqet.transform.position = bouqetSpawnPosition.position;
-            }
+            GameObject temp = Instantiate(bouqetPrefab, bouqetSpawnPosition.position, Quaternion.identity);
+            bouqet = temp.GetComponentInChildren<Bouqet>();
 
             bouqet.SetBodyText(bodyText);
             bouqet.BouqetStatChangeEvent += UpdateUI;
         }
-        else if(bouqet.GetFlowers().Count > 0)
-        {
-            Debug.Log("Bouqet Flower Count: " + bouqet.GetFlowers().Count);
-            playerPicker.SetBouqet(bouqet);
-        }
-
-        if (isBeingArranged)
-            EmptyPlayerInventory();
         else
         {
-            /*playerPicker.SetBouqet(bouqet);
+            PlayerManager.Instance.GetPlayer().PlayerPicker.SetBouqet(GetBouqet());
 
-            ResetBouqet();*/
+            ResetBouqet();
+        }
 
-            FillPlayerInventory();
-        }    
 
-        StartCoroutine(ResetCooldown());
     }
 
     // Camera Functions
@@ -157,15 +138,14 @@ public class ArrangementTable : MonoBehaviour
         arrangementCanvas.gameObject.SetActive(isBeingArranged);
 
         PlayerState playerState = isBeingArranged ? PlayerState.ARRANGING : PlayerState.MOVING;
-        float delay = isBeingArranged ? 0 : 1.5f;
-        StartCoroutine(DelayedPlayerState(playerState, delay));
-    }
+        PlayerManager.Instance.GetPlayer().PlayerController.currentState = playerState;
 
-    private IEnumerator DelayedPlayerState(PlayerState state, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        PlayerManager.Instance.GetPlayer().PlayerController.currentState = state;
-        //Debug.Log("PlayerState set: " + state);
+        if (isBeingArranged)
+            EmptyPlayerInventory();
+        else
+            FillPlayerInventory();
+
+        StartCoroutine(ResetCooldown());
     }
 
     private IEnumerator ResetCooldown()
@@ -178,12 +158,14 @@ public class ArrangementTable : MonoBehaviour
     private void FillPlayerInventory()
     {
         PickingBehavior picker = PlayerManager.Instance.GetPlayer().PlayerPicker;
+        
 
         foreach (Dragable d in currentFlowers)
         {
             GameObject obj = Instantiate(d.GetComponent<Flower>().GetGrowablePrefab());
 
-            picker.AddItem(obj);
+            //picker.AddItem(obj);
+            inventory.AddItem(obj);
 
             Destroy(d.gameObject);
         }
@@ -195,12 +177,12 @@ public class ArrangementTable : MonoBehaviour
     {
         PickingBehavior picker = PlayerManager.Instance.GetPlayer().PlayerPicker;
         PlayerController playerController = PlayerManager.Instance.GetPlayer().PlayerController;
-        Debug.Log("Flowers Collected: " + picker.GetFlowers().Count);
-        foreach (Transform t in picker.GetFlowers())
+
+        foreach (Transform t in inventory.GetFlowers()) // THIS USED TO BE picker.GetFlowers()
         {
             if (t.childCount <= 0)
                 continue;
-            
+
             Transform tChild = t.GetChild(0);
 
             Growable growable = tChild.GetComponent<Growable>();
