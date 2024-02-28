@@ -90,7 +90,7 @@ public class Pathing : MonoBehaviour
     public void SubmitBouqet(Bouqet bouqet)
     {
         float score = customer.CompareBouqetToDesired(bouqet);
-        Debug.Log("Score: " + score);
+        //Debug.Log("Score: " + score);
         CustomerManager.Instance.SetCustomer(null);
         StartCoroutine(DelayedLeave());
     }

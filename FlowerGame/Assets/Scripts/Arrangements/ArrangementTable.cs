@@ -117,7 +117,13 @@ public class ArrangementTable : MonoBehaviour
         }
         else if (bouqet.GetFlowers().Count > 0)
         {
-            Debug.Log("Bouqet Flower Count: " + bouqet.GetFlowers().Count);
+
+            foreach(Flower f in bouqet.GetFlowers())
+            {
+                currentFlowers.Remove(f.Dragable);
+            }
+
+            //Debug.Log("Bouqet Flower Count: " + bouqet.GetFlowers().Count);
             playerPicker.SetBouqet(bouqet);
         }
 
