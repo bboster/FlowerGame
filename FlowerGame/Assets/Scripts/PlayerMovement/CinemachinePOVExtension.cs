@@ -29,6 +29,9 @@ public class CinemachinePOVExtension : CinemachineExtension
                     startingRotation = transform.localRotation.eulerAngles;
                 }
 
+                if (PlayerManager.Instance.GetPlayer().PlayerController.currentState != PlayerState.MOVING)
+                    return;
+
                 Vector2 deltaInput = inputManager.GetMouseDelta();
                 startingRotation.x += deltaInput.x * verticalSpeed * Time.deltaTime;
                 startingRotation.y += deltaInput.y * horizontalSpeed * Time.deltaTime;

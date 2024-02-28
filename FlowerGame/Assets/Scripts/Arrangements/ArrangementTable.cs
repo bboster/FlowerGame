@@ -94,24 +94,35 @@ public class ArrangementTable : MonoBehaviour
     public void ToggleArrangementView()
     {
         TransitionCamera();
-        if(bouqet == null)
+        PickingBehavior playerPicker = PlayerManager.Instance.GetPlayer().PlayerPicker;
+        Bouqet playerBouqet = playerPicker.GetBouqet();
+
+        if (bouqet == null)
         {
-            GameObject temp = Instantiate(bouqetPrefab, bouqetSpawnPosition.position, Quaternion.identity);
-            bouqet = temp.GetComponentInChildren<Bouqet>();
+            if(playerBouqet == null)
+            {
+                GameObject temp = Instantiate(bouqetPrefab, bouqetSpawnPosition.position, Quaternion.identity);
+                bouqet = temp.GetComponentInChildren<Bouqet>();
+            }
+            else
+            {
+                bouqet = playerBouqet;
+                playerBouqet.transform.position = bouqetSpawnPosition.position;
+            }
 
             bouqet.SetBodyText(bodyText);
             bouqet.BouqetStatChangeEvent += UpdateUI;
         }
-        else
+        else if(bouqet.GetFlowers().Count > 0)
         {
-            
+            playerPicker.SetBouqet(bouqet);
         }
 
         if (isBeingArranged)
             EmptyPlayerInventory();
         else
         {
-            PlayerManager.Instance.GetPlayer().PlayerPicker.SetBouqet(GetBouqet());
+            playerPicker.SetBouqet(bouqet);
 
             ResetBouqet();
 
@@ -145,9 +156,15 @@ public class ArrangementTable : MonoBehaviour
         arrangementCanvas.gameObject.SetActive(isBeingArranged);
 
         PlayerState playerState = isBeingArranged ? PlayerState.ARRANGING : PlayerState.MOVING;
-        PlayerManager.Instance.GetPlayer().PlayerController.currentState = playerState;
+        float delay = isBeingArranged ? 0 : 2;
+        StartCoroutine(DelayedPlayerState(playerState, delay));
+    }
 
-        
+    private IEnumerator DelayedPlayerState(PlayerState state, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        PlayerManager.Instance.GetPlayer().PlayerController.currentState = state;
+
     }
 
     private IEnumerator ResetCooldown()
