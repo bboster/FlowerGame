@@ -113,6 +113,12 @@ public class ArrangementTable : MonoBehaviour
             {
                 bouqet = playerBouqet;
                 playerBouqet.transform.position = bouqetSpawnPosition.position;
+
+                foreach (Flower f in bouqet.GetFlowers())
+                {
+                    f.GetComponent<Collider>().enabled = true;
+                }
+                
             }
 
             bouqet.SetBodyText(bodyText);
@@ -123,6 +129,7 @@ public class ArrangementTable : MonoBehaviour
 
             foreach(Flower f in bouqet.GetFlowers())
             {
+                f.GetComponent<Collider>().enabled = false;
                 currentFlowers.Remove(f.Dragable);
             }
 
