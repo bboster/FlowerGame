@@ -4207,6 +4207,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1034329704}
     - target: {fileID: 9056212605081996787, guid: 768eb427f96448c45a58a9b5b9f00f8c, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 2019245513}
+    - target: {fileID: 9056212605081996787, guid: 768eb427f96448c45a58a9b5b9f00f8c, type: 3}
       propertyPath: bouqetPrefab
       value: 
       objectReference: {fileID: 2681055901039241622, guid: 75607150dda1a464181d51872385fcd6, type: 3}
@@ -19112,6 +19116,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1036482087}
     - target: {fileID: 1290623203926389734, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 2019245513}
+    - target: {fileID: 1290623203926389734, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
       propertyPath: bouqetStorage
       value: 
       objectReference: {fileID: 1446146856}
@@ -19456,6 +19464,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5206486119279200773, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2019245507}
+    - targetCorrespondingSourceObject: {fileID: 5206486119279200773, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2019245513}
   m_SourcePrefab: {fileID: 100100000, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
 --- !u!114 &2019245503 stripped
 MonoBehaviour:
@@ -19522,6 +19533,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.7607002, y: 1.1736373, z: 1.8121529}
   m_Center: {x: 0.05104351, y: -0.08681828, z: 0.12755203}
+--- !u!114 &2019245513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019245506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99673874e9651294bb5d86488a5f8df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryList: []
+  PC: {fileID: 2019245505}
+  inventoryPositions:
+  - {fileID: 1036482087}
+  - {fileID: 1635333536}
+  - {fileID: 2055353976}
+  - {fileID: 2005013755}
+  - {fileID: 122385724}
+  - {fileID: 159534165}
+  - {fileID: 856146269}
+  - {fileID: 41834737}
+  - {fileID: 1497038753}
+  - {fileID: 1411241053}
+  - {fileID: 457527715}
+  - {fileID: 1392575445}
+  - {fileID: 82918245}
+  - {fileID: 920598808}
+  - {fileID: 514507971}
+  itemToAdd: {fileID: 0}
 --- !u!43 &2024292619
 Mesh:
   m_ObjectHideFlags: 0

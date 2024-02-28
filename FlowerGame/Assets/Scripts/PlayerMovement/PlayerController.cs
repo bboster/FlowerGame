@@ -81,6 +81,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.tag == "PickableFlower")
+        {
+            flowers.Remove(other.gameObject);
+        }
+    }
+
     public void ToggleToPickText(bool active)
     {
         toPick.gameObject.SetActive(active);

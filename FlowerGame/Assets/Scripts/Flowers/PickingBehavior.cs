@@ -14,14 +14,13 @@ public class PickingBehavior : MonoBehaviour
 
     // Instance of the player controller
     public PlayerController PC;
+    public Inventory inventory;
 
-    // This list contains all the places you can place a flower. Found under the main camera.
-    public List<Transform> flowers;
 
     // The item to be added to the bouquet, get's updated dynamically
     public GameObject itemToAdd;
 
-    [SerializeField] List<Transform> flowerLocations;
+   
 
     [Space]
     [Header("Bouqet")]
@@ -56,31 +55,12 @@ public class PickingBehavior : MonoBehaviour
         if (PC.currentState == PlayerState.ARRANGING)
             return;
 
-        PickItem();
+        // Picks up flowers
+        inventory.PickFlower();
     }
+  
 
-    // Picks up flowers.
-    private void PickItem()
-    {
-        int size = PC.flowers.Count;
-        for (int i = 0; i < size; i++)
-        {
-            // If the flowers from PlayerController ISNT EMPTY
-            if (PC.flowers[i] != null)
-            {
-                Growable growable = PC.flowers[i].GetComponent<Growable>();
-                if (growable != null)
-                    growable.Harvest();
-
-                // Set the item to add, transform it's position to the transform position of the values under main camera, and set the value under the main camera as the flower's parent. 
-                itemToAdd = PC.flowers[i];
-                itemToAdd.transform.position = flowers[i].position;
-                itemToAdd.transform.parent = flowers[i];
-            }
-        }
-    }
-
-    public void AddItem(GameObject newItem)
+    /*public void AddItem(GameObject newItem)
     {
         PC.flowers.Add(newItem);
         int size = PC.flowers.Count;
@@ -95,17 +75,17 @@ public class PickingBehavior : MonoBehaviour
                 itemToAdd.transform.parent = flowerLocations[i];
             }
         }
-    }
+    }*/
 
-    public List<Transform> GetFlowers()
+    /*public List<Transform> GetFlowers()
     {
-        return flowers;
+        return flowerLocations;
     }
 
     public void ClearFlowers()
     {
-        flowers.Clear();
-    }
+        flowerLocations.Clear();
+    }*/
 
     public void SetBouqet(Bouqet bouqet)
     {

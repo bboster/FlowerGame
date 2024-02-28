@@ -60,6 +60,8 @@ public class ArrangementTable : MonoBehaviour
 
     bool isOnCooldown = false;
 
+    [SerializeField] private Inventory inventory;
+
     private void Awake()
     {
         Instance = this;
@@ -156,12 +158,14 @@ public class ArrangementTable : MonoBehaviour
     private void FillPlayerInventory()
     {
         PickingBehavior picker = PlayerManager.Instance.GetPlayer().PlayerPicker;
+        
 
         foreach (Dragable d in currentFlowers)
         {
             GameObject obj = Instantiate(d.GetComponent<Flower>().GetGrowablePrefab());
 
-            picker.AddItem(obj);
+            //picker.AddItem(obj);
+            inventory.AddItem(obj);
 
             Destroy(d.gameObject);
         }
@@ -174,7 +178,7 @@ public class ArrangementTable : MonoBehaviour
         PickingBehavior picker = PlayerManager.Instance.GetPlayer().PlayerPicker;
         PlayerController playerController = PlayerManager.Instance.GetPlayer().PlayerController;
 
-        foreach (Transform t in picker.GetFlowers())
+        foreach (Transform t in inventory.GetFlowers()) // THIS USED TO BE picker.GetFlowers()
         {
             if (t.childCount <= 0)
                 continue;
