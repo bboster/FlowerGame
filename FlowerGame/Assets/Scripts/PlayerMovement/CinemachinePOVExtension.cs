@@ -29,10 +29,10 @@ public class CinemachinePOVExtension : CinemachineExtension
                     startingRotation = transform.localRotation.eulerAngles;
                 }
 
-                if (PlayerManager.Instance.GetPlayer().PlayerController.currentState != PlayerState.MOVING)
-                    return;
-
                 Vector2 deltaInput = inputManager.GetMouseDelta();
+                if (PlayerManager.Instance.GetPlayer().PlayerController.currentState != PlayerState.MOVING)
+                    deltaInput = Vector2.zero;
+                //Debug.Log("Camera delta: " + deltaInput);
                 startingRotation.x += deltaInput.x * verticalSpeed * Time.deltaTime;
                 startingRotation.y += deltaInput.y * horizontalSpeed * Time.deltaTime;
                 startingRotation.y = Mathf.Clamp(startingRotation.y, -clampAngle, clampAngle);

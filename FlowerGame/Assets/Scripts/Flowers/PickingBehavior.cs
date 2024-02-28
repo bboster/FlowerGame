@@ -74,8 +74,8 @@ public class PickingBehavior : MonoBehaviour
 
                 // Set the item to add, transform it's position to the transform position of the values under main camera, and set the value under the main camera as the flower's parent. 
                 itemToAdd = PC.flowers[i];
-                itemToAdd.transform.position = flowers[i].position;
-                itemToAdd.transform.parent = flowers[i];
+                itemToAdd.transform.position = flowerLocations[i].position;
+                itemToAdd.transform.parent = flowerLocations[i];
             }
         }
     }

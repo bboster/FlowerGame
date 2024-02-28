@@ -115,6 +115,7 @@ public class ArrangementTable : MonoBehaviour
         }
         else if(bouqet.GetFlowers().Count > 0)
         {
+            Debug.Log("Bouqet Flower Count: " + bouqet.GetFlowers().Count);
             playerPicker.SetBouqet(bouqet);
         }
 
@@ -122,9 +123,9 @@ public class ArrangementTable : MonoBehaviour
             EmptyPlayerInventory();
         else
         {
-            playerPicker.SetBouqet(bouqet);
+            /*playerPicker.SetBouqet(bouqet);
 
-            ResetBouqet();
+            ResetBouqet();*/
 
             FillPlayerInventory();
         }    
@@ -156,7 +157,7 @@ public class ArrangementTable : MonoBehaviour
         arrangementCanvas.gameObject.SetActive(isBeingArranged);
 
         PlayerState playerState = isBeingArranged ? PlayerState.ARRANGING : PlayerState.MOVING;
-        float delay = isBeingArranged ? 0 : 2;
+        float delay = isBeingArranged ? 0 : 1.5f;
         StartCoroutine(DelayedPlayerState(playerState, delay));
     }
 
@@ -164,7 +165,7 @@ public class ArrangementTable : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         PlayerManager.Instance.GetPlayer().PlayerController.currentState = state;
-
+        //Debug.Log("PlayerState set: " + state);
     }
 
     private IEnumerator ResetCooldown()
@@ -194,12 +195,12 @@ public class ArrangementTable : MonoBehaviour
     {
         PickingBehavior picker = PlayerManager.Instance.GetPlayer().PlayerPicker;
         PlayerController playerController = PlayerManager.Instance.GetPlayer().PlayerController;
-
+        Debug.Log("Flowers Collected: " + picker.GetFlowers().Count);
         foreach (Transform t in picker.GetFlowers())
         {
             if (t.childCount <= 0)
                 continue;
-
+            
             Transform tChild = t.GetChild(0);
 
             Growable growable = tChild.GetComponent<Growable>();

@@ -39,9 +39,6 @@ public class PlayerDetector : MonoBehaviour
 
         isPlayerArranging = !isPlayerArranging;
 
-        PlayerState newState = isPlayerArranging ? PlayerState.ARRANGING : PlayerState.MOVING;
-        playerController.currentState = newState;
-
         arrangementTable.ToggleArrangementView();
         playerController.ToggleToPickText(!isPlayerArranging);
     }
