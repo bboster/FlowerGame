@@ -95,6 +95,9 @@ public class ArrangementTable : MonoBehaviour
 
     public void ToggleArrangementView()
     {
+        if (isOnCooldown)
+            return;
+
         TransitionCamera();
         PickingBehavior playerPicker = PlayerManager.Instance.GetPlayer().PlayerPicker;
         Bouqet playerBouqet = playerPicker.GetBouqet();
