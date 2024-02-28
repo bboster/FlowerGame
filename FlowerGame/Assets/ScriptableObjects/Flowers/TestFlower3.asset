@@ -16,3 +16,6 @@ MonoBehaviour:
   - name: Greeting
     stat: 2
     statAmount: 20
+  - name: Fortune
+    stat: 3
+    statAmount: 10
