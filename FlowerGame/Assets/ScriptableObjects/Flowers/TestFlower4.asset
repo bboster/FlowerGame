@@ -16,3 +16,6 @@ MonoBehaviour:
   - name: Fortune
     stat: 3
     statAmount: 20
+  - name: Love
+    stat: 0
+    statAmount: 5

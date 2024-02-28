@@ -9,13 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c91484d936dfcd4d985145f007332d8, type: 3}
-  m_Name: TestFlower3
+  m_Script: {fileID: 11500000, guid: 5ad191a98598da643b4e510070d0f14c, type: 3}
+  m_Name: CustomerRequest1
   m_EditorClassIdentifier: 
-  stats:
-  - name: Greeting
-    stat: 2
-    statAmount: 20
-  - name: Fortune
-    stat: 3
-    statAmount: 10
+  requests:
+  - desiredStatsContainer:
+    - name: 
+      stat: 0
+      statAmount: 0
+  - desiredStatsContainer: []
