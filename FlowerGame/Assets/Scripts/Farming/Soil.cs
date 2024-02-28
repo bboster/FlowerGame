@@ -31,13 +31,14 @@ public class Soil : MonoBehaviour
         currentCrop = growable;
 
         growable.HarvestEvent.AddListener(OnHarvest);
-
+        growable.transform.localScale = Vector3.zero;
         growable.StartGrowth();
     }
 
     private void OnHarvest()
     {
         //Debug.Log(name + " Harvest");
+        currentCrop.HarvestEvent.RemoveAllListeners();
 
         currentCrop = null;
         if (timeToPlant == null)

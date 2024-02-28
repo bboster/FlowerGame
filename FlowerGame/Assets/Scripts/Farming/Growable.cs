@@ -18,6 +18,9 @@ public class Growable : MonoBehaviour
     float timeToGrow = 10;
 
     [SerializeField]
+    float startGrowthRate = 1;
+
+    [SerializeField]
     ParticleSystem fullyGrownParticles;
 
     public UnityEvent FullGrowthEvent;
@@ -30,6 +33,8 @@ public class Growable : MonoBehaviour
 
     float growthTimer = 0;
 
+    float growthRate = 1;
+
     bool isGrowing = false;
 
     private void Awake()
@@ -37,6 +42,8 @@ public class Growable : MonoBehaviour
         startScale = transform.localScale;
 
         col = GetComponent<Collider>();
+
+        growthRate = startGrowthRate;
 
         FullGrowthEvent.AddListener(ActivateParticles);
         FullGrowthEvent.AddListener(ActivateCollider);
@@ -56,7 +63,7 @@ public class Growable : MonoBehaviour
             return;
         }
 
-        growthTimer += Time.fixedDeltaTime;
+        growthTimer += Time.fixedDeltaTime * growthRate;
 
         Scale(growthTimer / timeToGrow);
     }
