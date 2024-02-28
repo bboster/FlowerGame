@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
   - name: Love
-    stat: 0
+    stat: {fileID: 11400000, guid: 24f3303ce97bb6148b328f665875fa6c, type: 2}
     statAmount: 20

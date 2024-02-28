@@ -15,7 +15,7 @@ public class FlowerStatContainer
 
     [Space]
 
-    public FlowerStat stat;
+    public FlowerStatSO stat;
 
     public float statAmount;
 }

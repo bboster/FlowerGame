@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
   - name: Fortune
-    stat: 3
+    stat: {fileID: 11400000, guid: d7b3de926040f744faafae264868f81c, type: 2}
     statAmount: 20
   - name: Love
-    stat: 0
+    stat: {fileID: 11400000, guid: 24f3303ce97bb6148b328f665875fa6c, type: 2}
     statAmount: 5

@@ -95,7 +95,7 @@ public class Bouqet : MonoBehaviour
 
         foreach(FlowerStatContainer statContainer in flower.GetFlowerStatsContainer())
         {
-            bouqetStats[statContainer.stat] += subtractionModifier * statContainer.statAmount;
+            bouqetStats[statContainer.stat.stat] += subtractionModifier * statContainer.statAmount;
         }
 
         BouqetStatChangeEvent?.Invoke(this, new EventArgs());

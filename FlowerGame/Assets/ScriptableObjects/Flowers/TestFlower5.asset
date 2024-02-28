@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
   - name: Remembrance
-    stat: 4
+    stat: {fileID: 11400000, guid: 39e8e2627d190014c9940094506fded9, type: 2}
     statAmount: 20
   - name: Health
-    stat: 1
+    stat: {fileID: 11400000, guid: 8b3b61f492199d749adc8538c06ffe2d, type: 2}
     statAmount: 5

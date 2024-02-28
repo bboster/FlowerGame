@@ -33,7 +33,7 @@ public class Customer : MonoBehaviour
 
         foreach(FlowerStatContainer statContainer in desiredStats)
         {
-            desiredStatsDict[statContainer.stat] = statContainer.statAmount;
+            desiredStatsDict[statContainer.stat.stat] = statContainer.statAmount;
         }
     }
 
@@ -90,34 +90,7 @@ public class Customer : MonoBehaviour
         foreach(FlowerStatContainer flower in desiredStats)
         {
             string output = "";
-
-            switch(flower.stat)
-            {
-                case FlowerStat.LOVE:
-                    output += "Love: ";
-                    break;
-                case FlowerStat.HEALTH:
-                    output += "Health: ";
-                    break;
-                case FlowerStat.GREETING:
-                    output += "Greeting: ";
-                    break;
-                case FlowerStat.FORTUNE:
-                    output += "Fortune: ";
-                    break;
-                case FlowerStat.REMEMBRANCE:
-                    output += "Remembrance: ";
-                    break;
-                case FlowerStat.SORROW:
-                    output += "Sorrow: ";
-                    break;
-                case FlowerStat.FILLER:
-                    output += "Filler: ";
-                    break;
-                default:
-                    output += "error";
-                    break;
-            }
+            output += flower.stat.name + ": ";
 
             output += flower.statAmount;
 
