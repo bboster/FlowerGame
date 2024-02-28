@@ -18787,6 +18787,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2019245513}
     - target: {fileID: 5020221318105916815, guid: fc25e9490d384a046bbf3d8a0bc73d3c, type: 3}
+      propertyPath: arrangementCam
+      value: 
+      objectReference: {fileID: 1622475849}
+    - target: {fileID: 5020221318105916815, guid: fc25e9490d384a046bbf3d8a0bc73d3c, type: 3}
       propertyPath: virtualCameras.Array.data[0]
       value: 
       objectReference: {fileID: 2019245503}
