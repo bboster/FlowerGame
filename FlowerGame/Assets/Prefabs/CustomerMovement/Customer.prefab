@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -155.4, y: -313.4}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -155.4, y: -322.66}
+  m_SizeDelta: {x: 100, y: 142.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4350578446559405458
 CanvasRenderer:
@@ -308,11 +308,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathing: {fileID: 6905637799474680883, guid: 601fd5116f8448a41a9201c9f389a05b, type: 3}
-  customSpeed: 5
+  customSpeed: 3
   distanceToNext: 0.1
   customerTime: 100
   customerVisual: {fileID: 6396031028880510730}
-  customer: {fileID: 0}
+  customer: {fileID: 3530275520071761250}
 --- !u!54 &1611263874336812793
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -352,8 +352,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c247cf8799694142bd0939c900a5082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathing: {fileID: 0}
-  desiredStats: []
+  pathing: {fileID: 6085986077650723492}
+  desiredStats:
+  - name: Love
+    stat: 0
+    statAmount: 40
+  - name: Health
+    stat: 1
+    statAmount: 20
+  - name: Filler
+    stat: 2
+    statAmount: 1
   maxStatCapacity: 1.25
   dollarsPerStatMult: 1
   OrderText: {fileID: 4833143774072364936}
