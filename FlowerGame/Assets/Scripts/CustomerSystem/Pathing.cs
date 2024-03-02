@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pathing : MonoBehaviour
 {
     // Stores reference to pathing system for our customers
-    [SerializeField] private CustomerPathiing2 pathing;
+    [SerializeField] public CustomerPathiing2 pathing;
 
     [SerializeField] private float customSpeed = 5f;
 
