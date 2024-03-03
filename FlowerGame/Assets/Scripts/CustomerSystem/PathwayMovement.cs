@@ -61,7 +61,6 @@ public class PathwayMovement : MonoBehaviour
         if(other.gameObject.CompareTag("CustomerArrive"))
         {
             customSpeed = 0f;
-            Debug.Log("Arrive");
             StartCoroutine(SecondDelay());
         }
     }
