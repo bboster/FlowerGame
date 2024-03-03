@@ -6826,7 +6826,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350900382}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 49.616043, y: 87.787056, z: 2.1185484}
+  m_LocalPosition: {x: 56.07, y: 87.787056, z: 1.41}
   m_LocalScale: {x: 4.06761, y: 0.099999994, z: 1.50238}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -29087,21 +29087,21 @@ MonoBehaviour:
   inventoryList: []
   PC: {fileID: 1945422943}
   inventoryPositions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1920652041}
+  - {fileID: 1223831587}
+  - {fileID: 753476561}
+  - {fileID: 1178425369}
+  - {fileID: 326445309}
+  - {fileID: 1513605399}
+  - {fileID: 1758481875}
+  - {fileID: 1671874406}
+  - {fileID: 1699060190}
+  - {fileID: 1009900691}
+  - {fileID: 774155049}
+  - {fileID: 1175986104}
+  - {fileID: 1599131575}
+  - {fileID: 1340845452}
+  - {fileID: 1108695077}
   itemToAdd: {fileID: 0}
 --- !u!114 &1945422946
 MonoBehaviour:
