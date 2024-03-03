@@ -39,7 +39,6 @@ public class Customer : MonoBehaviour
 
     private void Start()
     {
-        CustomerManager.Instance.SetCustomer(this);
     }
 
     public float CompareBouqetToDesired(Bouqet bouqet)
