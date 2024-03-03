@@ -1004,6 +1004,7 @@ GameObject:
   - component: {fileID: 2733892166890919074}
   - component: {fileID: 1290623203926389734}
   - component: {fileID: 1995478873067341136}
+  - component: {fileID: 3496565455149119014}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1043,7 +1044,10 @@ MonoBehaviour:
   playerSpeed: 2
   jumpHeight: 1
   gravityValue: -9.81
+  currentState: 0
   flowers: []
+  toPick: {fileID: 0}
+  interact: {fileID: 0}
 --- !u!143 &2545862590344497471
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1114,41 +1118,9 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   PC: {fileID: 2850933475598855768}
-  inventory: []
-  flowers: []
+  inventory: {fileID: 0}
   itemToAdd: {fileID: 0}
-  flower1: {fileID: 0}
-  flower2: {fileID: 0}
-  flower3: {fileID: 0}
-  flower4: {fileID: 0}
-  flower5: {fileID: 0}
-  flower6: {fileID: 0}
-  flower7: {fileID: 0}
-  flower8: {fileID: 0}
-  flower9: {fileID: 0}
-  flower10: {fileID: 0}
-  flower11: {fileID: 0}
-  flower12: {fileID: 0}
-  flower13: {fileID: 0}
-  flower14: {fileID: 0}
-  flower15: {fileID: 0}
-  whereToPut1: {x: 0.979, y: -0.599999, z: 0.62}
-  whereToPut2: {x: 0.848, y: -0.599999, z: 0.62}
-  whereToPut3: {x: 1.005, y: -0.599999, z: 0.62}
-  whereToPut4: {x: 0.752, y: -0.599999, z: 0.62}
-  whereToPut5: {x: 0.752, y: -0.599999, z: 0.83}
-  whereToPut6: {x: 0.65, y: -0.599999, z: 0.83}
-  whereToPut7: {x: 0.91, y: -0.599999, z: 0.83}
-  whereToPut8: {x: 0.49, y: -0.599999, z: 0.83}
-  whereToPut9: {x: 0.37, y: -0.599999, z: 0.83}
-  whereToPut10: {x: 0.35, y: -0.599999, z: 0.83}
-  whereToPut11: {x: 0.93, y: -0.599999, z: 0.83}
-  whereToPut12: {x: 0.93, y: -0.599999, z: 0.92}
-  whereToPut13: {x: 1.53, y: -0.599999, z: 0.92}
-  whereToPut14: {x: 1.32, y: -0.599999, z: 0.92}
-  whereToPut15: {x: 1.22, y: -0.599999, z: 0.92}
-  Player: {fileID: 5206486119279200773}
-  where: {fileID: 0}
+  bouqetStorage: {fileID: 0}
 --- !u!114 &1995478873067341136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1179,6 +1151,102 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!82 &3496565455149119014
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5206486119279200773}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 46f746c8bd3762e42b5a69a9c144fe68, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5582951045195737938
 GameObject:
   m_ObjectHideFlags: 0
