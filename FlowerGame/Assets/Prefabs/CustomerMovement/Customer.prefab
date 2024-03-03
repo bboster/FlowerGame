@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c247cf8799694142bd0939c900a5082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathing: {fileID: 6085986077650723492}
+  pathing: {fileID: 0}
   desiredStats:
   - name: Love
     stat: 0
