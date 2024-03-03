@@ -14,6 +14,11 @@ public class PlayerDetector : MonoBehaviour
 
     bool isPlayerArranging = false;
 
+    private void Start()
+    {
+        playerController = PlayerManager.Instance.GetPlayer().PlayerController;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player"))
