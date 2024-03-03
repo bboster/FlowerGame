@@ -5683,11 +5683,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b294cbb36a8ad74089a94c814cb8852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HowToPlayCanvas: {fileID: 0}
-  CreditsCanvas: {fileID: 0}
-  PauseCanvas: {fileID: 0}
+  HowToPlayCanvas: {fileID: 1339515681}
+  CreditsCanvas: {fileID: 676756218}
+  PauseCanvas: {fileID: 604776808}
   MainMenuCanvas: {fileID: 0}
-  GameScene: PlaytestLevel
+  GameScene: ActualPrototypeLevel
   MainMenuScene: MenuUI
 --- !u!4 &254489062
 Transform:
