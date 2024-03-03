@@ -61,17 +61,20 @@ public class PlayerController : MonoBehaviour
         Quit.started += Quit_started;
     }
 
+    // Quit the game!
     private void Quit_started(InputAction.CallbackContext obj)
     {
         print("QuitGame");
         Application.Quit();
     }
 
+    // Stopped pressing pause
     private void Pause_canceled(InputAction.CallbackContext obj)
     {
         print("Stopped pressing p");
     }
 
+    // Pause the game
     private void Pause_started(InputAction.CallbackContext obj)
     {
         PauseCanvas.SetActive(true);
