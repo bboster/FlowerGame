@@ -352,16 +352,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c247cf8799694142bd0939c900a5082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathing: {fileID: 0}
+  pathing: {fileID: 6085986077650723492}
   desiredStats:
   - name: Love
-    stat: 0
+    stat: {fileID: 11400000, guid: 24f3303ce97bb6148b328f665875fa6c, type: 2}
     statAmount: 40
   - name: Health
-    stat: 1
+    stat: {fileID: 11400000, guid: 8b3b61f492199d749adc8538c06ffe2d, type: 2}
     statAmount: 20
   - name: Filler
-    stat: 2
+    stat: {fileID: 11400000, guid: 7f0a81ad641c56e4f926a241d55cb35c, type: 2}
     statAmount: 1
   maxStatCapacity: 1.25
   dollarsPerStatMult: 1
