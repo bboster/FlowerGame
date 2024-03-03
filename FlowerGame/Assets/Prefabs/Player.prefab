@@ -1048,6 +1048,26 @@ MonoBehaviour:
   flowers: []
   toPick: {fileID: 0}
   interact: {fileID: 0}
+  PlayerInputInstance: {fileID: 0}
+  Pause:
+    m_Name: Pause
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1d4b1984-6a2b-448b-8bad-d5b21e6d8797
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  Quit:
+    m_Name: Quit
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 02b84d15-535d-4d7f-b561-c6f099b3f1e1
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  PauseCanvas: {fileID: 0}
 --- !u!143 &2545862590344497471
 CharacterController:
   m_ObjectHideFlags: 0
