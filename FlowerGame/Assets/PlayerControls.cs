@@ -80,6 +80,33 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PullUpJournal"",
+                    ""type"": ""Button"",
+                    ""id"": ""78588e90-a58a-40a3-a483-d76217e1bae1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""52ad7060-9ec6-49ec-ba93-f90d679603c0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""0c18badc-40a4-460f-853c-49019d14454e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -190,6 +217,39 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Harvest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6dc26e4c-3f25-4bc9-9c84-90f50ae3ec6c"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PullUpJournal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""51efd6f8-a25b-4095-a34b-2f38bd967efa"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bedc0d31-2aeb-4d7f-84df-d42744606429"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -371,6 +431,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_PickUp = m_Player.FindAction("PickUp", throwIfNotFound: true);
         m_Player_PutDown = m_Player.FindAction("PutDown", throwIfNotFound: true);
         m_Player_Harvest = m_Player.FindAction("Harvest", throwIfNotFound: true);
+        m_Player_PullUpJournal = m_Player.FindAction("PullUpJournal", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_Quit = m_Player.FindAction("Quit", throwIfNotFound: true);
         // PlayerArrangement
         m_PlayerArrangement = asset.FindActionMap("PlayerArrangement", throwIfNotFound: true);
         m_PlayerArrangement_MouseMovement = m_PlayerArrangement.FindAction("Mouse Movement", throwIfNotFound: true);
@@ -444,6 +507,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_PickUp;
     private readonly InputAction m_Player_PutDown;
     private readonly InputAction m_Player_Harvest;
+    private readonly InputAction m_Player_PullUpJournal;
+    private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_Quit;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -454,6 +520,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @PickUp => m_Wrapper.m_Player_PickUp;
         public InputAction @PutDown => m_Wrapper.m_Player_PutDown;
         public InputAction @Harvest => m_Wrapper.m_Player_Harvest;
+        public InputAction @PullUpJournal => m_Wrapper.m_Player_PullUpJournal;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @Quit => m_Wrapper.m_Player_Quit;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -481,6 +550,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Harvest.started += instance.OnHarvest;
             @Harvest.performed += instance.OnHarvest;
             @Harvest.canceled += instance.OnHarvest;
+            @PullUpJournal.started += instance.OnPullUpJournal;
+            @PullUpJournal.performed += instance.OnPullUpJournal;
+            @PullUpJournal.canceled += instance.OnPullUpJournal;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
+            @Quit.started += instance.OnQuit;
+            @Quit.performed += instance.OnQuit;
+            @Quit.canceled += instance.OnQuit;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -503,6 +581,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Harvest.started -= instance.OnHarvest;
             @Harvest.performed -= instance.OnHarvest;
             @Harvest.canceled -= instance.OnHarvest;
+            @PullUpJournal.started -= instance.OnPullUpJournal;
+            @PullUpJournal.performed -= instance.OnPullUpJournal;
+            @PullUpJournal.canceled -= instance.OnPullUpJournal;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
+            @Quit.started -= instance.OnQuit;
+            @Quit.performed -= instance.OnQuit;
+            @Quit.canceled -= instance.OnQuit;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -598,6 +685,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnPickUp(InputAction.CallbackContext context);
         void OnPutDown(InputAction.CallbackContext context);
         void OnHarvest(InputAction.CallbackContext context);
+        void OnPullUpJournal(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
+        void OnQuit(InputAction.CallbackContext context);
     }
     public interface IPlayerArrangementActions
     {

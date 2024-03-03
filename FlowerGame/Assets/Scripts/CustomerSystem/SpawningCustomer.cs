@@ -7,6 +7,7 @@ using UnityEngine;
 public class SpawningCustomer : MonoBehaviour
 {
     public GameObject Customer;
+    public GameObject pointOne;
 
     // Update is called once per frame
     void Update()
@@ -17,7 +18,7 @@ public class SpawningCustomer : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.F))
         {
-            GameObject newCustomer = Instantiate(Customer, transform.position, Quaternion.identity);
+            GameObject newCustomer = Instantiate(Customer, transform.position, transform.rotation);
             // Keeps new spawns organized underneath the parent object / spawner.
             newCustomer.transform.parent = transform;
             Debug.Log("Count");
