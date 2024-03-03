@@ -13549,7 +13549,7 @@ RectTransform:
   - {fileID: 2018121142}
   - {fileID: 294974807}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -16222,7 +16222,7 @@ RectTransform:
   - {fileID: 1111160104}
   - {fileID: 29799044}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -18184,7 +18184,7 @@ RectTransform:
   m_Children:
   - {fileID: 1783828221}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -18222,7 +18222,7 @@ Transform:
   - {fileID: 262994024}
   - {fileID: 1512289720}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1981808175
 GameObject:
@@ -19087,6 +19087,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
+      propertyPath: desiredStats.Array.data[3].name
+      value: Filler
+      objectReference: {fileID: 0}
+    - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
+      propertyPath: desiredStats.Array.data[3].stat
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
       propertyPath: desiredStats.Array.data[0].statAmount
       value: 40
       objectReference: {fileID: 0}
@@ -19096,6 +19104,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
       propertyPath: desiredStats.Array.data[2].statAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
+      propertyPath: desiredStats.Array.data[3].statAmount
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4916796572358905475, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
