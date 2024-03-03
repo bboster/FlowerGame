@@ -21964,7 +21964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dde1c0886bb76714e937eb77542f79f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  registerText: {fileID: 0}
+  registerText: {fileID: 565915892}
   currentCustomer: {fileID: 0}
 --- !u!1 &1504723737
 GameObject:
