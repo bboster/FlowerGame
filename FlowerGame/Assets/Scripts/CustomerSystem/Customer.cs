@@ -39,7 +39,6 @@ public class Customer : MonoBehaviour
 
     private void Start()
     {
-        CustomerManager.Instance.SetCustomer(this);
     }
 
     public float CompareBouqetToDesired(Bouqet bouqet)
@@ -58,10 +57,8 @@ public class Customer : MonoBehaviour
             score += Mathf.Clamp(bouqetStats[stat] / desiredStatsDict[stat], 0, maxStatCapacity) * desiredStatsDict[stat] * dollarsPerStatMult;
         }
 
-        var scoreVar = System.Math.Round(score, 3);
-
         SetMoodText(score);
-        SetRegisterText(scoreVar.ToString("F2"));
+        CustomerManager.Instance.AddToRegister(score);
         return score;
     }
 

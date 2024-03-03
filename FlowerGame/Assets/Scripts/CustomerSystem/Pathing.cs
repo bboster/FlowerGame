@@ -24,6 +24,8 @@ public class Pathing : MonoBehaviour
     [SerializeField]
     Customer customer;
 
+    bool stayOrGo = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,17 +57,28 @@ public class Pathing : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         // This will trigger the countdown of the customer.
         // customerTime for total countdown can be found within Inspector of Customer Gameobject.
         if (other.gameObject.CompareTag("CustomerArrive"))
         {
-            customSpeed = 0f;
-            Debug.Log("Arrive");
+            if(!stayOrGo)
+            {
+                customSpeed = 0f;
+                Debug.Log("Arrive");
+                CustomerManager.Instance.SetCustomer(GetComponent<Customer>());
 
-            //Customer only tells order when they arrive
-            gameObject.GetComponent<Customer>().DisplayOrder();
+                //Customer only tells order when they arrive
+                gameObject.GetComponent<Customer>().DisplayOrder();
+                StartCoroutine(SecondDelay());
+                stayOrGo = true;
+            }    
+            else
+            {
+                customSpeed = 5f;
+            }
 
-            StartCoroutine(SecondDelay());
+
         }
 
         if(other.gameObject.CompareTag("CustomerBack"))
