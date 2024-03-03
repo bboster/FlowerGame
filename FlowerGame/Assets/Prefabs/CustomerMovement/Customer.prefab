@@ -352,8 +352,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c247cf8799694142bd0939c900a5082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathing: {fileID: 0}
-  desiredStats: []
+  pathing: {fileID: 6085986077650723492}
+  desiredStats:
+  - name: Greeting
+    stat: {fileID: 11400000, guid: d98412bc2bff49044875186c6d6c6db4, type: 2}
+    statAmount: 80
+  - name: Love
+    stat: {fileID: 11400000, guid: 24f3303ce97bb6148b328f665875fa6c, type: 2}
+    statAmount: 60
   maxStatCapacity: 1.25
   dollarsPerStatMult: 1
   OrderText: {fileID: 4833143774072364936}

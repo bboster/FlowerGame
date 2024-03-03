@@ -18998,61 +18998,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
-      propertyPath: pathing
-      value: 
-      objectReference: {fileID: 2018202637}
-    - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
       propertyPath: registerText
       value: 
       objectReference: {fileID: 31974881}
-    - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
-      propertyPath: desiredStats.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
-      propertyPath: desiredStats.Array.data[0].name
-      value: Love
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
-      propertyPath: desiredStats.Array.data[1].name
-      value: Health
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
-      propertyPath: desiredStats.Array.data[1].stat
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
-      propertyPath: desiredStats.Array.data[2].name
-      value: Filler
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
-      propertyPath: desiredStats.Array.data[2].stat
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
-      propertyPath: desiredStats.Array.data[3].name
-      value: Filler
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
-      propertyPath: desiredStats.Array.data[3].stat
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
-      propertyPath: desiredStats.Array.data[0].statAmount
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
-      propertyPath: desiredStats.Array.data[1].statAmount
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
-      propertyPath: desiredStats.Array.data[2].statAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530275520071761250, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
-      propertyPath: desiredStats.Array.data[3].statAmount
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4916796572358905475, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
       propertyPath: m_Name
       value: Customer
@@ -19145,17 +19093,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c247cf8799694142bd0939c900a5082, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2018202637 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6085986077650723492, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}
-  m_PrefabInstance: {fileID: 2018202633}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60c5679cd13403745b33e2635704e46a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2019245502
