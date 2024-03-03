@@ -66,10 +66,18 @@ public class Inventory : MonoBehaviour
         return inventoryPositions;
     }
 
-    public void ClearFlowers()
+    public void ClearFlowerPositions()
     {
         inventoryPositions.Clear();
     }
 
+    public void ClearInventory()
+    {
+        foreach(Transform t in inventoryPositions)
+        {
+            foreach (Transform child in t)
+                Destroy(child.gameObject);
+        }
+    }
 
 }

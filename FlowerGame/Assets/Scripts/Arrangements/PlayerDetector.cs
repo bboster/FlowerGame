@@ -59,4 +59,16 @@ public class PlayerDetector : MonoBehaviour
 
         Destroy(bouqet.transform.parent.gameObject);
     }
+
+    public void ClearInventory()
+    {
+        if (!isPlayerInHitbox)
+            return;
+
+        Inventory inv = playerController.GetComponent<Inventory>();
+        
+        inv.ClearInventory();
+
+        playerController.flowers.Clear();
+    }
 }
