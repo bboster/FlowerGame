@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -31,6 +32,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TMP_Text toPick;
     [SerializeField] private TMP_Text interact;
 
+    // Player input
+    public PlayerInput PlayerInputInstance;
+    public InputAction Pause;
+    public InputAction Quit;
+
+    // This scripts PauseCanvas
+    [SerializeField] private GameObject PauseCanvas;
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -40,6 +49,35 @@ public class PlayerController : MonoBehaviour
         // Locks the mouse
         Cursor.lockState = CursorLockMode.Locked;
         toPick.gameObject.SetActive(false);
+
+        PlayerInputInstance = GetComponent<PlayerInput>();
+        PlayerInputInstance.currentActionMap.Enable();
+
+        Pause = PlayerInputInstance.currentActionMap.FindAction("Pause");
+        Quit = PlayerInputInstance.currentActionMap.FindAction("Quit");
+
+        Pause.started += Pause_started;
+        Pause.canceled += Pause_canceled;
+        Quit.started += Quit_started;
+    }
+
+    private void Quit_started(InputAction.CallbackContext obj)
+    {
+        print("QuitGame");
+        Application.Quit();
+    }
+
+    private void Pause_canceled(InputAction.CallbackContext obj)
+    {
+        print("Stopped pressing p");
+    }
+
+    private void Pause_started(InputAction.CallbackContext obj)
+    {
+        PauseCanvas.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 0.0f;
     }
 
     void Update()
