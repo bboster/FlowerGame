@@ -15,7 +15,7 @@ public class CustomerManager : MonoBehaviour
 
     float currentMoney = 0;
 
-    public Customer currentCustomer { get; private set; }
+    public Customer currentCustomer;
 
     private void Awake()
     {

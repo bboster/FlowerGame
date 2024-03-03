@@ -7,7 +7,6 @@ using UnityEngine;
 public class SpawningCustomer : MonoBehaviour
 {
     public GameObject Customer;
-    public GameObject pointOne;
 
     // Update is called once per frame
     void Update()
