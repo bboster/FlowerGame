@@ -115,7 +115,9 @@ public class ArrangementTable : MonoBehaviour
             else
             {
                 bouqet = playerBouqet;
-                playerBouqet.transform.position = bouqetSpawnPosition.position;
+                playerBouqet.transform.parent.parent = null;
+                playerBouqet.transform.parent.position = bouqetSpawnPosition.position;
+                bouqet.GetComponentInParent<Dragable>().SetDraggingEnabled(true);
 
                 foreach (Flower f in bouqet.GetFlowers())
                 {
@@ -138,6 +140,7 @@ public class ArrangementTable : MonoBehaviour
 
             //Debug.Log("Bouqet Flower Count: " + bouqet.GetFlowers().Count);
             playerPicker.SetBouqet(bouqet);
+            bouqet = null;
         }
 
         if (isBeingArranged)
@@ -147,7 +150,7 @@ public class ArrangementTable : MonoBehaviour
             /*playerPicker.SetBouqet(bouqet);
 
             ResetBouqet();*/
-
+            
             FillPlayerInventory();
         }
 
@@ -280,6 +283,13 @@ public class ArrangementTable : MonoBehaviour
     {
         string outputString = "";
         List<FlowerStat> statsToChange = new();
+
+        if(bouqet == null)
+        {
+            outputString = "";
+            arrangementCanvas.SetStatsText(outputString);
+            return;
+        }
 
         Dictionary<FlowerStat, float> bouqetStats = bouqet.GetBouqetStats();
 
