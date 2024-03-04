@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private List<Transform> inventoryPositions;
     // The item to be added to the inventory
     public GameObject itemToAdd;
+    [SerializeField] private int itemToAddCount = 0;
     
     public void AddFlowerToInventory(GameObject gameObject)
     {
@@ -24,7 +25,7 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < size; i++)
         {
             // If the flowers from PlayerController ISNT EMPTY
-            if (PC.flowers[i] != null)
+            if (PC.flowers[i] != null && itemToAddCount < 15)
             {
                 Growable growable = PC.flowers[i].GetComponent<Growable>();
                 if (growable != null)
@@ -34,6 +35,7 @@ public class Inventory : MonoBehaviour
                 itemToAdd = PC.flowers[i];
                 itemToAdd.transform.position = inventoryPositions[i].position;
                 itemToAdd.transform.parent = inventoryPositions[i];
+                itemToAddCount++;
                 AddToInventory(itemToAdd);
             }
         }

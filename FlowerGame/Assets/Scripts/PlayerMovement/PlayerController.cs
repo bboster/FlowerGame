@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using UnityEngine.InputSystem;
+using System.Runtime.CompilerServices;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -58,15 +59,8 @@ public class PlayerController : MonoBehaviour
 
         Pause.started += Pause_started;
         Pause.canceled += Pause_canceled;
-        Quit.started += Quit_started;
     }
 
-    // Quit the game!
-    private void Quit_started(InputAction.CallbackContext obj)
-    {
-        print("QuitGame");
-        Application.Quit();
-    }
 
     // Stopped pressing pause
     private void Pause_canceled(InputAction.CallbackContext obj)
@@ -147,8 +141,13 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(10);
         toPick.gameObject.SetActive(false);
     }
-}
 
+    private void OnDestroy()
+    {
+        Pause.started -= Pause_started;
+        Pause.canceled -= Pause_canceled;
+    }
+}
 public enum PlayerState
 {
     MOVING,
