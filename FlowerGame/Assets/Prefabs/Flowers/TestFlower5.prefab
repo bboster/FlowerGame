@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: flowerData
       value: 
       objectReference: {fileID: 11400000, guid: 1d708abeb2a5a6b44a95ee5db993ba4e, type: 2}
+    - target: {fileID: 8286338133726315689, guid: 4be294f6e12a63148af8ecfa463b6e71, type: 3}
+      propertyPath: growablePrefab
+      value: 
+      objectReference: {fileID: 5102439942214781042, guid: a8356918d56700447b238b791664d95c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6974193284690265821, guid: 4be294f6e12a63148af8ecfa463b6e71, type: 3}
