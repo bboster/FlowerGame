@@ -5088,7 +5088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae5c2fa76f120445b31b2a0f8a5db68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggablePrefab: {fileID: 4702774980582745057, guid: 4be294f6e12a63148af8ecfa463b6e71, type: 3}
+  draggablePrefab: {fileID: 4702774980582745057, guid: 7491765005e0f8a4da8c6bb963f3de3c, type: 3}
   minScale: 0.05
   maxScale: 1
   timeToGrow: 15
