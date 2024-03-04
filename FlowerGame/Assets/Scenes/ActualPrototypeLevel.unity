@@ -4336,7 +4336,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163713649}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9899998, y: 3.42, z: 1.92}
+  m_LocalPosition: {x: 0.9899998, y: 4.61, z: 1.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -29201,7 +29201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7045200940173939336, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.45
+      value: 2.64
       objectReference: {fileID: 0}
     - target: {fileID: 7799316643316802339, guid: dd81e94a23c9f1b419b0b787f03524fd, type: 3}
       propertyPath: m_Enabled
@@ -30742,6 +30742,10 @@ PrefabInstance:
       propertyPath: arrangementCam
       value: 
       objectReference: {fileID: 163713653}
+    - target: {fileID: 5020221318105916815, guid: fc25e9490d384a046bbf3d8a0bc73d3c, type: 3}
+      propertyPath: flowerSpawnRotation.x
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 5020221318105916815, guid: fc25e9490d384a046bbf3d8a0bc73d3c, type: 3}
       propertyPath: virtualCameras.Array.data[0]
       value: 
