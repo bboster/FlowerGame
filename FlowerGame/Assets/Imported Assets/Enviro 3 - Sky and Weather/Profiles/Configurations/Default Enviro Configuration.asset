@@ -130,9 +130,9 @@ MonoBehaviour:
   preset: {fileID: 11400000, guid: 0fcdd472bd6a8ec429fc1e9bc978c4fa, type: 2}
   showCirrusCloudsControls: 0
   show2DCloudsControls: 0
-  cloudFlatBaseAnim: {x: 0.52752393, y: 0.51500505}
-  cloudFlatDetailAnim: {x: 0.3431842, y: 0.9960725}
-  cirrusAnim: {x: -0.734013, y: -0.74591047}
+  cloudFlatBaseAnim: {x: 0.15592124, y: 0.88688576}
+  cloudFlatDetailAnim: {x: 0.4669651, y: 0.8801168}
+  cirrusAnim: {x: -0.9195241, y: -0.56033707}
 --- !u!114 &-1033463005042072443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -798,7 +798,7 @@ MonoBehaviour:
     sunScale: 0
     moonScale: 1.3
     starsTwinklingSpeed: 0.1
-    moonPhase: -0.71405095
+    moonPhase: -0.71405137
     skyExposureHDRP:
       serializedVersion: 2
       m_Curve:
@@ -1961,7 +1961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cae96c4b3ef46947a21c9615a74e6e4, type: 3}
   m_Name: Volumetric Cloud Module
   m_EditorClassIdentifier: 
-  showModuleInspector: 0
+  showModuleInspector: 1
   showSaveLoad: 0
   active: 1
   settingsLayer1:
@@ -1970,14 +1970,14 @@ MonoBehaviour:
     windSpeedModifier: 0.005
     windUpwards: 0.02
     coverage: -0.091
-    worleyFreq2: 2
-    worleyFreq1: 4
+    worleyFreq2: 0.5
+    worleyFreq1: 1
     dilateCoverage: 0
     dilateType: 0
     cloudsTypeModifier: 0.447
     locationOffset: {x: 0, y: 0}
-    bottomCloudsHeight: 2000
-    topCloudsHeight: 8000
+    bottomCloudsHeight: 1000
+    topCloudsHeight: 4000
     density: 0.8
     densitySmoothness: 1.8
     scatteringIntensity: 1.3
@@ -1989,7 +1989,7 @@ MonoBehaviour:
     multiScatteringA: 0.2
     multiScatteringB: 0.075
     multiScatteringC: 0.13
-    baseNoiseUV: 6
+    baseNoiseUV: 8
     detailNoiseUV: 28
     baseErosionIntensity: 0
     detailErosionIntensity: 0.5
@@ -2128,17 +2128,17 @@ MonoBehaviour:
     cloudsWorldScale: 5000000
     atmosphereColorSaturateDistance: 35000
     ambientLighIntensity: 1
-    cloudShadows: 1
+    cloudShadows: 0
     cloudShadowsIntensity: 1
-    cloudsTravelSpeed: 0.188
+    cloudsTravelSpeed: 0.069
   settingsQuality:
     volumetricClouds: 1
-    downsampling: 1
-    stepsLayer1: 145
-    stepsLayer2: 132
-    blueNoiseIntensity: 0.928
-    reprojectionBlendTime: 5.75
-    lodDistance: 1
+    downsampling: 6
+    stepsLayer1: 32
+    stepsLayer2: 32
+    blueNoiseIntensity: 2
+    reprojectionBlendTime: 2
+    lodDistance: 0.103
   preset: {fileID: 11400000, guid: 4b3879673bba3ff488a4b539b4de69b7, type: 2}
   showGlobalControls: 1
   showLayer1Controls: 1
@@ -2148,10 +2148,10 @@ MonoBehaviour:
   showDensityControls: 1
   showTextureControls: 0
   showWindControls: 1
-  cloudAnimLayer1: {x: 0.8684269, y: -0.35256734, z: 0.9219638}
+  cloudAnimLayer1: {x: 0.6825169, y: -0.16672046, z: 0.41797924}
   cloudAnimLayer2: {x: 0.3247161, y: -0.56056964, z: 0.77803093}
-  cloudAnimNonScaledLayer1: {x: 2.1535215, y: -2.1188045, z: -71.41239}
-  cloudAnimNonScaledLayer2: {x: -1.8721217, y: 1.8373815, z: -71.770485}
+  cloudAnimNonScaledLayer1: {x: 2.2795892, y: -2.244872, z: -77.7119}
+  cloudAnimNonScaledLayer2: {x: -1.9981749, y: 1.9634347, z: -78.06999}
   weatherMap: {fileID: 0}
 --- !u!114 &4011421771873438716
 MonoBehaviour:
@@ -2169,7 +2169,7 @@ MonoBehaviour:
   showSaveLoad: 0
   active: 1
   Settings:
-    useAurora: 0
+    useAurora: 1
     auroraIntensityModifier: 1
     auroraIntensity:
       serializedVersion: 2
@@ -2209,7 +2209,7 @@ MonoBehaviour:
     auroraContrast: 10
     auroraHeight: 20000
     auroraScale: 0.01
-    auroraSteps: 32
+    auroraSteps: 24
     auroraLayer1Settings: {x: 0.1, y: 0.1, z: 0, w: 0.5}
     auroraLayer2Settings: {x: 5, y: 5, z: 0, w: 0.5}
     auroraColorshiftSettings: {x: 0.05, y: 0.05, z: 0, w: 5}
@@ -2265,7 +2265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3ccdfb360c52f049bf71126aa74826f, type: 3}
   m_Name: Weather Module
   m_EditorClassIdentifier: 
-  showModuleInspector: 1
+  showModuleInspector: 0
   showSaveLoad: 0
   active: 1
   Settings:
@@ -2311,8 +2311,8 @@ MonoBehaviour:
   active: 1
   Settings:
     volumetrics: 1
-    steps: 16
-    quality: 0
+    steps: 32
+    quality: 1
     scattering: 1.377
     extinction: 0.481
     anistropy: 0.799
@@ -2366,7 +2366,7 @@ MonoBehaviour:
       m_ColorSpace: 0
       m_NumColorKeys: 4
       m_NumAlphaKeys: 2
-    unityFog: 1
+    unityFog: 0
     unityFogMode: 2
     unityFogDensity: 0.0003
     unityFogStartDistance: 0
@@ -2406,6 +2406,7 @@ MonoBehaviour:
   showVolumetricsControls: 1
   showUnityFogControls: 1
   fogLights:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
