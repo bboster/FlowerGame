@@ -25,6 +25,9 @@ public class ArrangementTable : MonoBehaviour
     [SerializeField]
     Transform flowerSpawnPosition;
 
+    [SerializeField]
+    Vector3 flowerSpawnRotation = new(-90, 0, 0);
+
     [Space]
 
     [SerializeField]
@@ -226,7 +229,7 @@ public class ArrangementTable : MonoBehaviour
 
             Growable growable = tChild.GetComponent<Growable>();
 
-            GameObject obj = Instantiate(growable.GetDraggablePrefab(), flowerSpawnPosition.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
+            GameObject obj = Instantiate(growable.GetDraggablePrefab(), flowerSpawnPosition.position, Quaternion.Euler(flowerSpawnRotation));
 
             currentFlowers.Add(obj.GetComponent<Dragable>());
 

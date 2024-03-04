@@ -38,19 +38,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7543091434231539807, guid: 4be294f6e12a63148af8ecfa463b6e71, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.7071068
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 7543091434231539807, guid: 4be294f6e12a63148af8ecfa463b6e71, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7543091434231539807, guid: 4be294f6e12a63148af8ecfa463b6e71, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7543091434231539807, guid: 4be294f6e12a63148af8ecfa463b6e71, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 7543091434231539807, guid: 4be294f6e12a63148af8ecfa463b6e71, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: flowerData
       value: 
       objectReference: {fileID: 11400000, guid: 8d1af828f9e8a2f4ba5a41ced0f636a5, type: 2}
+    - target: {fileID: 8286338133726315689, guid: 4be294f6e12a63148af8ecfa463b6e71, type: 3}
+      propertyPath: growablePrefab
+      value: 
+      objectReference: {fileID: 5102439942214781042, guid: d947c9ec84e3e40428a6075222136667, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

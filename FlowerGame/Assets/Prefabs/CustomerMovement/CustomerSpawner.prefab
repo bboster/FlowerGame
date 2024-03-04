@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdc1465f1e2031c49a641f71b0dfa2d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customerRequestStorage: {fileID: 11400000, guid: 8f28ac071f7262f4db2e13b25fb8b92b, type: 2}
   Customer: {fileID: 4916796572358905475, guid: a7f7aa9e0e4b2454ebb8f3d731bb5055, type: 3}

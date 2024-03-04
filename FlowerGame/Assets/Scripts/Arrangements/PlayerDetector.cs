@@ -14,6 +14,11 @@ public class PlayerDetector : MonoBehaviour
 
     bool isPlayerArranging = false;
 
+    private void Start()
+    {
+        playerController = PlayerManager.Instance.GetPlayer().PlayerController;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player"))
@@ -58,5 +63,17 @@ public class PlayerDetector : MonoBehaviour
         CustomerManager.Instance.currentCustomer.GetPathing().SubmitBouqet(bouqet);
 
         Destroy(bouqet.transform.parent.gameObject);
+    }
+
+    public void ClearInventory()
+    {
+        if (!isPlayerInHitbox)
+            return;
+
+        Inventory inv = playerController.GetComponent<Inventory>();
+        
+        inv.ClearInventory();
+
+        playerController.flowers.Clear();
     }
 }
