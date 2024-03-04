@@ -13,8 +13,10 @@ public class SymbolHolder : MonoBehaviour
 
     public void GenerateSymbols(List<FlowerStatContainer> flowerStatContainers)
     {
+        Debug.Log("Generating Symbols");
         foreach(FlowerStatContainer container in flowerStatContainers)
         {
+            Debug.Log(container.name);
             GameObject obj = Instantiate(symbolPrefab, transform);
             Image image = obj.GetComponent<Image>();
 

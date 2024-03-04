@@ -19,7 +19,10 @@ public class Customer : MonoBehaviour
 
     [Space]
 
+    [Header("UI")]
     [SerializeField] TMP_Text OrderText;
+    [SerializeField] SymbolHolder symbols;
+    [Space]
     [SerializeField] TMP_Text registerText;
     [SerializeField] GameObject UIBox;
 
@@ -138,5 +141,7 @@ public class Customer : MonoBehaviour
     public void SetRequest(CustomerRequest request)
     {
         desiredStats = request.GetFlowerStatContainers();
+
+        symbols.GenerateSymbols(desiredStats);
     }
 }
