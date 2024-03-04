@@ -134,4 +134,9 @@ public class Customer : MonoBehaviour
 
         OrderText.text = moodText;
     }
+
+    public void SetRequest(CustomerRequest request)
+    {
+        desiredStats = request.GetFlowerStatContainers();
+    }
 }
