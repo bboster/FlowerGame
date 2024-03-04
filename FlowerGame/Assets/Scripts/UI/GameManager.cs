@@ -79,4 +79,11 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(GameScene);
     }
+    
+    // Quits the game I guess.
+    public void QuitGame()
+    {
+        Debug.Log("Quit.");
+        Application.Quit();
+    }
 }
