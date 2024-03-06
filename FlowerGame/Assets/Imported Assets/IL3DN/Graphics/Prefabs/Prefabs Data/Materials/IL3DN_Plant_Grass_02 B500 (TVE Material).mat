@@ -81,8 +81,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaClipValue: 0.5
-    - _AlphaCutoff: 0.5
+    - _AlphaClipValue: 0.152
+    - _AlphaCutoff: 0.152
     - _AlphaVariationValue: 0.5
     - _CategoryDetail: 1
     - _CategoryEmissive: 1
@@ -104,7 +104,7 @@ Material:
     - _ColorsMaskValue: 1
     - _ColorsPositionMode: 0
     - _ColorsVariationValue: 0.5
-    - _Cutoff: 0.5
+    - _Cutoff: 0.152
     - _DetailAlphaMode: 1
     - _DetailBlendMaxValue: 0.6
     - _DetailBlendMinValue: 0.4
@@ -133,9 +133,9 @@ Material:
     - _EmissiveTexMinValue: 0
     - _EnvironmentReflections: 1
     - _ExtrasPositionMode: 0
-    - _FadeCameraValue: 1
+    - _FadeCameraValue: 0.157
     - _FadeConstantValue: 0
-    - _FadeGlancingValue: 1
+    - _FadeGlancingValue: 0.127
     - _GlobalAlpha: 1
     - _GlobalColors: 1
     - _GlobalEmissive: 1
@@ -179,7 +179,7 @@ Material:
     - _MotionAmplitude_20: 0
     - _MotionAmplitude_22: 0
     - _MotionAmplitude_32: 0.1
-    - _MotionFacingValue: 0.5
+    - _MotionFacingValue: 0.358
     - _MotionPosition_10: 0.5
     - _MotionScale_10: 6
     - _MotionScale_20: 20
@@ -212,9 +212,9 @@ Material:
     - _RenderQueue: 0
     - _RenderSSR: 0
     - _RenderShadow: 1
-    - _RenderSpecular: 1
+    - _RenderSpecular: 0
     - _RenderZWrite: 1
-    - _SecondAlbedoValue: 1
+    - _SecondAlbedoValue: 0.12
     - _SecondColorMode: 0
     - _SecondMaskMaxValue: 0
     - _SecondMaskMinValue: 0
@@ -249,7 +249,7 @@ Material:
     - _TransStrength: 0.471
     - _VertexDynamicMode: 0
     - _VertexOcclusionColorsMode: 0
-    - _VertexOcclusionMaxValue: 1
+    - _VertexOcclusionMaxValue: 0.57723564
     - _VertexOcclusionMinValue: 0
     - _VertexOcclusionOverlayMode: 0
     - _VertexPivotMode: 1
@@ -269,7 +269,7 @@ Material:
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissiveTexRemap: {r: 0, g: 0, b: 0, a: 0}
     - _EmissiveUVs: {r: 1, g: 1, b: 0, a: 0}
-    - _GradientColorOne: {r: 1.9999999, g: 1.9999999, b: 1.9999999, a: 1}
+    - _GradientColorOne: {r: 0.99999994, g: 0.99999994, b: 0.99999994, a: 1}
     - _GradientColorTwo: {r: 0.8148468, g: 0.5209957, b: 0.17464745, a: 1}
     - _GradientMaskRemap: {r: 0, g: 0, b: 0, a: 0}
     - _MainColor: {r: 0.9473069, g: 0.8148468, b: 0.57112503, a: 1}
@@ -277,17 +277,17 @@ Material:
     - _MainMaskRemap: {r: 0, g: 0, b: 0, a: 0}
     - _MainUVs: {r: 1, g: 1, b: 0, a: 0}
     - _MaxBoundsInfo: {r: 1, g: 1, b: 1, a: 1}
-    - _MotionHighlightColor: {r: 5.5908804, g: 5.5908804, b: 5.5908804, a: 1}
+    - _MotionHighlightColor: {r: 2.7954402, g: 2.7954402, b: 2.7954402, a: 1}
     - _NoiseMaskRemap: {r: 0, g: 0, b: 0, a: 0}
     - _RimLightRemap: {r: 0, g: 0, b: 0, a: 0}
-    - _SecondColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SecondColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _SecondColorTwo: {r: 1, g: 1, b: 1, a: 1}
     - _SecondMaskRemap: {r: 0, g: 0, b: 0, a: 0}
     - _SecondUVs: {r: 1, g: 1, b: 0, a: 0}
-    - _SubsurfaceColor: {r: 1.8946137, g: 1.5670761, b: 0.9820418, a: 1}
+    - _SubsurfaceColor: {r: 0.9473069, g: 0.78353804, b: 0.4910209, a: 1}
     - _SubsurfaceDiffusion_Asset: {r: 0, g: 0, b: 0, a: 0}
     - _VertexOcclusionColor: {r: 1, g: 1, b: 1, a: 0.5019608}
-    - _VertexOcclusionRemap: {r: 0, g: 0, b: 0, a: 0}
+    - _VertexOcclusionRemap: {r: 0, g: 0.57723564, b: 0, a: 0}
     - _render_normals: {r: 1, g: 1, b: 1, a: 0}
     - _second_uvs_mode: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
