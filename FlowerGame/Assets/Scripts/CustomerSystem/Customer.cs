@@ -54,11 +54,11 @@ public class Customer : MonoBehaviour
         {
             if (!bouqetStats.ContainsKey(stat))
             {
-                //score -= 1;
+                score -= 1;
                 continue;
             }
 
-            score += Mathf.Clamp(bouqetStats[stat] / desiredStatsDict[stat], 0, maxStatCapacity) * desiredStatsDict[stat] * dollarsPerStatMult;
+            score += Mathf.Clamp(bouqetStats[stat] / desiredStatsDict[stat], 0, maxStatCapacity) * desiredStatsDict[stat];
         }
 
         SetMoodText(score);

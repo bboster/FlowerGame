@@ -13,6 +13,9 @@ public class CustomerManager : MonoBehaviour
     [SerializeField] 
     TMP_Text registerText;
 
+    [SerializeField]
+    float dollarsPerStatMult = 1;
+
     float currentMoney = 0;
 
     public Customer currentCustomer;
@@ -43,9 +46,10 @@ public class CustomerManager : MonoBehaviour
         if (newMoneyAmt < 0)
             newMoneyAmt = 0;
 
-        currentMoney = newMoneyAmt;
-        var scoreVar = Math.Round(newMoneyAmt, 3);
+        currentMoney = newMoneyAmt * dollarsPerStatMult;
+        var scoreVar = Math.Round(currentMoney, 3);
 
-        registerText.text = "$" + scoreVar.ToString("F2");
+        registerText.text = "$";
+        registerText.text += scoreVar.ToString("F2");
     }
 }
