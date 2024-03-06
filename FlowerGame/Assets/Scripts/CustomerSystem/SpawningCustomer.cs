@@ -9,58 +9,35 @@ public class SpawningCustomer : MonoBehaviour
     [SerializeField]
     CustomerRequestStorage customerRequestStorage;
 
+    [SerializeField]
+    int predeterminedCap = 9;
+
     public GameObject Customer;
 
     private int currentRequest = 0;
 
-    public int UniversalCustomerSpawn;
+    bool doRandom = false;
 
     // Update is called once per frame
-    void Start()
+    void Update()
     {
         customerSpawning();
     }
-    public void customerSpawning()
+    void customerSpawning()
     {
-        Debug.Log(UniversalCustomerSpawn);
-        if (UniversalCustomerSpawn != 3)
+        if(Input.GetKeyDown(KeyCode.F))
         {
             GameObject newCustomer = Instantiate(Customer, transform.position, transform.rotation);
             // Keeps new spawns organized underneath the parent object / spawner.
             newCustomer.transform.parent = transform;
 
-            newCustomer.GetComponent<Customer>().SetRequest(customerRequestStorage.GetCustomerRequests()[currentRequest]);
+            int requestIdx = doRandom ? Random.Range(0, customerRequestStorage.GetCustomerRequests().Count) : currentRequest;
+
+            newCustomer.GetComponent<Customer>().SetRequest(customerRequestStorage.GetCustomerRequests()[requestIdx]);
             currentRequest++;
 
-            UniversalCustomerSpawn += 1;
-            Debug.Log(UniversalCustomerSpawn);
-
-            StartCoroutine(SecondDelay());
-        }
-        else if (UniversalCustomerSpawn == 3)
-        {
-            Debug.Log("I work");
-            StartCoroutine(FilledDelay());
+            if (currentRequest >= predeterminedCap)
+                doRandom = true;
         }
     }
-
-    public void CustomerDecrement()
-    {
-        UniversalCustomerSpawn -= 1;
-    }
-
-    // Timer method for customer.
-    // Tutorial by SpeedTutor helped in understanding of IEnumerator
-    IEnumerator SecondDelay()
-    {
-        yield return new WaitForSeconds(Random.Range(10f, 11f));
-        customerSpawning();
-    }
-
-    IEnumerator FilledDelay()
-    {
-        yield return new WaitForSeconds(10f);
-        customerSpawning();
-    }
-
 }
