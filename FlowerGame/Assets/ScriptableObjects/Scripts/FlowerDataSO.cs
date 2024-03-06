@@ -11,7 +11,7 @@ public class FlowerDataSO : ScriptableObject
 [System.Serializable]
 public class FlowerStatContainer
 {
-    public string name;
+    public string statName;
 
     [Space]
 
