@@ -117,6 +117,9 @@ public class Customer : MonoBehaviour
         float predicted = GetPredictedIncome();
         string moodText = "";
 
+        Debug.Log("Score: " + score);
+        Debug.Log("Predicted: " + predicted);
+
         switch(score - predicted)
         {
             case float n when (n > 0):
