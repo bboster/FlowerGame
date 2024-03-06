@@ -13,14 +13,17 @@ public class SpawningCustomer : MonoBehaviour
 
     private int currentRequest = 0;
 
+    public int UniversalCustomerSpawn;
+
     // Update is called once per frame
-    void Update()
+    void Start()
     {
         customerSpawning();
     }
-    void customerSpawning()
+    public void customerSpawning()
     {
-        if(Input.GetKeyDown(KeyCode.F))
+        Debug.Log(UniversalCustomerSpawn);
+        if (UniversalCustomerSpawn != 3)
         {
             GameObject newCustomer = Instantiate(Customer, transform.position, transform.rotation);
             // Keeps new spawns organized underneath the parent object / spawner.
@@ -29,7 +32,35 @@ public class SpawningCustomer : MonoBehaviour
             newCustomer.GetComponent<Customer>().SetRequest(customerRequestStorage.GetCustomerRequests()[currentRequest]);
             currentRequest++;
 
-            Debug.Log("Count");
+            UniversalCustomerSpawn += 1;
+            Debug.Log(UniversalCustomerSpawn);
+
+            StartCoroutine(SecondDelay());
+        }
+        else if (UniversalCustomerSpawn == 3)
+        {
+            Debug.Log("I work");
+            StartCoroutine(FilledDelay());
         }
     }
+
+    public void CustomerDecrement()
+    {
+        UniversalCustomerSpawn -= 1;
+    }
+
+    // Timer method for customer.
+    // Tutorial by SpeedTutor helped in understanding of IEnumerator
+    IEnumerator SecondDelay()
+    {
+        yield return new WaitForSeconds(Random.Range(10f, 11f));
+        customerSpawning();
+    }
+
+    IEnumerator FilledDelay()
+    {
+        yield return new WaitForSeconds(10f);
+        customerSpawning();
+    }
+
 }
