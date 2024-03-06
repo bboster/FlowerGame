@@ -34,15 +34,12 @@ public class Customer : MonoBehaviour
         //Used to make sure the UI is properly reset
         UIBox.SetActive(false);
         OrderText.text = "";
-
+/*
         foreach(FlowerStatContainer statContainer in desiredStats)
         {
             desiredStatsDict[statContainer.stat.stat] = statContainer.statAmount;
         }
-    }
-
-    private void Start()
-    {
+  */
     }
 
     public float CompareBouqetToDesired(Bouqet bouqet)
@@ -58,8 +55,11 @@ public class Customer : MonoBehaviour
                 continue;
             }
 
-            score += Mathf.Clamp(bouqetStats[stat] / desiredStatsDict[stat], 0, maxStatCapacity) * desiredStatsDict[stat];
+            Debug.Log("Sending " + stat + " for " + desiredStatsDict[stat] * dollarsPerStatMult + " dollars.");
+            score += Mathf.Clamp(bouqetStats[stat] / desiredStatsDict[stat], 0, maxStatCapacity) * desiredStatsDict[stat] * dollarsPerStatMult;
         }
+
+        Debug.Log("----------------------------------------------------------------------------------------");
 
         SetMoodText(score);
         CustomerManager.Instance.AddToRegister(score);
@@ -72,6 +72,7 @@ public class Customer : MonoBehaviour
 
         foreach (FlowerStat stat in desiredStatsDict.Keys)
         {
+            Debug.Log("Requesting " + stat + " for " + desiredStatsDict[stat] * dollarsPerStatMult + " dollars.");
             score += desiredStatsDict[stat] * dollarsPerStatMult;
         }
 
