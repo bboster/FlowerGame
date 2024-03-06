@@ -9,9 +9,14 @@ public class SpawningCustomer : MonoBehaviour
     [SerializeField]
     CustomerRequestStorage customerRequestStorage;
 
+    [SerializeField]
+    int predeterminedCap = 9;
+
     public GameObject Customer;
 
     private int currentRequest = 0;
+
+    bool doRandom = false;
 
     // Update is called once per frame
     void Update()
@@ -26,10 +31,13 @@ public class SpawningCustomer : MonoBehaviour
             // Keeps new spawns organized underneath the parent object / spawner.
             newCustomer.transform.parent = transform;
 
-            newCustomer.GetComponent<Customer>().SetRequest(customerRequestStorage.GetCustomerRequests()[currentRequest]);
+            int requestIdx = doRandom ? Random.Range(0, customerRequestStorage.GetCustomerRequests().Count) : currentRequest;
+
+            newCustomer.GetComponent<Customer>().SetRequest(customerRequestStorage.GetCustomerRequests()[requestIdx]);
             currentRequest++;
 
-            Debug.Log("Count");
+            if (currentRequest >= predeterminedCap)
+                doRandom = true;
         }
     }
 }

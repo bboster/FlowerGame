@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 6085986077650723492}
   - component: {fileID: 1611263874336812793}
   - component: {fileID: 3530275520071761250}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Customer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 36
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &3530275520071761250
 MonoBehaviour:
@@ -765,11 +765,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3944891588301387704, guid: d93494e6b698de5418a9b74db4153a8b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3944891588301387704, guid: d93494e6b698de5418a9b74db4153a8b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 44.22
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 3944891588301387704, guid: d93494e6b698de5418a9b74db4153a8b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -801,11 +801,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3944891588301387704, guid: d93494e6b698de5418a9b74db4153a8b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000007391
+      value: 39.8
       objectReference: {fileID: 0}
     - target: {fileID: 3944891588301387704, guid: d93494e6b698de5418a9b74db4153a8b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -49
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3944891588301387704, guid: d93494e6b698de5418a9b74db4153a8b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
