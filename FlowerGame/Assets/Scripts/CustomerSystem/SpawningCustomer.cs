@@ -12,21 +12,28 @@ public class SpawningCustomer : MonoBehaviour
     [SerializeField]
     int predeterminedCap = 9;
 
+    [SerializeField] float lowerBound;
+    [SerializeField] float upperBound;
+
     public GameObject Customer;
 
     private int currentRequest = 0;
 
     bool doRandom = false;
 
+    public int TotalSpawned;
+
     // Update is called once per frame
-    void Update()
+    void Start()
     {
         customerSpawning();
     }
     void customerSpawning()
     {
-        if(Input.GetKeyDown(KeyCode.F))
+        if (TotalSpawned != 3)
         {
+            TotalSpawned += 1;
+            Debug.Log(TotalSpawned);
             GameObject newCustomer = Instantiate(Customer, transform.position, transform.rotation);
             // Keeps new spawns organized underneath the parent object / spawner.
             newCustomer.transform.parent = transform;
@@ -37,7 +44,28 @@ public class SpawningCustomer : MonoBehaviour
             currentRequest++;
 
             if (currentRequest >= predeterminedCap)
+            {
                 doRandom = true;
+            }
+            StartCoroutine(DelayedSpawns());
+        }
+        else if (TotalSpawned == 3)
+        {
+            StartCoroutine(FullDelay());
         }
     }
+
+    IEnumerator DelayedSpawns()
+    {
+        yield return new WaitForSeconds(Random.Range(40f, 120f));
+        customerSpawning();
+    }
+
+    IEnumerator FullDelay()
+    {
+        yield return new WaitForSeconds(10f);
+        Debug.Log("I Work");
+        customerSpawning();
+    }
+
 }
