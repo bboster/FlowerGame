@@ -57,7 +57,7 @@ public class SpawningCustomer : MonoBehaviour
 
     IEnumerator DelayedSpawns()
     {
-        yield return new WaitForSeconds(Random.Range(40f, 120f));
+        yield return new WaitForSeconds(Random.Range(lowerBound, upperBound));
         customerSpawning();
     }
 
