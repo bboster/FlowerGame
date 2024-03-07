@@ -44,6 +44,9 @@ public class ArrangementTable : MonoBehaviour
     [SerializeField]
     TMP_Text bodyText;
 
+    [SerializeField]
+    SymbolHolder symbolHolder;
+
     [Header("Mouse Controls")]
     [SerializeField]
     float sensitivity;
@@ -127,6 +130,7 @@ public class ArrangementTable : MonoBehaviour
             }
 
             bouqet.SetBodyText(bodyText);
+            
             bouqet.BouqetStatChangeEvent += UpdateUI;
         }
         else if (bouqet.GetFlowers().Count > 0)
@@ -281,6 +285,8 @@ public class ArrangementTable : MonoBehaviour
     // UI
     private void UpdateUI(object sender, EventArgs e)
     {
+        symbolHolder.ClearSymbols();
+
         string outputString = "";
         List<FlowerStat> statsToChange = new();
 
@@ -303,6 +309,7 @@ public class ArrangementTable : MonoBehaviour
                 continue;
             }
 
+            symbolHolder.AddSymbol(flowerStat, bouqetStats[flowerStat]);
             outputString += "" + flowerStat + ": " + bouqetStats[flowerStat] + "\n";
         }
 
