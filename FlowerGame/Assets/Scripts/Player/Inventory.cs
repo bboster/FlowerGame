@@ -73,8 +73,10 @@ public class Inventory : MonoBehaviour
 
     public void ClearInventory()
     {
+        Debug.Log("Inventory pos size: " + inventoryPositions.Count);
         foreach(Transform t in inventoryPositions)
         {
+            Debug.Log("Inventory pos: " + t.name);
             foreach (Transform child in t)
                 Destroy(child.gameObject);
         }

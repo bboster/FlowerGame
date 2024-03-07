@@ -16,7 +16,7 @@ public class PlayerDetector : MonoBehaviour
 
     private void Start()
     {
-        playerController = PlayerManager.Instance.GetPlayer().PlayerController;
+        //playerController = PlayerManager.Instance.GetPlayer().PlayerController;
     }
 
     private void OnTriggerEnter(Collider other)

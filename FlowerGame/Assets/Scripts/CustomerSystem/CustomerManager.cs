@@ -34,6 +34,8 @@ public class CustomerManager : MonoBehaviour
 
     public void SetCustomer(Customer customer)
     {
+        string customerName = customer == null ? "null" : customer.name;
+        Debug.Log("Setting customer: " + customerName);
         currentCustomer = customer;
     }
 

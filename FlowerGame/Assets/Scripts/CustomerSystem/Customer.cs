@@ -146,6 +146,13 @@ public class Customer : MonoBehaviour
     public void SetRequest(CustomerRequest request)
     {
         desiredStats = request.GetFlowerStatContainers();
+        Debug.Log("Setting customer Request");
+        foreach (FlowerStatContainer container in desiredStats)
+        {
+            Debug.Log("Stat: " + container.stat + " | Stat Amount: " + container.statAmount);
+            desiredStatsDict[container.stat.stat] = container.statAmount;
+        }
+            
 
         symbols.GenerateSymbols(desiredStats);
     }

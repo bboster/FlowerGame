@@ -41,6 +41,7 @@ public class SpawningCustomer : MonoBehaviour
             int requestIdx = doRandom ? Random.Range(0, customerRequestStorage.GetCustomerRequests().Count) : currentRequest;
 
             newCustomer.GetComponent<Customer>().SetRequest(customerRequestStorage.GetCustomerRequests()[requestIdx]);
+            
             currentRequest++;
 
             if (currentRequest >= predeterminedCap)

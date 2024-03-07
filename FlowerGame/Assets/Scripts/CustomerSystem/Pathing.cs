@@ -65,7 +65,7 @@ public class Pathing : MonoBehaviour
             if(!stayOrGo)
             {
                 customSpeed = 0f;
-                Debug.Log("Arrive");
+                Debug.Log("Arrived: " + name);
                 CustomerManager.Instance.SetCustomer(GetComponent<Customer>());
 
                 //Customer only tells order when they arrive
