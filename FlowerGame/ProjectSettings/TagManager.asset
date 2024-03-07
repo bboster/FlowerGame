@@ -10,6 +10,7 @@ TagManager:
   - CustomerArrive
   - CustomerBack
   - CustomerGone
+  - CustomerBody
   layers:
   - Default
   - TransparentFX
