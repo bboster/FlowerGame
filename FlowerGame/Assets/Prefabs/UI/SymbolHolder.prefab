@@ -115,4 +115,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   symbolPrefab: {fileID: 8542659700610962443, guid: 0f48f8da16b422c409977e07e34d7377, type: 3}
-  sizeScalar: 0.1
+  sizeScalar: 0.005
+  flowerstatSOs:
+  - {fileID: 11400000, guid: 7f0a81ad641c56e4f926a241d55cb35c, type: 2}
+  - {fileID: 11400000, guid: d7b3de926040f744faafae264868f81c, type: 2}
+  - {fileID: 11400000, guid: d98412bc2bff49044875186c6d6c6db4, type: 2}
+  - {fileID: 11400000, guid: 8b3b61f492199d749adc8538c06ffe2d, type: 2}
+  - {fileID: 11400000, guid: 24f3303ce97bb6148b328f665875fa6c, type: 2}
+  - {fileID: 11400000, guid: 39e8e2627d190014c9940094506fded9, type: 2}

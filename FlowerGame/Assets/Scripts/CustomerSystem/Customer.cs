@@ -21,6 +21,7 @@ public class Customer : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] TMP_Text OrderText;
+    [SerializeField] TMP_Text MoneyText;
     [SerializeField] SymbolHolder symbols;
     [Space]
     [SerializeField] TMP_Text registerText;
@@ -90,7 +91,7 @@ public class Customer : MonoBehaviour
         foreach(FlowerStatContainer flower in desiredStats)
         {
             string output = "";
-            output += flower.stat.name + ": ";
+            output += flower.stat.stat + ": ";
 
             output += flower.statAmount;
 
@@ -103,7 +104,7 @@ public class Customer : MonoBehaviour
 
         var scoreVar = System.Math.Round(GetPredictedIncome(), 3);
 
-        OrderText.text += "$" + scoreVar.ToString("F2");
+        MoneyText.text = "$" + scoreVar.ToString("F2");
     }
 
     public void SetRegisterText(string text)
