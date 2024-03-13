@@ -4862,7 +4862,6 @@ GameObject:
   - component: {fileID: 2559126888851987564}
   - component: {fileID: 3588443915704835529}
   - component: {fileID: 2739270454179471462}
-  - component: {fileID: 2970722195116716323}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -4935,27 +4934,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2970722195116716323
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1532250157230212350}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3519831524738420147
 GameObject:
   m_ObjectHideFlags: 0
@@ -5049,7 +5027,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4463374155798836683}
   - component: {fileID: 9123497377843764014}
-  - component: {fileID: 6944988490745827642}
   m_Layer: 0
   m_Name: Growable_TestFlower4
   m_TagString: PickableFlower
@@ -5098,29 +5075,6 @@ MonoBehaviour:
   HarvestEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!136 &6944988490745827642
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5102439942214781042}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.40222332
-  m_Height: 2.685479
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.3271629, z: 0}
 --- !u!1 &6478460705129014808
 GameObject:
   m_ObjectHideFlags: 0
