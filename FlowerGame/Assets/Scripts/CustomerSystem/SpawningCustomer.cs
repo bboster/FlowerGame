@@ -34,9 +34,8 @@ public class SpawningCustomer : MonoBehaviour
         {
             TotalSpawned += 1;
             Debug.Log(TotalSpawned);
-            GameObject newCustomer = Instantiate(Customer, transform.position, transform.rotation);
+            GameObject newCustomer = Instantiate(Customer, transform.position, transform.rotation, transform);
             // Keeps new spawns organized underneath the parent object / spawner.
-            newCustomer.transform.parent = transform;
 
             int requestIdx = doRandom ? Random.Range(0, customerRequestStorage.GetCustomerRequests().Count) : currentRequest;
 
