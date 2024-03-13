@@ -8,8 +8,7 @@ public class Soil : MonoBehaviour
     [SerializeField]
     GameObject growablePrefab;
 
-    [SerializeField]
-    Transform growthPoint;
+    private Transform growthPoint;
 
     public Growable currentCrop { get; private set; }
 
@@ -17,6 +16,7 @@ public class Soil : MonoBehaviour
 
     private void Start()
     {
+        growthPoint = transform;
         Plant(growablePrefab);
     }
 
@@ -32,6 +32,7 @@ public class Soil : MonoBehaviour
 
         growable.HarvestEvent.AddListener(OnHarvest);
         growable.transform.localScale = Vector3.zero;
+        growable.transform.localPosition = new(-0.2f, 0.13f, -0.22f);
         growable.StartGrowth();
     }
 

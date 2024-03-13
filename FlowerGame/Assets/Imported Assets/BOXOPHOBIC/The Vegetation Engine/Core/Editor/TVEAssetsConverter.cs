@@ -6400,16 +6400,19 @@ namespace TheVegetationEngine
                     }
 
                     string infoErrorVersion = "";
-
-                    if (assetVersion < int.Parse(outputVersion))
+                    try
                     {
-                        var version = outputVersion;
-                        version = version.Insert(2, ".");
-                        version = version.Insert(4, ".");
+                        if (assetVersion < int.Parse(outputVersion))
+                        {
+                            var version = outputVersion;
+                            version = version.Insert(2, ".");
+                            version = version.Insert(4, ".");
 
-                        outputValid = false;
-                        infoErrorVersion = "The current asset can only be converted in using version " + version + " or higher! ";
+                            outputValid = false;
+                            infoErrorVersion = "The current asset can only be converted in using version " + version + " or higher! ";
+                        }
                     }
+                    catch { }
 
                     infoError = infoErrorPipeline + infoErrorVersion;
                 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 489912}
   - component: {fileID: 3307866}
   - component: {fileID: 2336884}
-  - component: {fileID: 8978470857612879714}
+  - component: {fileID: 5299858723506541863}
   m_Layer: 0
   m_Name: Tree Type3 04
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -2
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3307866
 MeshFilter:
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115084}
-  m_Mesh: {fileID: 4300000, guid: dea9e5e77b6acdd4cbb2886a2ba07324, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 564496d20cb72fc4ea305480cf965e0b, type: 2}
 --- !u!23 &2336884
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115084}
   m_Enabled: 1
-  m_CastShadows: 0
+  m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8978470857612879714
+--- !u!114 &5299858723506541863
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,6 +97,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   styledBanner: 0
-  storedPrefabBackupGUID: 2ba084fd094de5d44bd29a94590ef2de
+  storedPrefabBackupGUID: 48041eb100f250c468eb4f8e27d14ce3
   storedPreset: Automatic;Trees
   storedOverrides: 

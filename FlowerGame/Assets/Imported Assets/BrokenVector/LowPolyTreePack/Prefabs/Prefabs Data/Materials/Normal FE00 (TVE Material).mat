@@ -20,6 +20,7 @@ Material:
   stringTagMap:
     NatureRendererInstancing: true
     RenderType: AlphaTest
+    UseExternalSettings: False
   disabledShaderPasses:
   - TransparentBackface
   - TransparentBackfaceDebugDisplay
@@ -181,7 +182,7 @@ Material:
     - _MotionFacingValue: 0.5
     - _MotionPosition_10: 0.5
     - _MotionScale_10: 1
-    - _MotionScale_20: 12
+    - _MotionScale_20: 4
     - _MotionScale_32: 10
     - _MotionSpeed_10: 2
     - _MotionSpeed_20: 6
