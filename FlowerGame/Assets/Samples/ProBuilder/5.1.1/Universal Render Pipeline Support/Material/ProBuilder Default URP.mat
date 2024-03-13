@@ -22,30 +22,38 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: ProBuilder Default URP
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_Parent: {fileID: 2100000, guid: 1855efb5910ce244d9442f3f67235347, type: 2}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_Parent: {fileID: 2100000, guid: 9f10ed78863d8a7418fdcaceca574ed1, type: 2}
+  m_ModifiedSerializedProperties: 16
+  m_ValidKeywords:
+  - _SPECULAR_SETUP
+  m_InvalidKeywords:
+  - TVE_ALPHA_CLIP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap:
     MotionVector: User
+    NatureRendererInstancing: true
     RenderType: Opaque
   disabledShaderPasses:
-  - MOTIONVECTORS
+  - TransparentDepthPostpass
+  - TransparentBackface
+  - TransparentBackfaceDebugDisplay
+  - TransparentDepthPrepass
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
+    - _DstBlendAlpha: 0
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Parallax: 0.005
+    - _QueueControl: 0
     m_Colors:
-    - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _BaseColor: {r: 0.30588236, g: 0.27058825, b: 0.16862746, a: 1}
+    - _Color: {r: 0.30588236, g: 0.27058825, b: 0.16862746, a: 1}
   m_BuildTextureStacks: []

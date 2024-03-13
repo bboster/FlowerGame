@@ -130,9 +130,9 @@ MonoBehaviour:
   preset: {fileID: 11400000, guid: 0fcdd472bd6a8ec429fc1e9bc978c4fa, type: 2}
   showCirrusCloudsControls: 0
   show2DCloudsControls: 0
-  cloudFlatBaseAnim: {x: 0.15592124, y: 0.88688576}
-  cloudFlatDetailAnim: {x: 0.4669651, y: 0.8801168}
-  cirrusAnim: {x: -0.9195241, y: -0.56033707}
+  cloudFlatBaseAnim: {x: 0.5464743, y: 0.49605092}
+  cloudFlatDetailAnim: {x: 0.41779363, y: 0.92707264}
+  cirrusAnim: {x: 0.27590457, y: 0.24426982}
 --- !u!114 &-1033463005042072443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -798,7 +798,7 @@ MonoBehaviour:
     sunScale: 0
     moonScale: 1.3
     starsTwinklingSpeed: 0.1
-    moonPhase: -0.71405137
+    moonPhase: -0.718735
     skyExposureHDRP:
       serializedVersion: 2
       m_Curve:
@@ -1181,7 +1181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18a0693e95fd064e9d0a3b96e538236, type: 3}
   m_Name: Lighting Module
   m_EditorClassIdentifier: 
-  showModuleInspector: 0
+  showModuleInspector: 1
   showSaveLoad: 0
   active: 1
   Settings:
@@ -1194,39 +1194,21 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 0
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.42
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.63148236
-        value: 1.9645201
-        inSlope: 0.20075521
-        outSlope: 0.20075521
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.93214464
-        value: 2.0933948
-        inSlope: 0.138579
-        outSlope: 0.138579
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33801654
-        outWeight: 0.33333334
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -1236,39 +1218,21 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 0
-        outSlope: 0
+        inSlope: 2
+        outSlope: 2
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
+        inWeight: 0
+        outWeight: 0
       - serializedVersion: 3
-        time: 0.42
-        value: 0
-        inSlope: 0
-        outSlope: 0
+        time: 1.0083333
+        value: 0.50471705
+        inSlope: 0.1467509
+        outSlope: 0.1467509
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.57394046
-        value: 0.15814796
-        inSlope: 0.20075521
-        outSlope: 0.20075521
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.8830867
-        value: 0.1896545
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
+        inWeight: 0.22314046
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -1647,8 +1611,8 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     directLightIntensityModifier: 1
-    setAmbientLighting: 0
-    ambientMode: 3
+    setAmbientLighting: 1
+    ambientMode: 0
     ambientSkyColorGradient:
       serializedVersion: 2
       key0: {r: 0, g: 0, b: 0, a: 1}
@@ -1743,19 +1707,19 @@ MonoBehaviour:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: -0.11972046
-        value: 0.80613405
-        inSlope: -0.0011784384
-        outSlope: -0.0011784384
+        time: -0.114702985
+        value: 0.7516529
+        inSlope: -0.0011784385
+        outSlope: -0.0011784385
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.0844727
-        value: 0.804715
-        inSlope: -0.0011784384
-        outSlope: -0.0011784384
+        time: 1.08949
+        value: 0.7502338
+        inSlope: -0.0011784385
+        outSlope: -0.0011784385
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
@@ -1764,7 +1728,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     ambientIntensityModifier: 1
-    ambientSkyboxUpdateIntervall: 0.502
+    ambientSkyboxUpdateIntervall: 0.272
   preset: {fileID: 11400000, guid: 81d8b109102443243bcb0894975c0718, type: 2}
   showDirectLightingControls: 1
   showAmbientLightingControls: 1
@@ -1961,7 +1925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cae96c4b3ef46947a21c9615a74e6e4, type: 3}
   m_Name: Volumetric Cloud Module
   m_EditorClassIdentifier: 
-  showModuleInspector: 1
+  showModuleInspector: 0
   showSaveLoad: 0
   active: 1
   settingsLayer1:
@@ -2148,10 +2112,10 @@ MonoBehaviour:
   showDensityControls: 1
   showTextureControls: 0
   showWindControls: 1
-  cloudAnimLayer1: {x: 0.6825169, y: -0.16672046, z: 0.41797924}
+  cloudAnimLayer1: {x: -0.1225412, y: 0.63786525, z: 0.8590052}
   cloudAnimLayer2: {x: 0.3247161, y: -0.56056964, z: 0.77803093}
-  cloudAnimNonScaledLayer1: {x: 2.2795892, y: -2.244872, z: -77.7119}
-  cloudAnimNonScaledLayer2: {x: -1.9981749, y: 1.9634347, z: -78.06999}
+  cloudAnimNonScaledLayer1: {x: 2.345655, y: -2.310938, z: -81.00913}
+  cloudAnimNonScaledLayer2: {x: -2.064241, y: 2.0294926, z: -81.367226}
   weatherMap: {fileID: 0}
 --- !u!114 &4011421771873438716
 MonoBehaviour:
@@ -2406,6 +2370,8 @@ MonoBehaviour:
   showVolumetricsControls: 1
   showUnityFogControls: 1
   fogLights:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

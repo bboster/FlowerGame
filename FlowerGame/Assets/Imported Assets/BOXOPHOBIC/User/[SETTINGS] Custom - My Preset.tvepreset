@@ -1,0 +1,25 @@
+
+// Motion Settings
+
+Material SET_VECTOR _MotionHighlightColor 0 0 0 0
+Material SET_FLOAT _MotionFacingValue 0.5
+
+Material SET_FLOAT _MotionAmplitude_10 0.2
+Material SET_FLOAT _MotionPosition_10 0.5
+Material SET_FLOAT _MotionSpeed_10 2
+Material SET_FLOAT _MotionScale_10 1
+Material SET_FLOAT _MotionVariation_10 0
+
+Material SET_FLOAT _MotionAmplitude_20 0.2
+Material SET_FLOAT _MotionAmplitude_22 0.2
+Material SET_FLOAT _MotionSpeed_20 6
+Material SET_FLOAT _MotionScale_20 12
+Material SET_FLOAT _MotionVariation_20 0
+
+//Material SET_FLOAT _MotionAmplitude_32 -9000
+Material SET_FLOAT _MotionSpeed_32 20
+Material SET_FLOAT _MotionScale_32 10
+Material SET_FLOAT _MotionVariation_32 0
+
+Material SET_FLOAT _InteractionAmplitude 1
+Material SET_FLOAT _InteractionMaskValue 0
