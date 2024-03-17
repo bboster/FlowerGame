@@ -59,6 +59,7 @@ public class JournalBehavior : MonoBehaviour
         Time.timeScale = 0.0f;
         Cursor.lockState = CursorLockMode.None;
         JournalCanvas.SetActive(true);
+        Cursor.visible = true;
     }
 
     // Update is called once per frame
@@ -144,5 +145,6 @@ public class JournalBehavior : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1.0f;
         JournalCanvas.SetActive(false);
+        Cursor.visible = false;
     }
 }
