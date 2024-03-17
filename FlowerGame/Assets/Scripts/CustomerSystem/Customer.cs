@@ -29,6 +29,9 @@ public class Customer : MonoBehaviour
 
     Dictionary<FlowerStat, float> desiredStatsDict = new();
 
+    [SerializeField] AudioClip Pop;
+    [SerializeField] AudioSource source;
+
     private void Awake()
     {
         //Used to make sure the UI is properly reset
@@ -87,6 +90,7 @@ public class Customer : MonoBehaviour
     //Displays the order for the player to see
     public void DisplayOrder()
     {
+        source.PlayOneShot(Pop);
         OrderText.text = "";
         UIBox.SetActive(true);
         foreach(FlowerStatContainer flower in desiredStats)
