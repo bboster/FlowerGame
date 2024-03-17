@@ -21,7 +21,17 @@ public class Inventory : MonoBehaviour
     public void PickFlower()
     {
         Debug.Log("Picking Flower");
-        int size = PC.flowers.Count;
+        if (PC.flowers.Count == 0)
+            return;
+
+        GameObject itemToAdd = PC.flowers[^1];
+
+        Growable growable = itemToAdd.GetComponent<Growable>();
+        if (growable != null)
+            growable.Harvest();
+        AddItem(itemToAdd);
+
+        /*int size = PC.flowers.Count;
         for (int i = 0; i < size; i++)
         {
             // If the flowers from PlayerController ISNT EMPTY
@@ -36,9 +46,10 @@ public class Inventory : MonoBehaviour
                 itemToAdd = PC.flowers[i];
                 itemToAdd.transform.position = inventoryPositions[i].position;
                 itemToAdd.transform.parent = inventoryPositions[i];
+                
                 AddToInventory(itemToAdd);
             }
-        }
+        }*/
     }
 
     public void AddItem(GameObject newItem)
