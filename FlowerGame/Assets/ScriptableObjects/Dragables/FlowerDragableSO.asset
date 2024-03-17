@@ -16,3 +16,5 @@ MonoBehaviour:
   rotationSpeed: 10
   baseY: 0
   doReturnGravOnRelease: 1
+  Pick: {fileID: 8300000, guid: 6d0f2f02b1fab66448674d9cdff95e8d, type: 3}
+  Place: {fileID: 8300000, guid: 97ef231354991194b87df673b476a3d6, type: 3}
