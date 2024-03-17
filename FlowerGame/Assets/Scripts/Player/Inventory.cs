@@ -31,6 +31,7 @@ public class Inventory : MonoBehaviour
                     growable.Harvest();
 
                 // Set the item to add, transform it's position to the transform position of the values under main camera, and set the value under the main camera as the flower's parent. 
+                Debug.Log("Inventory Index: " + i);
                 itemToAdd = PC.flowers[i];
                 itemToAdd.transform.position = inventoryPositions[i].position;
                 itemToAdd.transform.parent = inventoryPositions[i];

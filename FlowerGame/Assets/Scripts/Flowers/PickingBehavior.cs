@@ -20,8 +20,6 @@ public class PickingBehavior : MonoBehaviour
     // The item to be added to the bouquet, get's updated dynamically
     public GameObject itemToAdd;
 
-   
-
     [Space]
     [Header("Bouqet")]
     [SerializeField]
