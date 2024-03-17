@@ -22,12 +22,15 @@ public class Dragable : MonoBehaviour
 
     Rigidbody rb;
 
+    private AudioSource source;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
 
         startRotation = transform.rotation.eulerAngles;
         startPosition = transform.position;
+
+        source = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -46,6 +49,7 @@ public class Dragable : MonoBehaviour
 
         IsBeingDragged = true;
         DisablePhysics();
+        source.PlayOneShot(dragableData.Pick);
     }
 
     private void OnMouseDrag()
@@ -72,6 +76,7 @@ public class Dragable : MonoBehaviour
             offset = transform.parent.position - transform.position;
 
         EnablePhysics();
+        source.PlayOneShot(dragableData.Place);
     }
 
     // Physics Management

@@ -40,6 +40,9 @@ public class PlayerController : MonoBehaviour
     // This scripts PauseCanvas
     [SerializeField] private GameObject PauseCanvas;
 
+    public AudioClip WalkSFX, Jump;
+    [SerializeField] private AudioSource source;
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -105,6 +108,7 @@ public class PlayerController : MonoBehaviour
         if (inputManager.PlayerJumpedThisFrame() && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            source.PlayOneShot(Jump);
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;

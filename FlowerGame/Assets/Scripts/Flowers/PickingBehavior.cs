@@ -20,13 +20,14 @@ public class PickingBehavior : MonoBehaviour
     // The item to be added to the bouquet, get's updated dynamically
     public GameObject itemToAdd;
 
+    public AudioClip Pick;
+    [SerializeField] private AudioSource source;
     [Space]
     [Header("Bouqet")]
     [SerializeField]
     Transform bouqetStorage;
 
     Bouqet bouqet;
-    
 
     private void Start()
     {
@@ -40,7 +41,6 @@ public class PickingBehavior : MonoBehaviour
         // Functions that happen when the pickup button is picked up.
         PickUp.started += PickUp_started;
         PickUp.canceled -= Pickup_cancelled;
-
     }
 
     private void Pickup_cancelled(InputAction.CallbackContext context)
@@ -55,6 +55,7 @@ public class PickingBehavior : MonoBehaviour
 
         // Picks up flowers
         inventory.PickFlower();
+        source.PlayOneShot(Pick);
     }
   
 
