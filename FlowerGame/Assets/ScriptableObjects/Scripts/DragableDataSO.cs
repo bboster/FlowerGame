@@ -12,4 +12,6 @@ public class DragableDataSO : ScriptableObject
     public float baseY = 3;
 
     public bool doReturnGravOnRelease = true;
+
+    public AudioClip Pick, Place;
 }

@@ -9,6 +9,9 @@ public class JournalBehavior : MonoBehaviour
     public PlayerInput PlayerInputInstance;
     public InputAction PullUpJournal;
 
+    public AudioClip Open, Flip, Close;
+    private AudioSource source;
+
     // Reference to the journal canvas.
     [SerializeField] private GameObject JournalCanvas;
 
@@ -47,6 +50,8 @@ public class JournalBehavior : MonoBehaviour
         journalDictionary.Add(5, page5);
         journalDictionary.Add(6, page6);
         journalDictionary.Add(7, page7);
+
+        source = GetComponent<AudioSource>();
     }
 
     private void PullUpJournal_canceled(InputAction.CallbackContext obj)
@@ -60,12 +65,13 @@ public class JournalBehavior : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         JournalCanvas.SetActive(true);
         Cursor.visible = true;
+        source.PlayOneShot(Open);
     }
 
     // Update is called once per frame
     public void FlipForward()
     {
-
+        source.PlayOneShot(Flip);
         if(page1.activeSelf)
         {
             page1.SetActive(false);
@@ -104,6 +110,7 @@ public class JournalBehavior : MonoBehaviour
 
     public void FlipBackward()
     {
+        source.PlayOneShot(Flip);
         if (page1.activeSelf)
         {
             page1.SetActive(true);
@@ -146,5 +153,6 @@ public class JournalBehavior : MonoBehaviour
         Time.timeScale = 1.0f;
         JournalCanvas.SetActive(false);
         Cursor.visible = false;
+        source.PlayOneShot(Close);
     }
 }

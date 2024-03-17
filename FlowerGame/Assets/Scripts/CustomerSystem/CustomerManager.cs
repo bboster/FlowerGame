@@ -17,9 +17,14 @@ public class CustomerManager : MonoBehaviour
 
     public Customer currentCustomer;
 
+    public AudioClip Pop;
+    private AudioSource source;
+
     private void Awake()
     {
         Instance = this;
+
+        source = GetComponent<AudioSource>();
     }
 
     public event Action whenCustomerArrives;
@@ -29,6 +34,7 @@ public class CustomerManager : MonoBehaviour
         if(whenCustomerArrives != null)
         {
             whenCustomerArrives();
+            source.PlayOneShot(Pop);
         }
     }
 
