@@ -70,7 +70,7 @@ public class Pathing : MonoBehaviour
 
                 //Customer only tells order when they arrive
                 gameObject.GetComponent<Customer>().DisplayOrder();
-                StartCoroutine(SecondDelay());
+                StartCoroutine("SecondDelay");
                 stayOrGo = true;
             }    
             else
@@ -102,6 +102,7 @@ public class Pathing : MonoBehaviour
 
     public void SubmitBouqet(Bouqet bouqet)
     {
+        StopCoroutine("SecondDelay");
         float score = customer.CompareBouqetToDesired(bouqet);
         //Debug.Log("Score: " + score);
         CustomerManager.Instance.SetCustomer(null);
@@ -112,12 +113,11 @@ public class Pathing : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         Leave();
-        yield return new WaitForSeconds(5f);
-        Destroy(gameObject);
     }
 
     private void Leave()
     {
+        StopCoroutine("SecondDelay");
         customSpeed = 5;
     }
 
