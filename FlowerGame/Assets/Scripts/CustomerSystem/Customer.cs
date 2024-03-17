@@ -62,8 +62,16 @@ public class Customer : MonoBehaviour
         Debug.Log("----------------------------------------------------------------------------------------");
 
         SetMoodText(score);
+        StartCoroutine(RemoveCanvas());
+
         CustomerManager.Instance.AddToRegister(score);
         return score;
+    }
+
+    private IEnumerator RemoveCanvas()
+    {
+        yield return new WaitForSeconds(2);
+        UIBox.SetActive(false);
     }
 
     private float GetPredictedIncome()
