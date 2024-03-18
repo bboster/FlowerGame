@@ -27,6 +27,9 @@ public class Customer : MonoBehaviour
     [SerializeField] TMP_Text registerText;
     [SerializeField] GameObject UIBox;
 
+    [SerializeField] AudioClip Pop;
+    [SerializeField] AudioSource source;
+
     Dictionary<FlowerStat, float> desiredStatsDict = new();
 
     private void Awake()
@@ -95,6 +98,7 @@ public class Customer : MonoBehaviour
     //Displays the order for the player to see
     public void DisplayOrder()
     {
+        source.PlayOneShot(Pop);
         OrderText.text = "";
         UIBox.SetActive(true);
         foreach(FlowerStatContainer flower in desiredStats)
