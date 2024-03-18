@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
     private void Quit_started(InputAction.CallbackContext obj)
     {
         print("QuitGame");
-        Application.Quit();
+        //Application.Quit();
     }
 
     // Stopped pressing pause
