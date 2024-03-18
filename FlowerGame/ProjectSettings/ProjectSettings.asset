@@ -176,7 +176,7 @@ PlayerSettings:
   keepLoadedShadersAlive: 0
   StripUnusedMeshComponents: 1
   strictShaderVariantMatching: 0
-  VertexChannelCompressionMask: 4054
+  VertexChannelCompressionMask: 326
   iPhoneSdkVersion: 988
   iOSTargetOSVersionString: 12.0
   tvOSSdkVersion: 0
@@ -649,7 +649,7 @@ PlayerSettings:
     PS5: ENVIRO_3;ENVIRO_URP
     QNX: ENVIRO_3;ENVIRO_URP
     Stadia: ENVIRO_3;ENVIRO_URP
-    Standalone: ENVIRO_3;ENVIRO_URP;__MICROSPLAT__
+    Standalone: ENVIRO_3;ENVIRO_URP;__MICROSPLAT__;THE_VEGETATION_ENGINE
     WebGL: ENVIRO_3;ENVIRO_URP
     XboxOne: ENVIRO_3;ENVIRO_URP
     tvOS: ENVIRO_3;ENVIRO_URP
