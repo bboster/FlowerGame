@@ -43,6 +43,10 @@ public class PlayerController : MonoBehaviour
     public AudioClip WalkSFX, Jump;
     [SerializeField] private AudioSource source;
 
+    [SerializeField] private GameObject JournalCanvas;
+    [SerializeField] private GameObject HowToPlayCanvas;
+    [SerializeField] private GameObject CreditsCanvas;
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -57,19 +61,13 @@ public class PlayerController : MonoBehaviour
         PlayerInputInstance.currentActionMap.Enable();
 
         Pause = PlayerInputInstance.currentActionMap.FindAction("Pause");
-        Quit = PlayerInputInstance.currentActionMap.FindAction("Quit");
 
         Pause.started += Pause_started;
         Pause.canceled += Pause_canceled;
-        Quit.started += Quit_started;
+        
     }
 
-    // Quit the game!
-    private void Quit_started(InputAction.CallbackContext obj)
-    {
-        print("QuitGame");
-        Application.Quit();
-    }
+   
 
     // Stopped pressing pause
     private void Pause_canceled(InputAction.CallbackContext obj)
@@ -80,10 +78,13 @@ public class PlayerController : MonoBehaviour
     // Pause the game
     private void Pause_started(InputAction.CallbackContext obj)
     {
-        PauseCanvas.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        Time.timeScale = 0.0f;
+        if (!JournalCanvas.activeSelf)
+        {
+            PauseCanvas.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            Time.timeScale = 0.0f;
+        }
     }
 
     void Update()
@@ -150,6 +151,12 @@ public class PlayerController : MonoBehaviour
         toPick.gameObject.SetActive(true);
         yield return new WaitForSeconds(10);
         toPick.gameObject.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        Pause.started -= Pause_started;
+        Pause.canceled -= Pause_canceled;
     }
 }
 
