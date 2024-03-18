@@ -22,10 +22,9 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: ProBuilder Default URP
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_Parent: {fileID: 2100000, guid: 9f10ed78863d8a7418fdcaceca574ed1, type: 2}
+  m_Parent: {fileID: 2100000, guid: b73c27dc37ff4c243971f861fbbef77a, type: 2}
   m_ModifiedSerializedProperties: 16
-  m_ValidKeywords:
-  - _SPECULAR_SETUP
+  m_ValidKeywords: []
   m_InvalidKeywords:
   - TVE_ALPHA_CLIP
   m_LightmapFlags: 4
