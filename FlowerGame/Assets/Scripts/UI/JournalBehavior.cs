@@ -29,6 +29,10 @@ public class JournalBehavior : MonoBehaviour
 
     private GameObject page;
 
+    [SerializeField] private GameObject PauseCanvas;
+    [SerializeField] private GameObject HowToPlayCanvas;
+    [SerializeField] private GameObject CreditsCanvas;
+
 
     // Start is called before the first frame update
     void Start()
@@ -61,11 +65,14 @@ public class JournalBehavior : MonoBehaviour
 
     private void PullUpJournal_started(InputAction.CallbackContext obj)
     {
-        Time.timeScale = 0.0f;
-        Cursor.lockState = CursorLockMode.None;
-        JournalCanvas.SetActive(true);
-        Cursor.visible = true;
-        source.PlayOneShot(Open);
+        if (!PauseCanvas.activeSelf)
+        {
+            Time.timeScale = 0.0f;
+            Cursor.lockState = CursorLockMode.None;
+            JournalCanvas.SetActive(true);
+            Cursor.visible = true;
+            source.PlayOneShot(Open);
+        }
     }
 
     // Update is called once per frame
